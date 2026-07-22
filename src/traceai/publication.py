@@ -28,6 +28,11 @@ def validate_publication(rq: str, profile: str, output_dir: Path) -> int:
     print(f"\n  Validating publication readiness for {rq} (profile={profile})")
 
     checks = _check_rq(rq, profile, root)
+
+    # Global checks for publication mode
+    git_check = _check_git_clean(root)
+    checks.insert(0, git_check)
+
     ready = all(c["pass"] for c in checks)
 
     result = {
@@ -50,6 +55,25 @@ def validate_publication(rq: str, profile: str, output_dir: Path) -> int:
 
     print(f"  Report: {out_path}")
     return 0 if ready else 1
+
+
+def _check_git_clean(root: Path) -> dict:
+    """Check that git tree is clean (required for publication mode)."""
+    import subprocess
+    try:
+        result = subprocess.run(
+            ["git", "status", "--porcelain"], capture_output=True,
+            text=True, cwd=str(root), timeout=10
+        )
+        dirty_files = [l for l in result.stdout.strip().splitlines() if l.strip()]
+        is_clean = len(dirty_files) == 0
+        return {
+            "check": "git_tree_clean",
+            "pass": is_clean,
+            "detail": "Clean" if is_clean else f"{len(dirty_files)} uncommitted changes (publication mode requires clean tree)",
+        }
+    except Exception as e:
+        return {"check": "git_tree_clean", "pass": False, "detail": f"Git check failed: {e}"}
 
 
 def _check_rq(rq: str, profile: str, root: Path) -> list[dict]:
@@ -160,7 +184,7 @@ def _check_rq3(root: Path, profile: str) -> list[dict]:
     })
 
     if rq3_dirs:
-        latest = sorted(rq3_dirs)[-1]
+        latest = sorted(rq3_dirs)[-1]  # Use LATEST campaign
         checks.append({
             "check": "scanner_findings_exist",
             "pass": (latest / "scanner_findings_normalized.csv").exists(),
@@ -176,10 +200,17 @@ def _check_rq3(root: Path, profile: str) -> list[dict]:
             with open(summary_path, "r", encoding="utf-8") as f:
                 summary = json.load(f)
             agreement = summary.get("scanner_agreement", {})
+            # Handle both old format (trivy_total) and new stratified format
+            trivy_t = agreement.get("trivy_total", 0)
+            grype_t = agreement.get("grype_total", 0)
+            # New format uses nested structure
+            if "all" in agreement:
+                trivy_t = agreement["all"].get("scanner_a_total", 0)
+                grype_t = agreement["all"].get("scanner_b_total", 0)
             checks.append({
                 "check": "scanner_comparison_real",
-                "pass": agreement.get("trivy_total", 0) > 0 or agreement.get("grype_total", 0) > 0,
-                "detail": f"Trivy={agreement.get('trivy_total',0)}, Grype={agreement.get('grype_total',0)}",
+                "pass": trivy_t > 0 or grype_t > 0,
+                "detail": f"Trivy={trivy_t}, Grype={grype_t}",
             })
 
     return checks
@@ -190,34 +221,45 @@ def _check_rq4(root: Path, profile: str) -> list[dict]:
     import torch
 
     checks = []
-    raw = root / "results" / "raw"
-    avail_dirs = list(raw.glob("availability-*")) if raw.exists() else []
 
+    # Check for RQ4 campaign results with real inference
+    rq4_dirs = list((root / "results" / "rq4").glob("rq4-*")) if (root / "results" / "rq4").exists() else []
     checks.append({
-        "check": "availability_campaign_executed",
-        "pass": len(avail_dirs) > 0,
-        "detail": f"{len(avail_dirs)} campaign(s)",
+        "check": "rq4_campaign_executed",
+        "pass": len(rq4_dirs) > 0,
+        "detail": f"{len(rq4_dirs)} campaign(s)" if rq4_dirs else "No RQ4 campaigns found",
     })
 
-    # Critical: check if it's real inference
+    # Verify campaign uses real HTTP inference (check manifest)
+    real_inference = False
+    if rq4_dirs:
+        latest = sorted(rq4_dirs)[-1]
+        manifest_path = latest / "campaign_manifest.json"
+        if manifest_path.exists():
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                manifest = json.load(f)
+            real_inference = manifest.get("inference_type") == "REAL_HTTP"
+
     checks.append({
         "check": "uses_real_inference",
-        "pass": False,
-        "detail": "Availability campaign uses _simulate_request() — NOT real model inference",
+        "pass": real_inference,
+        "detail": "REAL_HTTP inference confirmed from manifest" if real_inference
+                  else "No real inference evidence (_simulate_request NOT acceptable)",
     })
 
     # GPU check
     checks.append({
         "check": "gpu_metrics_available",
         "pass": torch.cuda.is_available(),
-        "detail": "GPU available" if torch.cuda.is_available() else "No GPU — GPU claims cannot be made",
+        "detail": "GPU available" if torch.cuda.is_available()
+                  else "No GPU — GPU claims MUST NOT be made on this profile",
     })
 
     if not torch.cuda.is_available():
         checks.append({
             "check": "gpu_claims_blocked",
             "pass": False,
-            "detail": "Manuscript MUST NOT claim GPU results on this profile",
+            "detail": "BLOCKED_GPU: Manuscript must not claim GPU results on CPU-only host",
         })
 
     return checks

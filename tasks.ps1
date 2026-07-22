@@ -28,8 +28,8 @@ param(
     [Parameter(Mandatory = $true, Position = 0)]
     [ValidateSet("doctor", "bootstrap", "smoke", "security-campaign",
                  "availability-campaign", "analyze", "publication-artifacts", "all",
-                 "audit", "install-tools", "rq1-campaign", "rq3-campaign",
-                 "validate-publication", "publication-readiness")]
+                 "audit", "install-tools", "rq1-campaign", "rq3-campaign", "rq4-campaign",
+                 "validate-publication", "publication-readiness", "download-model")]
     [string]$Task,
 
     [ValidateSet("local", "container", "industrial")]
@@ -138,6 +138,25 @@ function Invoke-Task {
                 exit 1
             }
             Write-Log "RQ3 campaign completed" "OK"
+        }
+        "rq4-campaign" {
+            Activate-Venv
+            $quickFlag = if ($Quick) { "--quick" } else { "" }
+            $modeFlag = "--mode experimental"
+            $cmd = "python -m traceai rq4-campaign --profile $Profile $quickFlag $modeFlag"
+            Write-Log "Executing: $cmd"
+            Invoke-Expression $cmd
+            if ($LASTEXITCODE -ne 0) {
+                Write-Log "RQ4 campaign failed" "ERROR"
+                exit 1
+            }
+            Write-Log "RQ4 campaign completed" "OK"
+        }
+        "download-model" {
+            Activate-Venv
+            Write-Log "Downloading model for quick tests..."
+            python -c "from transformers import AutoModelForCausalLM, AutoTokenizer; AutoTokenizer.from_pretrained('sshleifer/tiny-gpt2'); AutoModelForCausalLM.from_pretrained('sshleifer/tiny-gpt2'); print('Model cached.')"
+            Write-Log "Model download completed" "OK"
         }
         "validate-publication" {
             Activate-Venv

@@ -60,6 +60,13 @@ def main() -> int:
     rq3_parser.add_argument("--quick", action="store_true")
     rq3_parser.add_argument("--output", type=Path, default=Path("results"))
 
+    # RQ4 campaign
+    rq4_parser = subparsers.add_parser("rq4-campaign", help="Run RQ4 availability campaign (real inference)")
+    rq4_parser.add_argument("--profile", default="local")
+    rq4_parser.add_argument("--quick", action="store_true")
+    rq4_parser.add_argument("--mode", choices=["smoke", "experimental", "publication"], default="experimental")
+    rq4_parser.add_argument("--output", type=Path, default=Path("results"))
+
     # Validate publication
     validate_parser = subparsers.add_parser("validate-publication", help="Validate publication readiness")
     validate_parser.add_argument("--profile", default="local")
@@ -106,6 +113,9 @@ def main() -> int:
     elif args.command == "rq3-campaign":
         from traceai.campaigns.rq3 import run_rq3_campaign
         return run_rq3_campaign(args.profile, args.quick, args.output)
+    elif args.command == "rq4-campaign":
+        from traceai.campaigns.rq4 import run_rq4_campaign
+        return run_rq4_campaign(args.profile, args.quick, args.mode, args.output)
     elif args.command == "validate-publication":
         from traceai.publication import validate_publication
         return validate_publication(args.research_question, args.profile, args.output)
