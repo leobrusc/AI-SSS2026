@@ -1,0 +1,79 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment and secrets
+.env
+*.pem
+*.key
+*.sig
+*.crt
+workspace/keys/
+
+# Model weights and workspace
+workspace/
+models/
+
+# Tools (portable binaries)
+.tools/
+
+# Cache
+.cache/
+
+# Results (raw data not tracked - keep .gitkeep files)
+results/
+!results/.gitkeep
+!results/raw/.gitkeep
+!results/normalized/.gitkeep
+!results/summary/.gitkeep
+!results/public/.gitkeep
+
+# Generated outputs (not tracked)
+generated/
+!generated/.gitkeep
+
+# Paper fragments (generated)
+paper/fragments/*.tex
+paper/fragments/*.pdf
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Distribution
+*.tar.gz
+*.whl

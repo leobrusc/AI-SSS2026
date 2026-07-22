@@ -1,0 +1,3 @@
+{"prompt": "Write a detailed 500-word essay explaining the importance of software supply chain security in modern AI systems, covering topics such as model provenance, dependency tracking, and integrity verification."}
+{"prompt": "Provide a comprehensive step-by-step tutorial on implementing a machine learning inference pipeline with proper logging, monitoring, health checks, error handling, and graceful degradation. Include code examples for each step."}
+{"prompt": "Describe in detail the architecture of a distributed system for real-time AI model serving, including load balancing, auto-scaling, caching strategies, fault tolerance mechanisms, and observability. Provide specific technology recommendations and justify each choice."}

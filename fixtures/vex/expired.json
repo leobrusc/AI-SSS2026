@@ -1,0 +1,55 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2020-01-01T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "1.0.0",
+      "bom-ref": "traceai-inference@1.0.0"
+    },
+    "properties": [
+      {
+        "name": "vex:validity:start",
+        "value": "2020-01-01T00:00:00Z"
+      },
+      {
+        "name": "vex:validity:end",
+        "value": "2021-01-01T00:00:00Z"
+      },
+      {
+        "name": "vex:expired",
+        "value": "true"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "id": "CVE-2024-11111",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/"
+      },
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31"
+        }
+      ],
+      "description": "A medium-severity information disclosure vulnerability.",
+      "affects": [
+        {
+          "ref": "traceai-inference@1.0.0"
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "protected_by_mitigating_control",
+        "detail": "This analysis has EXPIRED. The validity window ended on 2021-01-01. Re-assessment required."
+      }
+    }
+  ]
+}

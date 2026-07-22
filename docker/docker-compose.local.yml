@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  inference:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: traceai-inference
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../workspace/models:/app/models:ro
+    environment:
+      - MODEL_PATH=/app/models
+      - MAX_TOKENS=2048
+      - INFERENCE_TIMEOUT=120
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

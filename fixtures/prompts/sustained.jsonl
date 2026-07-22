@@ -1,0 +1,10 @@
+{"prompt": "Explain the concept of model fingerprinting in two sentences."}
+{"prompt": "What are the OWASP top 10 risks for LLM applications?"}
+{"prompt": "Summarize the CycloneDX VEX specification purpose."}
+{"prompt": "How does SBOM generation work for Python projects?"}
+{"prompt": "Describe three methods to detect model weight tampering."}
+{"prompt": "What is the difference between SCA and SAST?"}
+{"prompt": "List five metrics for evaluating inference latency."}
+{"prompt": "Explain reproducible builds in the context of ML pipelines."}
+{"prompt": "What role does attestation play in supply chain security?"}
+{"prompt": "Compare SLSA levels 1 through 4 briefly."}

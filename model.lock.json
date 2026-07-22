@@ -1,0 +1,27 @@
+{
+  "$schema": "model.lock.schema.json",
+  "description": "Pinned model revisions for TraceAI experiments",
+  "generated": null,
+  "models": {
+    "smoke": {
+      "repository": "openai-community/gpt2",
+      "revision": null,
+      "files": [],
+      "tokenizer_revision": null,
+      "transformers_version": null,
+      "license": "MIT",
+      "status": "pending",
+      "notes": "Small GPT-2 (124M) used for smoke tests and quick campaigns"
+    },
+    "full": {
+      "repository": "openai-community/gpt2",
+      "revision": null,
+      "files": [],
+      "tokenizer_revision": null,
+      "transformers_version": null,
+      "license": "MIT",
+      "status": "pending",
+      "notes": "GPT-2 (124M) used for full campaign"
+    }
+  }
+}

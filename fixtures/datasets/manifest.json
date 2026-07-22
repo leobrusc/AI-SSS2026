@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "description": "Dataset manifest for TraceAI LADC 2026 evaluation",
+  "created": "2026-07-22T00:00:00Z",
+  "files": [
+    {
+      "name": "prompts_smoke.jsonl",
+      "sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+      "size": 1024
+    },
+    {
+      "name": "prompts_long_generation.jsonl",
+      "sha256": "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3",
+      "size": 2048
+    },
+    {
+      "name": "model_weights_baseline.bin",
+      "sha256": "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+      "size": 104857600
+    },
+    {
+      "name": "tokenizer_config.json",
+      "sha256": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+      "size": 4096
+    },
+    {
+      "name": "evaluation_golden.jsonl",
+      "sha256": "e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6",
+      "size": 8192
+    }
+  ]
+}

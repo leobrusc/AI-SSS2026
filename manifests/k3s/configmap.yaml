@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traceai-inference-config
+  namespace: traceai
+  labels:
+    app: traceai-inference
+data:
+  MAX_TOKENS: "2048"
+  INFERENCE_TIMEOUT: "120"
+  BATCH_SIZE: "8"
+  MODEL_PATH: "/app/models"
+  LOG_LEVEL: "INFO"
+  TEMPERATURE: "0.7"
+  TOP_P: "0.9"
+  REPETITION_PENALTY: "1.1"

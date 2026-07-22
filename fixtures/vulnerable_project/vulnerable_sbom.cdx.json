@@ -1,0 +1,67 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:6264cccf-2ea4-4722-9ec4-f0abdbf941c8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T16:04:45.604750+00:00",
+    "tools": {
+      "components": [
+        {
+          "name": "traceai-fixture-generator",
+          "version": "0.1.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "vulnerable-fixture",
+      "version": "1.0.0",
+      "bom-ref": "fixture-root"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "pillow",
+      "version": "9.0.0",
+      "purl": "pkg:pypi/pillow@9.0.0",
+      "bom-ref": "comp-pillow"
+    },
+    {
+      "type": "library",
+      "name": "requests",
+      "version": "2.25.0",
+      "purl": "pkg:pypi/requests@2.25.0",
+      "bom-ref": "comp-requests"
+    },
+    {
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.26.4",
+      "purl": "pkg:pypi/urllib3@1.26.4",
+      "bom-ref": "comp-urllib3"
+    },
+    {
+      "type": "library",
+      "name": "cryptography",
+      "version": "39.0.0",
+      "purl": "pkg:pypi/cryptography@39.0.0",
+      "bom-ref": "comp-cryptography"
+    },
+    {
+      "type": "library",
+      "name": "setuptools",
+      "version": "65.0.0",
+      "purl": "pkg:pypi/setuptools@65.0.0",
+      "bom-ref": "comp-setuptools"
+    },
+    {
+      "type": "library",
+      "name": "certifi",
+      "version": "2022.9.24",
+      "purl": "pkg:pypi/certifi@2022.9.24",
+      "bom-ref": "comp-certifi"
+    }
+  ]
+}

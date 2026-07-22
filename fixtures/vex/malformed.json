@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "vulnerabilities": [
+    {
+      "id": "CVE-2024-99999",
+      "description": "This VEX document is intentionally malformed - missing bomFormat and specVersion fields."
+    }
+  ]
+}

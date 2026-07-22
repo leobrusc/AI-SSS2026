@@ -1,0 +1,52 @@
+profile: container
+description: "Docker Desktop or compatible container runtime with local Dependency-Track"
+
+runtime:
+  device: auto
+  model_id: "openai-community/gpt2"
+  model_dir: "workspace/models"
+  max_host_gpu_memory_percent: 80
+  max_host_ram_percent: 80
+  max_test_duration_seconds: 600
+
+service:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  container_image: "traceai-inference:local"
+
+inference:
+  max_new_tokens: 100
+  timeout_seconds: 30
+  max_concurrency: 4
+  queue_depth: 16
+  rate_limit_rpm: 120
+  circuit_breaker_threshold: 5
+  circuit_breaker_timeout: 30
+
+signing:
+  method: "cosign"
+  key_dir: "workspace/keys"
+  validity_hours: 24
+
+scanning:
+  tools:
+    syft: required
+    grype: required
+    trivy: required
+    cosign: required
+
+external:
+  harbor: disabled
+  dependency_track:
+    enabled: true
+    compose_file: "docker/dependency-track.compose.yml"
+  gitlab: disabled
+  kubernetes: disabled
+
+campaigns:
+  full_trials: 30
+  quick_trials: 3
+  full_requests_per_trial: 200
+  quick_requests_per_trial: 20
+  warmup_requests: 10

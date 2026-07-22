@@ -1,0 +1,54 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "0.0.0",
+      "bom-ref": "traceai-inference@0.0.0"
+    },
+    "tools": [
+      {
+        "vendor": "TraceAI",
+        "name": "vex-generator",
+        "version": "1.0.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "id": "PLACEHOLDER-CVE-0000-00000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/"
+      },
+      "ratings": [
+        {
+          "score": 0.0,
+          "severity": "unknown",
+          "method": "CVSSv31"
+        }
+      ],
+      "description": "Placeholder vulnerability entry — replace with actual CVE data.",
+      "affects": [
+        {
+          "ref": "traceai-inference@0.0.0",
+          "versions": [
+            {
+              "version": "0.0.0",
+              "status": "unknown"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "in_triage",
+        "justification": "requires_environment",
+        "detail": "Placeholder entry for VEX template. Update with actual analysis."
+      }
+    }
+  ]
+}

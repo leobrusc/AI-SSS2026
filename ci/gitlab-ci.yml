@@ -1,0 +1,105 @@
+# GitLab CI/CD configuration for TraceAI
+# Used with the industrial profile when GitLab is configured
+
+stages:
+  - lint
+  - test
+  - build
+  - scan
+  - sign
+  - deploy
+
+variables:
+  PYTHON_VERSION: "3.11"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  TRACEAI_PROFILE: "industrial"
+
+cache:
+  paths:
+    - .cache/pip
+    - .venv/
+
+.python_setup: &python_setup
+  before_script:
+    - python -m venv .venv
+    - source .venv/bin/activate || .\.venv\Scripts\Activate.ps1
+    - pip install --upgrade pip setuptools wheel
+    - pip install -r requirements.lock
+    - pip install -e .
+
+lint:
+  stage: lint
+  image: python:${PYTHON_VERSION}-slim
+  <<: *python_setup
+  script:
+    - pip install ruff
+    - ruff check src/ tests/
+    - python -m compileall src/
+
+unit_tests:
+  stage: test
+  image: python:${PYTHON_VERSION}-slim
+  <<: *python_setup
+  script:
+    - pip install pytest pytest-cov
+    - python -m pytest tests/unit -v --tb=short --junitxml=report.xml
+  artifacts:
+    reports:
+      junit: report.xml
+
+integration_tests:
+  stage: test
+  image: python:${PYTHON_VERSION}-slim
+  <<: *python_setup
+  script:
+    - pip install pytest pytest-asyncio
+    - python -m pytest tests/integration -v --tb=short
+  allow_failure: true
+
+build_image:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker build -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA} -f docker/Dockerfile .
+    - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
+  only:
+    - main
+    - tags
+
+scan_sbom:
+  stage: scan
+  image: aquasec/trivy:latest
+  script:
+    - trivy image --format cyclonedx --output sbom.cdx.json ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
+  artifacts:
+    paths:
+      - sbom.cdx.json
+  only:
+    - main
+
+sign_image:
+  stage: sign
+  image: gcr.io/projectsigstore/cosign:latest
+  script:
+    - cosign sign --key env://COSIGN_KEY ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
+  variables:
+    COSIGN_KEY: $COSIGN_PRIVATE_KEY
+    COSIGN_PASSWORD: $COSIGN_PASSWORD
+  only:
+    - main
+    - tags
+
+deploy_k3s:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl apply -f manifests/k3s/namespace.yaml
+    - kubectl apply -f manifests/k3s/
+    - kubectl set image deployment/traceai-inference inference=${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA} -n traceai
+  environment:
+    name: production
+  when: manual
+  only:
+    - main

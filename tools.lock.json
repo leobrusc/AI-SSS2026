@@ -1,0 +1,43 @@
+{
+  "$schema": "tools.lock.schema.json",
+  "description": "Pinned external CLI tool versions for TraceAI",
+  "generated": null,
+  "tools": {
+    "syft": {
+      "version": null,
+      "source": "https://github.com/anchore/syft/releases",
+      "sha256": null,
+      "status": "pending",
+      "platform": "windows_amd64"
+    },
+    "grype": {
+      "version": null,
+      "source": "https://github.com/anchore/grype/releases",
+      "sha256": null,
+      "status": "pending",
+      "platform": "windows_amd64"
+    },
+    "trivy": {
+      "version": null,
+      "source": "https://github.com/aquasecurity/trivy/releases",
+      "sha256": null,
+      "status": "pending",
+      "platform": "windows_amd64"
+    },
+    "cosign": {
+      "version": null,
+      "source": "https://github.com/sigstore/cosign/releases",
+      "sha256": null,
+      "status": "pending",
+      "platform": "windows_amd64"
+    },
+    "kubectl": {
+      "version": null,
+      "source": "https://dl.k8s.io/release",
+      "sha256": null,
+      "status": "pending",
+      "platform": "windows_amd64",
+      "optional": true
+    }
+  }
+}

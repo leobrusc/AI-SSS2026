@@ -1,0 +1,66 @@
+profile: industrial
+description: "Externally provisioned Harbor, GitLab CI/CD, K3s, Cosign, and Dependency-Track"
+
+runtime:
+  device: auto
+  model_id: "openai-community/gpt2"
+  model_dir: "workspace/models"
+  max_host_gpu_memory_percent: 80
+  max_host_ram_percent: 80
+  max_test_duration_seconds: 1800
+
+service:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 2
+  container_image: "traceai-inference:latest"
+  registry: "${HARBOR_URL}/${HARBOR_PROJECT}"
+
+inference:
+  max_new_tokens: 100
+  timeout_seconds: 30
+  max_concurrency: 8
+  queue_depth: 32
+  rate_limit_rpm: 240
+  circuit_breaker_threshold: 5
+  circuit_breaker_timeout: 30
+
+signing:
+  method: "cosign-keyless"
+  fulcio_url: "https://fulcio.sigstore.dev"
+  rekor_url: "https://rekor.sigstore.dev"
+  validity_hours: 72
+
+scanning:
+  tools:
+    syft: required
+    grype: required
+    trivy: required
+    cosign: required
+    kubectl: required
+
+external:
+  harbor:
+    enabled: true
+    url: "${HARBOR_URL}"
+    project: "${HARBOR_PROJECT}"
+  dependency_track:
+    enabled: true
+    url: "${DEPENDENCY_TRACK_URL}"
+  gitlab:
+    enabled: true
+    url: "${GITLAB_URL}"
+  kubernetes:
+    enabled: true
+    namespace: "traceai"
+    kubeconfig: "${KUBECONFIG}"
+
+campaigns:
+  full_trials: 30
+  quick_trials: 3
+  full_requests_per_trial: 200
+  quick_requests_per_trial: 20
+  warmup_requests: 10
+
+# IMPORTANT: Never claim this profile was executed unless its result manifest proves it.
+# All endpoints must be externally provisioned and configured via environment variables.

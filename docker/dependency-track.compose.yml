@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  dtrack-apiserver:
+    image: dependencytrack/apiserver:4.11.0
+    container_name: dtrack-apiserver
+    ports:
+      - "8081:8080"
+    volumes:
+      - dtrack-data:/data
+    environment:
+      - ALPINE_DATABASE_MODE=external
+      - ALPINE_DATABASE_URL=jdbc:h2:/data/dtrack
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/api/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  dtrack-frontend:
+    image: dependencytrack/frontend:4.11.0
+    container_name: dtrack-frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - API_BASE_URL=http://localhost:8081
+    depends_on:
+      dtrack-apiserver:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  dtrack-data:

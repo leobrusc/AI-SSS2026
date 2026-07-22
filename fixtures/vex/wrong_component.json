@@ -1,0 +1,41 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "1.0.0",
+      "bom-ref": "traceai-inference@1.0.0"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "id": "CVE-2024-55555",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/"
+      },
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31"
+        }
+      ],
+      "description": "Cross-site scripting vulnerability in web framework.",
+      "affects": [
+        {
+          "ref": "completely-different-component@2.0.0"
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_present",
+        "detail": "This VEX entry references the wrong component bom-ref. The affects section points to 'completely-different-component@2.0.0' which does not match the metadata component 'traceai-inference@1.0.0'."
+      }
+    }
+  ]
+}

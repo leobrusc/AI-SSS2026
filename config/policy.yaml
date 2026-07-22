@@ -1,0 +1,69 @@
+policy:
+  version: "1.0.0"
+  description: "TraceAI deployment gate policy"
+  mode: "fail-closed"
+
+  provenance:
+    require_signature: true
+    require_attestation: true
+    allowed_signers: []  # Populated at runtime from approved keyring
+    max_evidence_age_hours: 24
+    require_model_digest: true
+    require_sbom_digest: true
+    require_bom_digest: true
+
+  artifacts:
+    require_approved_model: true
+    require_matching_digest: true
+    require_tokenizer_match: true
+    require_dataset_manifest: true
+
+  vulnerability:
+    require_scan: true
+    max_critical_unfixed: 0
+    max_high_unfixed: 3
+    vex_policy:
+      accept_not_affected: true
+      require_valid_schema: true
+      require_signature: false  # Configurable per profile
+      reject_expired: true
+      reject_wrong_component: true
+      max_vex_age_hours: 720  # 30 days
+
+  runtime:
+    verify_configuration_digest: true
+    detect_drift: true
+    drift_action: "reject"  # reject | warn | log
+    allowed_config_changes: []
+
+  gate_decisions:
+    - code: "APPROVED"
+      action: "allow"
+    - code: "MISSING_ARTIFACT"
+      action: "deny"
+    - code: "DIGEST_MISMATCH"
+      action: "deny"
+    - code: "INVALID_SIGNATURE"
+      action: "deny"
+    - code: "UNAUTHORIZED_SIGNER"
+      action: "deny"
+    - code: "MISSING_ATTESTATION"
+      action: "deny"
+    - code: "ATTESTATION_DIGEST_MISMATCH"
+      action: "deny"
+    - code: "STALE_EVIDENCE"
+      action: "deny"
+    - code: "VEX_MALFORMED"
+      action: "deny"
+    - code: "VEX_EXPIRED"
+      action: "deny"
+    - code: "VEX_WRONG_COMPONENT"
+      action: "deny"
+    - code: "VEX_UNSIGNED"
+      action: "deny"
+    - code: "CRITICAL_VULNERABILITY"
+      action: "deny"
+    - code: "CONFIGURATION_DRIFT"
+      action: "deny"
+    - code: "CIRCUIT_BREAKER_OPEN"
+      action: "deny"

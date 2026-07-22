@@ -1,0 +1,130 @@
+experiment:
+  name: "TraceAI LADC 2026"
+  version: "0.1.0"
+  description: "From Static AI/ML-BOMs to Runtime-Aware Assurance"
+
+research_questions:
+  RQ1: "How completely can automated CycloneDX generators capture the ground-truth dependency graph of an LLM inference pipeline?"
+  RQ2: "Can cryptographic provenance and attestation gates detect integrity violations across model, data, and infrastructure supply-chain scenarios?"
+  RQ3: "How effectively do CycloneDX VEX documents reduce actionable vulnerability alerts while preserving detection of genuine risks?"
+  RQ4: "What is the runtime overhead and fault-detection capability of configuration-aware controls in a containerized LLM service?"
+
+scenarios:
+  security:
+    - id: S0
+      name: "approved_deployment"
+      description: "Baseline: legitimate deployment with valid signatures"
+    - id: S1
+      name: "model_weight_tampering"
+      description: "Mutate copied model-weight bytes"
+    - id: S2
+      name: "tokenizer_substitution"
+      description: "Substitute copied tokenizer files or revision"
+    - id: S3
+      name: "dataset_manifest_alteration"
+      description: "Alter a copied dataset manifest"
+    - id: S4
+      name: "vulnerable_dependency"
+      description: "Known vulnerable dependency without VEX"
+    - id: S5a
+      name: "valid_vex_not_affected"
+      description: "Justified, correctly linked not_affected VEX"
+    - id: S5b
+      name: "malformed_vex"
+      description: "Malformed VEX document"
+    - id: S5c
+      name: "unsigned_vex"
+      description: "Unsigned VEX when signing is required"
+    - id: S5d
+      name: "wrong_component_vex"
+      description: "VEX linked to wrong component"
+    - id: S8
+      name: "expired_vex"
+      description: "Expired VEX or stale operational evidence"
+    - id: S9a
+      name: "invalid_signature"
+      description: "Invalid cryptographic signature"
+    - id: S9b
+      name: "unauthorized_signer"
+      description: "Valid signature from unauthorized signer"
+    - id: S9c
+      name: "missing_model_digest_attestation"
+      description: "Attestation missing model digest"
+    - id: S9d
+      name: "substituted_external_model"
+      description: "Valid image with substituted externally mounted model"
+    - id: S10
+      name: "scanner_disagreement"
+      description: "Trivy/Grype disagreement analysis"
+
+  availability:
+    - id: S6a
+      name: "max_tokens_drift"
+      description: "Change max_new_tokens after approval"
+    - id: S6b
+      name: "timeout_drift"
+      description: "Change timeout after approval"
+    - id: S6c
+      name: "concurrency_drift"
+      description: "Change concurrency/queue depth after approval"
+    - id: S7a
+      name: "long_output_prompts"
+      description: "Long-output prompts to stress token generation"
+    - id: S7b
+      name: "concurrent_burst"
+      description: "Controlled concurrent burst"
+    - id: S7c
+      name: "sustained_load"
+      description: "Sustained load below host safety cutoff"
+    - id: S11
+      name: "circuit_breaker_recovery"
+      description: "Recovery following circuit-breaker activation"
+
+configurations:
+  - id: C0
+    name: "permissive_baseline"
+    description: "High but safety-bounded limits"
+    max_new_tokens: 512
+    timeout_seconds: 120
+    max_concurrency: 32
+    queue_depth: 128
+    rate_limit_rpm: 1000
+    circuit_breaker: disabled
+  - id: C1
+    name: "token_limit_timeout"
+    description: "Token limit and timeout"
+    max_new_tokens: 100
+    timeout_seconds: 30
+    max_concurrency: 32
+    queue_depth: 128
+    rate_limit_rpm: 1000
+    circuit_breaker: disabled
+  - id: C2
+    name: "rate_bounded"
+    description: "C1 plus rate limit and bounded queue"
+    max_new_tokens: 100
+    timeout_seconds: 30
+    max_concurrency: 4
+    queue_depth: 16
+    rate_limit_rpm: 120
+    circuit_breaker: disabled
+  - id: C3
+    name: "full_protection"
+    description: "C2 plus circuit breaker and runtime config verification"
+    max_new_tokens: 100
+    timeout_seconds: 30
+    max_concurrency: 4
+    queue_depth: 16
+    rate_limit_rpm: 120
+    circuit_breaker:
+      threshold: 5
+      timeout_seconds: 30
+
+safety_limits:
+  absolute_max_new_tokens: 1024
+  absolute_max_timeout_seconds: 180
+  absolute_max_concurrency: 64
+  absolute_max_queue_depth: 256
+  max_gpu_memory_percent: 80
+  max_ram_percent: 80
+  max_test_duration_seconds: 300
