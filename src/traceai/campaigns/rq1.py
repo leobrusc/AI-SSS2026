@@ -421,6 +421,9 @@ def _compute_typed_coverage(gt, syft_result, trivy_result, ml_bom, obom, profile
         names = [c.get("name", "") for c in components]
         return round(1 - len(set(names)) / len(names), 4) if names else 0
 
+    syft_bom_data = syft_result.get("bom") or {}
+    trivy_bom_data = trivy_result.get("bom") or {}
+
     return {
         "domain_coverage": domain_coverage,
         "composite_coverage": composite_coverage,
@@ -437,7 +440,7 @@ def _compute_typed_coverage(gt, syft_result, trivy_result, ml_bom, obom, profile
         },
         "syft_trivy_jaccard": syft_trivy_jaccard,
         "schema_validation_failures": schema_failures,
-        "duplicate_rate_syft": dup_rate(syft_result.get("bom", {}).get("components", [])),
+        "duplicate_rate_syft": dup_rate(syft_bom_data.get("components", [])),
         "duplicate_rate_traceai": dup_rate(ml_bom.get("components", [])),
         "ground_truth_total": gt["meta"]["total_nodes"],
         "ground_truth_applicable": gt["meta"]["applicable_nodes"],
