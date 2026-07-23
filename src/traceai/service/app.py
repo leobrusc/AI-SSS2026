@@ -179,6 +179,46 @@ async def configuration():
     )
 
 
+class UpdateConfigRequest(BaseModel):
+    """Request body for runtime configuration update."""
+    max_new_tokens: Optional[int] = None
+    timeout_seconds: Optional[float] = None
+    max_concurrency: Optional[int] = None
+    queue_depth: Optional[int] = None
+    rate_limit_rpm: Optional[int] = None
+    circuit_breaker_enabled: Optional[bool] = None
+
+
+@app.put("/configuration")
+async def update_configuration(req: UpdateConfigRequest):
+    """Update runtime configuration (for experimental campaigns)."""
+    controls: ControlsManager = _app_state.get("controls")
+    if controls is None:
+        raise HTTPException(status_code=503, detail="Controls not initialized")
+
+    changes = controls.update_configuration(
+        max_new_tokens=req.max_new_tokens,
+        timeout_seconds=req.timeout_seconds,
+        max_concurrency=req.max_concurrency,
+        queue_depth=req.queue_depth,
+        rate_limit_rpm=req.rate_limit_rpm,
+    )
+
+    # Handle circuit_breaker_enabled toggle
+    if req.circuit_breaker_enabled is not None:
+        if req.circuit_breaker_enabled and controls.circuit_breaker_threshold == 0:
+            controls.circuit_breaker_threshold = 5
+            changes["circuit_breaker_enabled"] = {"old": False, "new": True}
+        elif not req.circuit_breaker_enabled and controls.circuit_breaker_threshold > 0:
+            controls.circuit_breaker_threshold = 0
+            changes["circuit_breaker_enabled"] = {"old": True, "new": False}
+
+    # Reset rate limiter and circuit breaker state on config change
+    controls.reset()
+
+    return {"updated": True, "changes": changes}
+
+
 @app.post("/generate", response_model=GenerateResponse)
 async def generate(req: GenerateRequest, request: Request):
     """Generate text from a prompt."""

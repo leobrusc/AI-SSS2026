@@ -1,0 +1,16 @@
+torch==2.13.0+cpu
+transformers==5.14.1
+tokenizers==0.22.2
+fastapi==0.139.2
+uvicorn==0.51.0
+pydantic==2.13.4
+pydantic-settings==2.14.2
+httpx==0.28.1
+pyyaml==6.0.3
+pandas==3.0.3
+numpy==2.4.4
+scipy==1.17.1
+matplotlib==3.11.1
+psutil==7.2.2
+jsonschema==4.26.0
+cryptography==49.0.0
