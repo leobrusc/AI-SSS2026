@@ -48,9 +48,11 @@ Do NOT hard-code a CUDA version. Detect and install:
 CUDA_VERSION=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | head -1)
 echo "Driver: $CUDA_VERSION"
 
-# Install compatible PyTorch (check https://pytorch.org/get-started/locally/)
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
-# Adjust cu121 based on actual CUDA toolkit version
+# Install compatible PyTorch using the official selector:
+#   https://pytorch.org/get-started/locally/
+# Select the correct CUDA wheel for your driver, then export:
+#   export TORCH_INDEX_URL=https://download.pytorch.org/whl/<cuXXX>
+pip install torch torchvision --index-url "$TORCH_INDEX_URL"
 
 # Verify
 python -c "import torch; print(f'CUDA: {torch.cuda.is_available()}, Device: {torch.cuda.get_device_name(0)}')"

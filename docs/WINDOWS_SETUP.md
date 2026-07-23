@@ -179,7 +179,9 @@ If PyTorch doesn't detect CUDA despite having an NVIDIA GPU:
 
 2. Install CUDA-enabled PyTorch explicitly:
    ```powershell
-   pip install torch --index-url https://download.pytorch.org/whl/cu121
+   # Install CUDA-enabled PyTorch using the official selector:
+   #   https://pytorch.org/get-started/locally/
+   pip install torch --index-url $env:TORCH_INDEX_URL
    ```
 
 3. Check for version mismatch:
@@ -288,9 +290,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 **Solution**:
 ```powershell
-# Reinstall with CUDA support
+# Reinstall with CUDA support (select correct wheel from https://pytorch.org/get-started/locally/)
 pip uninstall torch
-pip install torch --index-url https://download.pytorch.org/whl/cu121
+pip install torch --index-url $env:TORCH_INDEX_URL
 ```
 
 ---

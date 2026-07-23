@@ -262,7 +262,7 @@ python --version  # Should show Python 3.11.x or newer
 **Fix:** This is informational only. GPU is optional. To enable GPU acceleration, install:
 1. NVIDIA driver (latest Game Ready or Studio)
 2. CUDA Toolkit 12.1+
-3. PyTorch with CUDA support: `pip install torch --index-url https://download.pytorch.org/whl/cu121`
+3. PyTorch with CUDA support (select correct wheel from [pytorch.org](https://pytorch.org/get-started/locally/))
 
 ---
 
@@ -279,7 +279,8 @@ nvidia-smi                                             # Check driver CUDA versi
 
 Reinstall PyTorch with the correct CUDA version if they differ:
 ```powershell
-pip install torch --index-url https://download.pytorch.org/whl/cu121
+# Select the correct wheel from https://pytorch.org/get-started/locally/
+pip install torch --index-url https://download.pytorch.org/whl/<cuXXX>
 ```
 
 ---
