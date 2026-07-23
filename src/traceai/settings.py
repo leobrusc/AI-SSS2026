@@ -12,7 +12,7 @@ from pydantic_settings import BaseSettings
 class TraceAISettings(BaseSettings):
     """Global settings for TraceAI, loaded from environment variables and .env."""
 
-    profile: Literal["local", "container", "industrial"] = "local"
+    profile: Literal["local", "container", "industrial", "gpu"] = "local"
     device: str = "auto"
     model_id: str = "openai-community/gpt2"
     model_revision: Optional[str] = None

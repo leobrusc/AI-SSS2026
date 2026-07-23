@@ -1,0 +1,63 @@
+profile: gpu
+description: "RTX A5000 GPU execution with real inference and NVML telemetry"
+
+runtime:
+  device: cuda
+  model_id: "openai-community/gpt2"
+  model_revision: "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+  model_dir: "workspace/models"
+  max_host_gpu_memory_percent: 85
+  max_host_ram_percent: 90
+  max_test_duration_seconds: 600
+  nvml_telemetry: true
+  gpu_temperature_limit_celsius: 85
+  vram_safety_threshold_percent: 95
+
+service:
+  host: "127.0.0.1"
+  port: 8200
+  workers: 1
+
+inference:
+  max_new_tokens: 100
+  timeout_seconds: 30
+  max_concurrency: 8
+  queue_depth: 32
+  rate_limit_rpm: 120
+  circuit_breaker_threshold: 5
+  circuit_breaker_timeout: 30
+
+signing:
+  method: "local-ephemeral"
+  key_dir: "workspace/keys"
+  validity_hours: 24
+
+scanning:
+  tools:
+    syft: optional
+    grype: optional
+    trivy: optional
+    cosign: optional
+
+external:
+  harbor: disabled
+  dependency_track: disabled
+  gitlab: disabled
+  kubernetes: disabled
+
+campaigns:
+  full_trials: 30
+  quick_trials: 3
+  full_requests_per_trial: 200
+  quick_requests_per_trial: 20
+  warmup_requests: 10
+  trial_timeout_seconds: 300
+  service_startup_timeout_seconds: 120
+  emergency_stop_file: "workspace/EMERGENCY_STOP"
+
+safety:
+  max_cuda_oom_before_abort: 3
+  max_service_restarts: 5
+  max_consecutive_failures: 20
+  gpu_temp_check_interval_seconds: 30
+  abort_on_unrecovered_service: true
