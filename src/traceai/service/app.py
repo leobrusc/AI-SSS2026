@@ -187,6 +187,7 @@ class UpdateConfigRequest(BaseModel):
     queue_depth: Optional[int] = None
     rate_limit_rpm: Optional[int] = None
     circuit_breaker_enabled: Optional[bool] = None
+    circuit_breaker_timeout: Optional[float] = None
 
 
 @app.put("/configuration")
@@ -212,6 +213,12 @@ async def update_configuration(req: UpdateConfigRequest):
         elif not req.circuit_breaker_enabled and controls.circuit_breaker_threshold > 0:
             controls.circuit_breaker_threshold = 0
             changes["circuit_breaker_enabled"] = {"old": True, "new": False}
+
+    # Handle circuit_breaker_timeout update
+    if req.circuit_breaker_timeout is not None:
+        old_val = controls.circuit_breaker_timeout
+        controls.circuit_breaker_timeout = req.circuit_breaker_timeout
+        changes["circuit_breaker_timeout"] = {"old": old_val, "new": req.circuit_breaker_timeout}
 
     # Reset rate limiter and circuit breaker state on config change
     controls.reset()
