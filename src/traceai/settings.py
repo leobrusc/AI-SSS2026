@@ -60,6 +60,24 @@ def load_profile_config(profile: str = "local") -> dict:
         return yaml.safe_load(f)
 
 
+def load_gpu_hardware_config(profile: str = "gpu") -> dict:
+    """Load GPU hardware expectations from the profile.
+
+    Returns a dict with keys:
+        expected_gpu_name_regex: str
+        minimum_vram_mb: int
+        expected_gpu_count: int
+    Falls back to permissive defaults if not defined.
+    """
+    config = load_profile_config(profile)
+    hardware = config.get("hardware", {})
+    return {
+        "expected_gpu_name_regex": hardware.get("expected_gpu_name_regex", ".*"),
+        "minimum_vram_mb": hardware.get("minimum_vram_mb", 2048),
+        "expected_gpu_count": hardware.get("expected_gpu_count", 1),
+    }
+
+
 def load_experiment_config() -> dict:
     """Load the experiment configuration."""
     root = get_project_root()

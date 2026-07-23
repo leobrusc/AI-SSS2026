@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 # =============================================================================
-# TraceAI RTX A5000 GPU Campaign Execution
-# Tag: traceai-gpu-ready-v6 | Base: db4469d
+# TraceAI GPU Campaign Execution (profile-driven, hardware-agnostic)
+# Reads GPU expectations from config/profiles/gpu.yaml
 # =============================================================================
 set -Eeuo pipefail
 
-REPO_URL="${1:-git@github.com:leolima/traceai-ladc2026.git}"
+REPO_URL="${1:-git@github.com:leobrusc/traceai-ladc2026.git}"
 WORK_DIR="${2:-$(pwd)/traceai-ladc2026}"
-TAG="traceai-gpu-ready-v6"
+TAG="traceai-gcp-l4-ready-v7"
+RUN_FULL=false
+
+# Parse flags
+for arg in "$@"; do
+    case "$arg" in
+        --run-full) RUN_FULL=true ;;
+    esac
+done
 
 # Model revisions (immutable)
 TINY_MODEL="sshleifer/tiny-gpt2"
@@ -18,9 +26,10 @@ FULL_REVISION="607a30d783dfa663caf39e06633721c8d4cfcd7e"
 timestamp() { date -u +"%Y-%m-%dT%H:%M:%S%z"; }
 
 echo "==================================================================="
-echo "  TraceAI RTX A5000 GPU Campaign"
+echo "  TraceAI GPU Campaign"
 echo "  Started: $(timestamp)"
 echo "  Tag: ${TAG}"
+echo "  Mode: $([ "$RUN_FULL" = true ] && echo 'FULL' || echo 'QUICK (use --run-full for full campaign)')"
 echo "==================================================================="
 
 # =============================================================================
@@ -170,9 +179,8 @@ if [ "$PYTORCH_READY" = false ]; then
         echo "    TORCH_INDEX_URL=https://download.pytorch.org/whl/<cuXXX> \\"
         echo "        bash scripts/run_gpu_campaign.sh"
         echo ""
-        echo "  Example (for CUDA 12.4 wheels):"
-        echo "    TORCH_INDEX_URL=https://download.pytorch.org/whl/cu124 \\"
-        echo "        bash scripts/run_gpu_campaign.sh"
+        echo "  Replace <cuXXX> with the correct CUDA index for your driver."
+        echo "  Do NOT infer from the nvidia-smi CUDA compatibility version."
         echo "============================================================"
         exit 1
     fi
@@ -200,12 +208,24 @@ print(f"torch.cuda.is_available(): {torch.cuda.is_available()}")
 if not torch.cuda.is_available():
     errors.append("torch.cuda.is_available() is False")
 
-# Gate 2: Device name contains RTX A5000
+# Gate 2: Device name matches profile regex
 if torch.cuda.is_available():
     device_name = torch.cuda.get_device_name(0)
     print(f"Device name: {device_name}")
-    if "RTX A5000" not in device_name:
-        errors.append(f"Device name '{device_name}' does not contain 'RTX A5000'")
+
+    # Load expected regex from profile
+    import yaml as _yaml
+    from pathlib import Path as _Path
+    _profile_path = _Path("config/profiles/gpu.yaml")
+    _expected_regex = ".*"
+    if _profile_path.exists():
+        with open(_profile_path) as _f:
+            _cfg = _yaml.safe_load(_f) or {}
+        _expected_regex = _cfg.get("hardware", {}).get("expected_gpu_name_regex", ".*")
+
+    import re as _re
+    if not _re.search(_expected_regex, device_name):
+        errors.append(f"Device name '{device_name}' does not match profile regex '{_expected_regex}'")
 else:
     errors.append("Cannot check device name: CUDA not available")
 
@@ -275,7 +295,7 @@ if errors:
 else:
     print("All 5 validation gates PASSED.")
     print("  ✓ torch.cuda.is_available() == True")
-    print("  ✓ Device name contains 'RTX A5000'")
+    print("  ✓ Device name matches profile GPU regex")
     print("  ✓ CUDA tensor multiplication succeeds")
     print("  ✓ Model parameters placed on CUDA")
     print("  ✓ NVML telemetry returns non-null values")
@@ -460,11 +480,27 @@ echo ""
 echo "Phase 4 complete: Quick campaign validated."
 
 # =============================================================================
-# PHASE 5: Full Publication Campaign
+# PHASE 5: Full Publication Campaign (requires --run-full)
 # =============================================================================
 echo ""
 echo ">>> PHASE 5: Full Publication Campaign"
 echo ""
+
+if [ "$RUN_FULL" = false ]; then
+    echo "Quick validation complete. All preflight and quick campaign gates passed."
+    echo ""
+    echo "To execute the full 30-trial campaign, re-run with:"
+    echo "    bash scripts/run_gpu_campaign.sh --run-full"
+    echo ""
+    echo "==================================================================="
+    echo "  Quick Validation Complete (stopped before full campaign)"
+    echo "  Commit: $(git rev-parse --short HEAD)"
+    echo "  Tag: ${TAG}"
+    echo "  Finished: $(timestamp)"
+    echo "==================================================================="
+    exit 0
+fi
+
 echo "All quick validation gates passed. Proceeding with full campaign."
 echo ""
 

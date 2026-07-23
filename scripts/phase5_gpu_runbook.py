@@ -1,9 +1,11 @@
 """Phase 5: GPU Runbook — Environment detection and preflight checks.
 
+Reads GPU hardware expectations from config/profiles/gpu.yaml.
 Removes hard-coded CUDA/PyTorch wheel assumptions.
 Provides runtime GPU validation before expensive experiments.
 """
 import json
+import re
 import subprocess
 import sys
 import time
@@ -11,9 +13,32 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "generated" / "gpu_runbook"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+GPU_PROFILE_PATH = ROOT / "config" / "profiles" / "gpu.yaml"
+
+
+def _load_gpu_profile() -> dict:
+    """Load the GPU profile config. Returns empty dict on failure."""
+    if GPU_PROFILE_PATH.exists():
+        with open(GPU_PROFILE_PATH, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
+    return {}
+
+
+def _get_hardware_config() -> dict:
+    """Get hardware expectations from profile."""
+    profile = _load_gpu_profile()
+    hw = profile.get("hardware", {})
+    return {
+        "expected_gpu_name_regex": hw.get("expected_gpu_name_regex", ".*"),
+        "minimum_vram_mb": hw.get("minimum_vram_mb", 2048),
+        "expected_gpu_count": hw.get("expected_gpu_count", 1),
+    }
 
 
 # ===========================================================================
@@ -60,13 +85,16 @@ def check_torch_installed() -> PreflightResult:
 
 
 def check_cuda_available() -> PreflightResult:
-    """Check CUDA availability via PyTorch."""
+    """Check CUDA availability via PyTorch and validate GPU name against profile."""
     try:
         import torch
         available = torch.cuda.is_available()
         if available:
             device_name = torch.cuda.get_device_name(0)
             cuda_ver = torch.version.cuda or "unknown"
+            hw = _get_hardware_config()
+            gpu_regex = hw["expected_gpu_name_regex"]
+            name_matches = bool(re.search(gpu_regex, device_name))
             return PreflightResult(
                 "cuda_available", True,
                 f"CUDA available: {device_name} (CUDA {cuda_ver})",
@@ -75,6 +103,8 @@ def check_cuda_available() -> PreflightResult:
                     "device_name": device_name,
                     "cuda_version": cuda_ver,
                     "device_count": torch.cuda.device_count(),
+                    "expected_gpu_regex": gpu_regex,
+                    "gpu_name_matches_profile": name_matches,
                 },
             )
         else:
@@ -130,8 +160,11 @@ def check_cuda_torch_compatibility() -> PreflightResult:
         )
 
 
-def check_vram_sufficient(min_mb: int = 2048) -> PreflightResult:
-    """Check if GPU has sufficient VRAM for the target model."""
+def check_vram_sufficient(min_mb: Optional[int] = None) -> PreflightResult:
+    """Check if GPU has sufficient VRAM per the profile configuration."""
+    if min_mb is None:
+        hw = _get_hardware_config()
+        min_mb = hw["minimum_vram_mb"]
     try:
         import torch
         if not torch.cuda.is_available():
@@ -247,6 +280,111 @@ def check_model_loadable(model_id: str = "sshleifer/tiny-gpt2") -> PreflightResu
         )
 
 
+def check_gpu_name_matches() -> PreflightResult:
+    """Verify detected GPU name matches the profile regex."""
+    hw = _get_hardware_config()
+    gpu_regex = hw["expected_gpu_name_regex"]
+    try:
+        import torch
+        if not torch.cuda.is_available():
+            return PreflightResult(
+                "gpu_name_matches", True,
+                f"N/A (CPU mode, profile expects: {gpu_regex})",
+                severity="info",
+                details={"mode": "cpu", "expected_regex": gpu_regex},
+            )
+        device_name = torch.cuda.get_device_name(0)
+        if re.search(gpu_regex, device_name):
+            return PreflightResult(
+                "gpu_name_matches", True,
+                f"GPU '{device_name}' matches profile regex '{gpu_regex}'",
+                severity="info",
+                details={"device_name": device_name, "regex": gpu_regex},
+            )
+        else:
+            return PreflightResult(
+                "gpu_name_matches", False,
+                f"GPU '{device_name}' does NOT match profile regex '{gpu_regex}'",
+                severity="blocker",
+                details={"device_name": device_name, "regex": gpu_regex},
+            )
+    except ImportError:
+        return PreflightResult(
+            "gpu_name_matches", False,
+            "Cannot check: PyTorch not installed",
+            severity="blocker",
+        )
+
+
+def check_nvml_available() -> PreflightResult:
+    """Check if NVML telemetry is accessible."""
+    try:
+        import pynvml
+        pynvml.nvmlInit()
+        handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+        mem_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+        pynvml.nvmlShutdown()
+        total_mb = mem_info.total / (1024**2)
+        return PreflightResult(
+            "nvml_available", True,
+            f"NVML operational (total VRAM: {total_mb:.0f} MB)",
+            severity="info",
+            details={"total_vram_mb": round(total_mb)},
+        )
+    except ImportError:
+        return PreflightResult(
+            "nvml_available", False,
+            "pynvml not installed (install with: pip install pynvml)",
+            severity="warning",
+            details={"hint": "pip install pynvml"},
+        )
+    except Exception as e:
+        return PreflightResult(
+            "nvml_available", False,
+            f"NVML error: {str(e)[:100]}",
+            severity="warning",
+            details={"error": str(e)[:200]},
+        )
+
+
+def check_no_competing_gpu_processes() -> PreflightResult:
+    """Check that no competing process is using the GPU."""
+    try:
+        result = subprocess.run(
+            ["nvidia-smi", "--query-compute-apps=pid,name,used_memory",
+             "--format=csv,noheader"],
+            capture_output=True, text=True, timeout=10,
+        )
+        if result.returncode != 0:
+            return PreflightResult(
+                "no_competing_gpu_processes", True,
+                "Cannot query GPU processes (nvidia-smi unavailable)",
+                severity="info",
+            )
+        output = result.stdout.strip()
+        if not output or output.lower().startswith("no running"):
+            return PreflightResult(
+                "no_competing_gpu_processes", True,
+                "No competing GPU processes detected",
+                severity="info",
+                details={"processes": []},
+            )
+        # Parse processes
+        lines = [l.strip() for l in output.split("\n") if l.strip()]
+        return PreflightResult(
+            "no_competing_gpu_processes", False,
+            f"{len(lines)} competing GPU process(es) detected",
+            severity="warning",
+            details={"processes": lines},
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return PreflightResult(
+            "no_competing_gpu_processes", True,
+            "nvidia-smi not available (skipped on this platform)",
+            severity="info",
+        )
+
+
 # ===========================================================================
 # Runbook generation
 # ===========================================================================
@@ -257,8 +395,11 @@ def run_preflight() -> dict[str, Any]:
         check_torch_installed(),
         check_nvidia_driver(),
         check_cuda_available(),
+        check_gpu_name_matches(),
         check_cuda_torch_compatibility(),
         check_vram_sufficient(),
+        check_nvml_available(),
+        check_no_competing_gpu_processes(),
         check_torch_device_config(),
         check_model_loadable(),
     ]

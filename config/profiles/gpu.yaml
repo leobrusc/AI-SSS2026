@@ -1,8 +1,16 @@
 profile: gpu
-description: "RTX A5000 GPU execution with real inference and NVML telemetry"
+description: "NVIDIA L4 GPU execution with real inference and NVML telemetry"
+evidence_environment: gcp-nvidia-l4
+
+hardware:
+  expected_gpu_name_regex: "NVIDIA L4"
+  minimum_vram_mb: 22000
+  expected_gpu_count: 1
 
 runtime:
   device: cuda
+  require_cuda: true
+  forbid_cpu_fallback: true
   model_id: "openai-community/gpt2"
   model_revision: "607a30d783dfa663caf39e06633721c8d4cfcd7e"
   model_dir: "workspace/models"
@@ -55,9 +63,19 @@ campaigns:
   service_startup_timeout_seconds: 120
   emergency_stop_file: "workspace/EMERGENCY_STOP"
 
+models:
+  quick:
+    id: "sshleifer/tiny-gpt2"
+    revision: "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be"
+  full:
+    id: "openai-community/gpt2"
+    revision: "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+
 safety:
   max_cuda_oom_before_abort: 3
   max_service_restarts: 5
   max_consecutive_failures: 20
   gpu_temp_check_interval_seconds: 30
   abort_on_unrecovered_service: true
+  require_no_mock: true
+  require_real_http_inference: true

@@ -60,7 +60,7 @@ Readers and reviewers should consider the following scope constraints:
 | **Python** | 3.11+ | CPython from [python.org](https://www.python.org/downloads/) or Microsoft Store |
 | **Git** | 2.40+ | [git-scm.com](https://git-scm.com/download/win) |
 | **PowerShell** | 5.1+ | Ships with Windows 10/11; PowerShell 7+ also supported |
-| **NVIDIA GPU + CUDA** *(optional)* | CUDA 12.1+ | Required only for GPU-accelerated inference experiments |
+| **NVIDIA GPU + CUDA** *(optional)* | CUDA 12.x+ | Required only for GPU-accelerated inference experiments |
 
 ### Optional Tools (for container/industrial profiles)
 
