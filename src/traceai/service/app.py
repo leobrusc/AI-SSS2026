@@ -58,12 +58,15 @@ class ConfigurationResponse(BaseModel):
     max_concurrency: int
     queue_depth: int
     rate_limit_rpm: int
+    circuit_breaker_threshold: int
+    circuit_breaker_timeout: float
     circuit_breaker_enabled: bool
     configuration_digest: str
     model_id: str
     device: str
     profile: str
-    model_revision: Optional[str] = None
+    requested_revision: Optional[str] = None
+    resolved_revision: Optional[str] = None
 
 
 # Global state
@@ -178,19 +181,23 @@ async def configuration():
     """Return current service configuration with digest."""
     controls: ControlsManager = _app_state.get("controls")
     engine: InferenceEngine = _app_state.get("engine")
+    queue: RequestQueue = _app_state.get("queue")
     settings = _app_state.get("settings")
 
     config_data = {
         "max_new_tokens": controls.max_new_tokens,
         "timeout_seconds": controls.timeout_seconds,
         "max_concurrency": controls.max_concurrency,
-        "queue_depth": controls.queue_depth,
+        "queue_depth": queue.max_depth if queue else controls.queue_depth,
         "rate_limit_rpm": controls.rate_limit_rpm,
+        "circuit_breaker_threshold": controls.circuit_breaker_threshold,
+        "circuit_breaker_timeout": controls.circuit_breaker_timeout,
         "circuit_breaker_enabled": controls.circuit_breaker_enabled,
         "model_id": settings.model_id if settings else "unknown",
         "device": engine.device if engine else "unknown",
         "profile": settings.profile if settings else "unknown",
-        "model_revision": getattr(settings, "model_revision", None),
+        "requested_revision": getattr(settings, "model_revision", None),
+        "resolved_revision": getattr(engine, "resolved_revision", None),
     }
 
     return ConfigurationResponse(

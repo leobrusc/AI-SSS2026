@@ -762,6 +762,24 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
     try:
         base_url = f"http://127.0.0.1:{port}"
 
+        # Query initial service configuration (for evidence gates)
+        initial_service_config = {}
+        try:
+            init_resp = httpx.get(f"{base_url}/configuration", timeout=10)
+            if init_resp.status_code == 200:
+                initial_service_config = init_resp.json()
+                events.append({
+                    "event": "service_configuration_captured",
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "config": initial_service_config,
+                })
+        except Exception as e:
+            events.append({
+                "event": "service_configuration_capture_failed",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "error": str(e)[:200],
+            })
+
         for config_id, config_params in CONFIGURATIONS.items():
             print(f"\n  Config {config_id}...")
 
@@ -882,7 +900,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
             resource_samples, expected_observations, model_revision,
             result_dir=result_dir, config_events=config_events,
             trial_manifests=trial_manifests,
-            service_config={"profile": profile, "device": "cuda" if profile == "gpu" else "cpu"},
+            service_config=initial_service_config,
         )
         if report["status"] != "PASS":
             print(f"\n  [FAIL] Quick validation: {report['status']}")
@@ -1145,9 +1163,13 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
         for o in normal_obs)
 
     # Model and profile gates — from actual service response
+    requested_rev = service_config.get("requested_revision")
+    resolved_rev = service_config.get("resolved_revision")
     gates["model_revision_matches"] = (
         model_revision is not None
         and len(model_revision) == 40
+        and requested_rev == model_revision
+        and (resolved_rev == model_revision or resolved_rev == requested_rev)
     )
     gates["service_profile_gpu"] = service_config.get("profile", "") == "gpu"
     gates["device_cuda"] = str(service_config.get("device", "")).startswith("cuda")

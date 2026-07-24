@@ -29,6 +29,7 @@ class InferenceEngine:
         self._model = None
         self._tokenizer = None
         self._device_resolved = None
+        self._resolved_revision = None
         self.is_loaded = False
 
     async def load(self) -> None:
@@ -72,6 +73,16 @@ class InferenceEngine:
             revision=self.revision,
             torch_dtype=dtype,
         ).to(self._device_resolved).eval()
+
+        # Resolve the actual revision from the loaded model config
+        try:
+            model_config = self._model.config
+            self._resolved_revision = getattr(model_config, "_commit_hash", None)
+            if self._resolved_revision is None:
+                # Fall back to the requested revision if commit hash unavailable
+                self._resolved_revision = self.revision
+        except Exception:
+            self._resolved_revision = self.revision
 
     async def generate(
         self,
@@ -153,3 +164,8 @@ class InferenceEngine:
     def device(self) -> str:
         """Return the resolved device string."""
         return self._device_resolved or self._device_config
+
+    @property
+    def resolved_revision(self) -> Optional[str]:
+        """Return the resolved model revision (commit hash from HF Hub)."""
+        return self._resolved_revision
