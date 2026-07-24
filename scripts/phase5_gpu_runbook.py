@@ -261,25 +261,48 @@ def check_nvidia_driver() -> PreflightResult:
 
 
 def check_torch_device_config() -> PreflightResult:
-    """Verify the TRACEAI_DEVICE setting is valid."""
-    import os
-    device = os.environ.get("TRACEAI_DEVICE", "auto")
+    """Verify the TRACEAI_DEVICE setting is valid for the GPU profile.
 
-    valid_devices = {"auto", "cpu", "cuda", "cuda:0", "cuda:1", "mps"}
-    if device in valid_devices:
-        return PreflightResult(
-            "device_config", True,
-            f"TRACEAI_DEVICE='{device}' (valid)",
-            severity="info",
-            details={"device": device},
-        )
-    else:
+    Resolution order:
+    1. TRACEAI_DEVICE environment variable (explicit override)
+    2. config/profiles/gpu.yaml runtime.device (profile default)
+    3. 'cuda' as hard fallback for the gpu profile
+
+    If the profile requires CUDA (forbid_cpu_fallback: true), setting
+    TRACEAI_DEVICE=cpu is a blocker.
+    """
+    import os as _os
+    profile = _load_gpu_profile()
+    runtime = profile.get("runtime", {})
+    profile_device = runtime.get("device", "cuda")
+    forbid_cpu = runtime.get("forbid_cpu_fallback", False)
+
+    env_device = _os.environ.get("TRACEAI_DEVICE", None)
+    device = env_device if env_device is not None else profile_device
+
+    valid_devices = {"cpu", "cuda", "cuda:0", "cuda:1", "mps"}
+    if device not in valid_devices:
         return PreflightResult(
             "device_config", False,
             f"TRACEAI_DEVICE='{device}' is not recognized",
             severity="warning",
-            details={"device": device, "valid": sorted(valid_devices)},
+            details={"device": device, "valid": sorted(valid_devices), "source": "env" if env_device else "profile"},
         )
+
+    if forbid_cpu and device == "cpu":
+        return PreflightResult(
+            "device_config", False,
+            f"TRACEAI_DEVICE='cpu' is forbidden by gpu profile (forbid_cpu_fallback: true)",
+            severity="blocker",
+            details={"device": device, "source": "env" if env_device else "profile", "forbid_cpu_fallback": True},
+        )
+
+    return PreflightResult(
+        "device_config", True,
+        f"Device='{device}' (source: {'env' if env_device else 'profile'})",
+        severity="info",
+        details={"device": device, "source": "env" if env_device else "profile"},
+    )
 
 
 def check_model_loadable(model_id: str = "sshleifer/tiny-gpt2") -> PreflightResult:
@@ -356,9 +379,9 @@ def check_nvml_available() -> PreflightResult:
     except ImportError:
         return PreflightResult(
             "nvml_available", False,
-            "pynvml not installed (install with: pip install pynvml)",
+            "pynvml module not installed (install with: pip install nvidia-ml-py)",
             severity="warning",
-            details={"hint": "pip install pynvml"},
+            details={"hint": "pip install nvidia-ml-py"},
         )
     except Exception as e:
         return PreflightResult(
@@ -370,7 +393,13 @@ def check_nvml_available() -> PreflightResult:
 
 
 def check_no_competing_gpu_processes() -> PreflightResult:
-    """Check that no competing process is using the GPU."""
+    """Check that no competing process is using the GPU.
+
+    Excludes the current process (os.getpid()) from the competitor list,
+    since our own preflight may have already initialized a CUDA context.
+    """
+    import os as _os
+    own_pid = _os.getpid()
     try:
         result = subprocess.run(
             ["nvidia-smi", "--query-compute-apps=pid,name,used_memory",
@@ -389,15 +418,44 @@ def check_no_competing_gpu_processes() -> PreflightResult:
                 "no_competing_gpu_processes", True,
                 "No competing GPU processes detected",
                 severity="info",
-                details={"processes": []},
+                details={"processes": [], "own_pid": own_pid, "excluded": []},
             )
-        # Parse processes
-        lines = [l.strip() for l in output.split("\n") if l.strip()]
+        # Parse processes and exclude own PID
+        lines = [line.strip() for line in output.split("\n") if line.strip()]
+        external = []
+        excluded = []
+        for line in lines:
+            parts = [p.strip() for p in line.split(",")]
+            try:
+                pid = int(parts[0])
+            except (ValueError, IndexError):
+                external.append(line)
+                continue
+            if pid == own_pid:
+                excluded.append(line)
+            else:
+                external.append(line)
+
+        if not external:
+            return PreflightResult(
+                "no_competing_gpu_processes", True,
+                "No competing GPU processes (own PID excluded)",
+                severity="info",
+                details={
+                    "processes": [],
+                    "own_pid": own_pid,
+                    "excluded": excluded,
+                },
+            )
         return PreflightResult(
             "no_competing_gpu_processes", False,
-            f"{len(lines)} competing GPU process(es) detected",
+            f"{len(external)} competing GPU process(es) detected",
             severity="warning",
-            details={"processes": lines},
+            details={
+                "processes": external,
+                "own_pid": own_pid,
+                "excluded": excluded,
+            },
         )
     except (FileNotFoundError, subprocess.TimeoutExpired):
         return PreflightResult(
@@ -416,12 +474,12 @@ def run_preflight() -> dict[str, Any]:
     checks = [
         check_torch_installed(),
         check_nvidia_driver(),
+        check_no_competing_gpu_processes(),  # Before CUDA context creation
         check_cuda_available(),
         check_gpu_name_matches(),
         check_cuda_torch_compatibility(),
         check_vram_sufficient(),
         check_nvml_available(),
-        check_no_competing_gpu_processes(),
         check_torch_device_config(),
         check_model_loadable(),
     ]

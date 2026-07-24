@@ -31,7 +31,7 @@ hardware:
 ```bash
 git clone git@github.com:leobrusc/traceai-ladc2026.git
 cd traceai-ladc2026
-git checkout traceai-gcp-l4-ready-v7
+git checkout traceai-gcp-l4-ready-v7.5
 ```
 
 Or, if the repository already exists:
@@ -39,14 +39,16 @@ Or, if the repository already exists:
 ```bash
 cd ~/traceai-ladc2026
 git fetch origin --prune --tags
-git checkout traceai-gcp-l4-ready-v7
+git checkout traceai-gcp-l4-ready-v7.5
 ```
 
 ## 2. Create Virtual Environment
 
+The campaign script uses `.venv-gpu` by default (configurable via `VENV_DIR`):
+
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv-gpu
+source .venv-gpu/bin/activate
 pip install --upgrade pip setuptools wheel
 ```
 
@@ -58,7 +60,7 @@ Do NOT hard-code a CUDA version. Do NOT infer from `nvidia-smi` CUDA compatibili
 # Select the correct index URL from:
 #   https://pytorch.org/get-started/locally/
 # Then export it explicitly:
-#   export TORCH_INDEX_URL=https://download.pytorch.org/whl/<cuXXX>
+export TORCH_INDEX_URL=https://download.pytorch.org/whl/<cuXXX>
 pip install torch torchvision --index-url "$TORCH_INDEX_URL"
 
 # Verify
@@ -113,7 +115,9 @@ Emergency stop: `touch workspace/EMERGENCY_STOP` halts all campaigns.
 ## 8. Quick GPU Campaign
 
 ```bash
-bash scripts/run_gpu_campaign.sh
+source .venv-gpu/bin/activate
+export TRACEAI_DEVICE=cuda
+VENV_DIR=.venv-gpu bash scripts/run_gpu_campaign.sh --in-place
 # OR directly:
 python -m traceai rq4-campaign --profile gpu --quick --mode experimental
 ```
@@ -123,7 +127,9 @@ Expected: 3 trials × 4 configs × 20 requests = 240 real inference requests.
 ## 9. Full GPU Campaign
 
 ```bash
-bash scripts/run_gpu_campaign.sh --run-full
+source .venv-gpu/bin/activate
+export TRACEAI_DEVICE=cuda
+VENV_DIR=.venv-gpu bash scripts/run_gpu_campaign.sh --in-place --run-full
 # OR directly:
 python -m traceai rq4-campaign --profile gpu --mode experimental
 ```

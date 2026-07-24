@@ -221,7 +221,7 @@ class TestPhase5GPURunbook:
         assert "PyTorch" in result.message
 
     def test_check_device_config_default(self):
-        """device_config check passes with default 'auto'."""
+        """device_config check passes with profile default (cuda)."""
         from phase5_gpu_runbook import check_torch_device_config
         result = check_torch_device_config()
         assert result.passed is True
@@ -242,6 +242,112 @@ class TestPhase5GPURunbook:
         assert preflight["total_checks"] >= 7  # script may add checks over time
         assert (out_dir / "gpu_runbook.md").exists()
         assert (out_dir / "gpu_preflight_table.tex").exists()
+
+
+# ===========================================================================
+# GPU process detection and device policy tests
+# ===========================================================================
+
+class TestCompetingGPUProcessDetection:
+    """Test check_no_competing_gpu_processes with mocked nvidia-smi output."""
+
+    def test_only_own_pid_passes(self):
+        """Own PID only → PASS (not a competitor)."""
+        import os
+        from unittest.mock import patch, MagicMock
+        own_pid = os.getpid()
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = f"{own_pid}, python, 512 MiB\n"
+
+        with patch("subprocess.run", return_value=mock_result):
+            from phase5_gpu_runbook import check_no_competing_gpu_processes
+            result = check_no_competing_gpu_processes()
+            assert result.passed is True
+            assert own_pid == result.details["own_pid"]
+            assert len(result.details["excluded"]) == 1
+            assert len(result.details["processes"]) == 0
+
+    def test_external_pid_warns(self):
+        """External PID present → warning (competitor detected)."""
+        import os
+        from unittest.mock import patch, MagicMock
+        own_pid = os.getpid()
+        external_pid = own_pid + 9999
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = f"{external_pid}, training_job, 8192 MiB\n"
+
+        with patch("subprocess.run", return_value=mock_result):
+            from phase5_gpu_runbook import check_no_competing_gpu_processes
+            result = check_no_competing_gpu_processes()
+            assert result.passed is False
+            assert len(result.details["processes"]) == 1
+
+    def test_no_processes_passes(self):
+        """No GPU processes → PASS."""
+        from unittest.mock import patch, MagicMock
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = ""
+
+        with patch("subprocess.run", return_value=mock_result):
+            from phase5_gpu_runbook import check_no_competing_gpu_processes
+            result = check_no_competing_gpu_processes()
+            assert result.passed is True
+
+    def test_nvidia_smi_unavailable_passes(self):
+        """nvidia-smi not found → PASS (skipped gracefully)."""
+        from unittest.mock import patch
+        with patch("subprocess.run", side_effect=FileNotFoundError):
+            from phase5_gpu_runbook import check_no_competing_gpu_processes
+            result = check_no_competing_gpu_processes()
+            assert result.passed is True
+
+    def test_invalid_nvidia_smi_output_handled(self):
+        """Malformed output lines are treated as external processes."""
+        from unittest.mock import patch, MagicMock
+        mock_result = MagicMock()
+        mock_result.returncode = 0
+        mock_result.stdout = "not-a-pid, some_process, 100 MiB\n"
+
+        with patch("subprocess.run", return_value=mock_result):
+            from phase5_gpu_runbook import check_no_competing_gpu_processes
+            result = check_no_competing_gpu_processes()
+            assert result.passed is False
+            assert len(result.details["processes"]) == 1
+
+
+class TestDevicePolicy:
+    """Test device configuration policy for GPU profile."""
+
+    def test_cpu_blocked_by_gpu_profile(self):
+        """TRACEAI_DEVICE=cpu must be a blocker when profile forbids CPU fallback."""
+        from unittest.mock import patch
+        with patch.dict("os.environ", {"TRACEAI_DEVICE": "cpu"}):
+            from phase5_gpu_runbook import check_torch_device_config
+            result = check_torch_device_config()
+            assert result.passed is False
+            assert result.severity == "blocker"
+
+    def test_cuda_passes(self):
+        """TRACEAI_DEVICE=cuda passes on GPU profile."""
+        from unittest.mock import patch
+        with patch.dict("os.environ", {"TRACEAI_DEVICE": "cuda"}):
+            from phase5_gpu_runbook import check_torch_device_config
+            result = check_torch_device_config()
+            assert result.passed is True
+
+    def test_profile_default_used_when_env_absent(self):
+        """When TRACEAI_DEVICE is not set, profile default (cuda) is used."""
+        from unittest.mock import patch
+        env = dict(os.environ)
+        env.pop("TRACEAI_DEVICE", None)
+        with patch.dict("os.environ", env, clear=True):
+            from phase5_gpu_runbook import check_torch_device_config
+            result = check_torch_device_config()
+            assert result.passed is True
+            assert result.details["source"] == "profile"
 
 
 # ===========================================================================
