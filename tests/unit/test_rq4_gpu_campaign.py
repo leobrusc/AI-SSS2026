@@ -340,22 +340,29 @@ class TestQuickValidationGates:
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
                 "trial_id": "test"}] * 240
         events = [{"event": "circuit_open", "timestamp": "t"},
-                  {"event": "circuit_recovered", "timestamp": "t"}]
+                  {"event": "circuit_half_open", "timestamp": "t"},
+                  {"event": "circuit_recovered", "timestamp": "t"},
+                  {"event": "fault_injection_started", "timestamp": "t"}]
         report = _generate_quick_validation_report(
             ROOT, "test", obs, events, [{"gpu_utilization_percent": 50, "memory_used_mb": 100}],
-            [{"cpu_percent": 10}], 240, "a" * 40)
+            [{"cpu_percent": 10}], 240, "a" * 40,
+            config_events=[{"validation_passed": True}] * 4,
+            trial_manifests=[{"trial_id": f"test-C{c}-t{t}", "observation_count": 20,
+                             "prompt_indices": [0]*20, "workload_seed": t}
+                            for c in range(4) for t in range(3)],
+            service_config={"profile": "gpu", "device": "cuda"})
         required_gates = [
-            "service_profile_gpu", "device_cuda", "model_revision_pinned",
+            "service_profile_gpu", "device_cuda", "model_revision_matches",
             "real_http", "observation_count_exact_240", "c0_completed",
-            "c1_completed", "c2_control_activated", "c3_opened",
-            "c3_open_response_observed", "c3_recovered",
-            "c3_rate_limiter_not_interfering", "gpu_timeseries_present",
-            "gpu_utilization_non_null", "gpu_memory_non_null",
-            "resource_timeseries_present", "service_events_nonempty",
-            "configuration_events_present", "trial_manifest_present",
-            "prompt_hash_present", "paired_workloads", "no_mock",
-            "no_connection_error", "no_cuda_oom", "no_unexpected_failure",
-            "working_tree_clean",
+            "c1_completed", "c2_control_activated", "c3_initially_closed",
+            "c3_opened", "c3_open_response_observed", "c3_half_open_observed",
+            "c3_recovered", "c3_rate_limiter_not_interfering",
+            "gpu_timeseries_present", "gpu_utilization_non_null",
+            "gpu_memory_non_null", "resource_timeseries_present",
+            "service_events_nonempty", "configuration_events_valid",
+            "trial_manifest_valid", "prompt_hash_valid", "paired_workloads",
+            "no_mock", "no_connection_error", "no_cuda_oom",
+            "no_unexpected_failure", "working_tree_clean",
         ]
         for gate in required_gates:
             assert gate in report["gates"], f"Missing gate: {gate}"

@@ -152,11 +152,25 @@ async def ready():
 
 @app.get("/metrics/snapshot")
 async def metrics_snapshot():
-    """Return current telemetry snapshot."""
+    """Return current telemetry snapshot including circuit breaker state."""
     telemetry: TelemetryCollector = _app_state.get("telemetry")
+    controls: ControlsManager = _app_state.get("controls")
+    queue: RequestQueue = _app_state.get("queue")
     if telemetry is None:
         raise HTTPException(status_code=503, detail="Telemetry not initialized")
-    return telemetry.snapshot()
+    snapshot = telemetry.snapshot()
+    # Add circuit breaker and queue state
+    if controls:
+        is_open = controls.is_circuit_open()
+        snapshot["circuit_state"] = "OPEN" if is_open else "CLOSED"
+        snapshot["circuit_failure_count"] = controls._failure_count
+        snapshot["circuit_open_since"] = controls._circuit_open_since
+    if queue:
+        stats = queue.stats()
+        snapshot["queue_current"] = stats["current_depth"]
+        snapshot["queue_max"] = stats["max_depth"]
+        snapshot["queue_rejections"] = stats["total_rejected"]
+    return snapshot
 
 
 @app.get("/configuration", response_model=ConfigurationResponse)
@@ -237,8 +251,8 @@ async def update_configuration(req: UpdateConfigRequest):
     if req.max_concurrency is not None:
         _app_state["concurrency_sem"] = asyncio.Semaphore(req.max_concurrency)
 
-    # Reset rate limiter and circuit breaker state on config change
-    controls.reset()
+    # Reset rate limiter state on config change (preserve circuit breaker state)
+    controls.reset_rate_limiter()
 
     return {"updated": True, "changes": changes}
 

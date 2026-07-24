@@ -109,10 +109,15 @@ class ControlsManager:
             return True
 
     def reset(self) -> None:
-        """Reset all controls state."""
+        """Reset all controls state (rate limiter + circuit breaker)."""
         with self._circuit_lock:
             self._failure_count = 0
             self._circuit_open_since = None
+        with self._rate_lock:
+            self._request_timestamps.clear()
+
+    def reset_rate_limiter(self) -> None:
+        """Reset only rate limiter state. Preserves circuit breaker state."""
         with self._rate_lock:
             self._request_timestamps.clear()
 
