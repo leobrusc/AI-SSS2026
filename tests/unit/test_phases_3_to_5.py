@@ -130,8 +130,8 @@ class TestPhase3Agreement:
         assert result["result"] == "NOT_COMPUTABLE"
 
     @pytest.mark.skipif(
-        not (ROOT / "generated" / "rq3" / "phase3_agreement").exists(),
-        reason="Phase 3 outputs not generated yet (run phase3_rq3_agreement.py first)"
+        not (ROOT / "generated" / "rq3" / "phase3_agreement" / "rq3_agreement_summary.json").exists(),
+        reason="RQ3 agreement artifact not generated (run phase3_rq3_agreement.py first)"
     )
     def test_phase3_outputs_exist(self):
         """Phase 3 outputs were generated."""
@@ -187,8 +187,8 @@ class TestPhase4CPUDiagnostic:
         assert classify_outcome(503, False, "some other error") == "SERVER_ERROR"
 
     @pytest.mark.skipif(
-        not (ROOT / "generated" / "rq4" / "phase4_cpu_diagnostic").exists(),
-        reason="Phase 4 outputs not generated yet (run phase4_rq4_cpu_diagnostic.py first)"
+        not (ROOT / "generated" / "rq4" / "phase4_cpu_diagnostic" / "rq4_cpu_diagnostic.json").exists(),
+        reason="RQ4 CPU diagnostic artifact not generated (run phase4_rq4_cpu_diagnostic.py first)"
     )
     def test_phase4_outputs_exist(self):
         """Phase 4 outputs were generated with per-config metrics."""
@@ -227,8 +227,8 @@ class TestPhase5GPURunbook:
         assert result.passed is True
 
     @pytest.mark.skipif(
-        not (ROOT / "generated" / "gpu_runbook").exists(),
-        reason="GPU runbook outputs not generated yet (run phase5_gpu_runbook.py first)"
+        not (ROOT / "generated" / "gpu_runbook" / "preflight_results.json").exists(),
+        reason="GPU preflight artifact not generated (run phase5_gpu_runbook.py first)"
     )
     def test_preflight_results_exist(self):
         """Phase 5 outputs were generated."""
