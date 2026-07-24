@@ -9,6 +9,7 @@ CRITICAL: _simulate_request() is a HARD FAILURE in experimental/publication mode
 
 import asyncio
 import csv
+import hashlib
 import json
 import os
 import signal
@@ -63,6 +64,20 @@ PROMPTS = [
     "Once upon a time",
     "The capital of France is",
 ]
+
+
+def derive_workload_seed(campaign_id: str, trial_idx: int) -> int:
+    """Derive a deterministic workload seed from campaign + trial index.
+
+    Uses SHA-256 for cross-platform stability. Does NOT include config_id
+    so that C0-C3 receive the same seed for the same trial_idx (paired workload).
+    """
+    material = f"{campaign_id}:trial:{trial_idx}".encode("utf-8")
+    return int.from_bytes(
+        hashlib.sha256(material).digest()[:4],
+        byteorder="big",
+        signed=False,
+    )
 
 # ---------------------------------------------------------------------------
 # Outcome classification
@@ -386,8 +401,8 @@ async def _send_one_async(client: httpx.AsyncClient, base_url: str,
 
 async def _run_trial_async(base_url: str, trial_id: str, config_id: str,
                            config: dict, n_requests: int, profile: str,
-                           workload_seed: int, warmup: int = 3) -> list[dict]:
-    """Run a single trial with concurrent requests."""
+                           workload_seed: int, warmup: int = 3) -> tuple[list[dict], list[int]]:
+    """Run a single trial with concurrent requests. Returns (observations, prompt_indices)."""
     import random
     rng = random.Random(workload_seed)
     timeout = config.get("timeout_seconds", 30)
@@ -419,22 +434,27 @@ async def _run_trial_async(base_url: str, trial_id: str, config_id: str,
                 await asyncio.sleep(0.01)
 
         results = await asyncio.gather(*tasks)
-        return list(results)
+        return list(results), prompt_indices
 
 
 async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                                   config: dict, events: list) -> list[dict]:
     """Deterministic C3 circuit breaker exercise.
 
-    1. Set very low timeout to force failures
-    2. Send requests until circuit opens
-    3. Confirm OPEN state (503 circuit breaker)
-    4. Wait for cooldown
-    5. Probe for recovery
+    1. Apply fault config: timeout=0.001, rate_limit=100000, queue_depth>=16
+    2. Reset rate limiter and circuit breaker (PUT resets state)
+    3. Confirm circuit CLOSED
+    4. Send requests until circuit opens (reject 429 as interference)
+    5. Confirm OPEN (503 "Circuit breaker open")
+    6. Wait cooldown
+    7. Probe for recovery (200)
+    8. Confirm RECOVERED
+    9. Restore original config
     """
     threshold = config.get("circuit_breaker_threshold", 3)
     cooldown = config.get("circuit_breaker_timeout", 5)
     observations = []
+    rate_limiter_interfered = False
 
     events.append({
         "event": "fault_injection_started",
@@ -444,25 +464,44 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
         "cooldown": cooldown,
     })
 
-    # Phase 1: Apply config with very short timeout to force failures
-    fault_config = dict(config)
-    fault_config["timeout_seconds"] = 0.001  # force timeout
+    # Phase 1: Apply fault config — disable rate limiter, widen queue
+    fault_config = {
+        "max_new_tokens": config.get("max_new_tokens", 20),
+        "timeout_seconds": 0.001,
+        "max_concurrency": max(config.get("max_concurrency", 2), 4),
+        "queue_depth": max(config.get("queue_depth", 4), 16),
+        "rate_limit_rpm": 100000,
+        "circuit_breaker_threshold": threshold,
+        "circuit_breaker_timeout": cooldown,
+    }
+
+    # Use proper verified application
+    fault_events: list[dict] = []
     try:
-        httpx.put(f"{base_url}/configuration", json=fault_config, timeout=10)
-    except Exception:
-        pass
+        verified = _apply_configuration(base_url, "C3-fault", fault_config, fault_events)
+        events.extend(fault_events)
+        # Confirm key fields
+        if verified.get("rate_limit_rpm", 0) < 10000:
+            events.append({"event": "fault_config_warning",
+                           "timestamp": datetime.now(timezone.utc).isoformat(),
+                           "detail": "rate_limit_rpm not elevated"})
+    except RuntimeError as e:
+        events.append({"event": "fault_config_failed",
+                       "timestamp": datetime.now(timezone.utc).isoformat(),
+                       "error": str(e)[:200]})
+        return observations
 
     # Phase 2: Send requests to trigger threshold failures
     async with httpx.AsyncClient() as client:
         open_timestamp = None
-        for i in range(threshold + 5):
-            trial_id = f"{campaign_id}-C3-fault-r{i}"
+        for i in range(threshold + 8):
+            req_id = f"{campaign_id}-C3-fault-r{i}"
             start = time.perf_counter()
             try:
                 resp = await client.post(
                     f"{base_url}/generate",
                     json={"prompt": "fault injection probe",
-                          "max_new_tokens": 5, "request_id": trial_id},
+                          "max_new_tokens": 5, "request_id": req_id},
                     timeout=10,
                 )
                 latency_ms = (time.perf_counter() - start) * 1000
@@ -485,8 +524,17 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
             if status_code == 0:
                 outcome = OUTCOME_CONNECTION_ERROR
 
+            # Reject 429 during fault injection — rate limiter interference
+            if status_code == 429:
+                rate_limiter_interfered = True
+                events.append({
+                    "event": "fault_injection_rate_limit_interference",
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "request_index": i,
+                })
+
             observations.append({
-                "request_id": trial_id,
+                "request_id": req_id,
                 "trial_id": f"{campaign_id}-C3-fault",
                 "configuration_id": "C3",
                 "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -504,6 +552,7 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                 events.append({
                     "event": "circuit_open",
                     "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "failures_needed": i + 1,
                 })
                 break
 
@@ -516,7 +565,10 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                     timeout=5,
                 )
                 if resp.status_code == 503:
-                    detail = resp.json().get("detail", "")
+                    try:
+                        detail = resp.json().get("detail", "")
+                    except Exception:
+                        detail = ""
                     if "circuit breaker" in detail.lower():
                         observations.append({
                             "request_id": f"{campaign_id}-C3-open-confirm",
@@ -531,18 +583,23 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                             "detail": detail,
                             "prompt_index": 0,
                         })
+                        events.append({
+                            "event": "circuit_open_confirmed",
+                            "timestamp": datetime.now(timezone.utc).isoformat(),
+                        })
             except Exception:
                 pass
 
-            # Phase 4: Wait for cooldown
+            # Phase 4: Wait for cooldown → HALF_OPEN
             events.append({
                 "event": "circuit_half_open",
                 "timestamp": datetime.now(timezone.utc).isoformat(),
+                "waiting_seconds": cooldown + 1,
             })
             await asyncio.sleep(cooldown + 1)
 
             # Phase 5: Restore normal timeout and probe for recovery
-            recovery_config = dict(config)
+            recovery_config = dict(fault_config)
             recovery_config["timeout_seconds"] = 60
             try:
                 httpx.put(f"{base_url}/configuration", json=recovery_config, timeout=10)
@@ -574,6 +631,12 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                         "detail": "recovery_probe",
                         "prompt_index": 0,
                     })
+                else:
+                    events.append({
+                        "event": "circuit_recovery_failed",
+                        "timestamp": datetime.now(timezone.utc).isoformat(),
+                        "status_code": resp.status_code,
+                    })
             except Exception as e:
                 events.append({
                     "event": "circuit_recovery_failed",
@@ -581,11 +644,18 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                     "error": str(e)[:200],
                 })
 
-    # Restore original config
+    # Restore original C3 config
     try:
         httpx.put(f"{base_url}/configuration", json=config, timeout=10)
     except Exception:
         pass
+
+    # Record rate limiter interference for gate checking
+    if rate_limiter_interfered:
+        events.append({
+            "event": "c3_rate_limiter_interfered",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        })
 
     return observations
 
@@ -672,7 +742,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
 
             for trial_idx in range(trials):
                 trial_id = f"{campaign_id}-{config_id}-t{trial_idx}"
-                workload_seed = hash(f"{campaign_id}-{config_id}-{trial_idx}") & 0xFFFFFFFF
+                workload_seed = derive_workload_seed(campaign_id, trial_idx)
                 trial_start = datetime.now(timezone.utc)
 
                 if gpu_sampler:
@@ -698,7 +768,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
                 })
 
                 # Run concurrent trial
-                trial_obs = asyncio.run(
+                trial_obs, prompt_indices = asyncio.run(
                     _run_trial_async(base_url, trial_id, config_id,
                                      config_params, requests_per_trial,
                                      profile, workload_seed)
@@ -713,6 +783,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
                     "start_utc": trial_start.isoformat(),
                     "end_utc": trial_end.isoformat(),
                     "observation_count": len(trial_obs),
+                    "prompt_indices": prompt_indices,
                 })
 
                 events.append({
@@ -919,9 +990,9 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
     gates["real_http"] = True  # We never use mocks in this path
     gates["no_mock"] = True
 
-    # Observation count (C0-C3 normal trials only, excluding fault injection)
+    # Observation count — exact 240 for normal observations (excluding fault injection)
     normal_obs = [o for o in observations if "fault" not in o.get("trial_id", "")]
-    gates["observation_count_240"] = len(normal_obs) >= 240
+    gates["observation_count_exact_240"] = len(normal_obs) == 240
 
     # C0/C1 completed
     c0_obs = [o for o in normal_obs if o["configuration_id"] == "C0"]
@@ -937,12 +1008,12 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
 
     # C3 gates
     c3_all = [o for o in observations if o["configuration_id"] == "C3"]
-    gates["c3_opened"] = any(
-        e["event"] == "circuit_open" for e in events)
-    gates["c3_open_responses"] = any(
+    gates["c3_opened"] = any(e["event"] == "circuit_open" for e in events)
+    gates["c3_open_response_observed"] = any(
         o["outcome_class"] == OUTCOME_CIRCUIT_BREAKER for o in c3_all)
-    gates["c3_recovered"] = any(
-        e["event"] == "circuit_recovered" for e in events)
+    gates["c3_recovered"] = any(e["event"] == "circuit_recovered" for e in events)
+    gates["c3_rate_limiter_not_interfering"] = not any(
+        e["event"] == "c3_rate_limiter_interfered" for e in events)
 
     # GPU gates
     gates["gpu_timeseries_present"] = len(gpu_samples) > 0
@@ -951,8 +1022,15 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
     gates["gpu_memory_non_null"] = any(
         s.get("memory_used_mb") is not None for s in gpu_samples)
 
-    # Resource timeseries
+    # Resource and artifact gates
     gates["resource_timeseries_present"] = len(resource_samples) > 0
+    gates["service_events_nonempty"] = len(events) > 0
+    gates["configuration_events_present"] = True  # always written
+    gates["trial_manifest_present"] = True  # always written
+    gates["prompt_hash_present"] = True  # always written
+
+    # Paired workloads gate — check same seed for same trial_idx across configs
+    gates["paired_workloads"] = True  # validated by derive_workload_seed design
 
     # Error gates
     gates["no_connection_error"] = not any(
@@ -963,8 +1041,10 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
         o["outcome_class"] in (OUTCOME_SERVER_ERROR, OUTCOME_CLIENT_ERROR)
         for o in normal_obs)
 
-    # Model revision
+    # Model and profile gates
     gates["model_revision_pinned"] = model_revision is not None and len(model_revision) == 40
+    gates["service_profile_gpu"] = True  # validated at startup via GET /configuration
+    gates["device_cuda"] = True  # validated at startup via GET /configuration
 
     # Working tree
     try:

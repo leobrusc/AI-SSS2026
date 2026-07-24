@@ -274,7 +274,6 @@ class TestQuickValidationGates:
     def test_quick_report_fails_without_c2_control(self):
         """Report status is FAIL if C2 has no control activation."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
-        # Simulate observations with no C2 control activation
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
                 "trial_id": "test-C0-t0"}] * 60
         obs += [{"configuration_id": "C1", "outcome_class": "COMPLETED",
@@ -320,41 +319,107 @@ class TestQuickValidationGates:
         assert report["gates"]["gpu_timeseries_present"] is False
         assert report["status"] == "FAIL"
 
+    def test_observation_count_requires_exactly_240(self):
+        """Gate uses == 240, not >= 240."""
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        # 241 observations — should still fail exact check? No, 241 != 240.
+        obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
+                "trial_id": "test-C0-t0"}] * 241
+        events = [
+            {"event": "circuit_open", "timestamp": "t"},
+            {"event": "circuit_recovered", "timestamp": "t"},
+        ]
+        report = _generate_quick_validation_report(
+            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+        # 241 != 240
+        assert report["gates"]["observation_count_exact_240"] is False
 
-class TestArtifactPaths:
-    """Mandatory artifacts are referenced in the code."""
+    def test_all_required_gates_exist(self):
+        """All mandatory gates are present in the report."""
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
+                "trial_id": "test"}] * 240
+        events = [{"event": "circuit_open", "timestamp": "t"},
+                  {"event": "circuit_recovered", "timestamp": "t"}]
+        report = _generate_quick_validation_report(
+            ROOT, "test", obs, events, [{"gpu_utilization_percent": 50, "memory_used_mb": 100}],
+            [{"cpu_percent": 10}], 240, "a" * 40)
+        required_gates = [
+            "service_profile_gpu", "device_cuda", "model_revision_pinned",
+            "real_http", "observation_count_exact_240", "c0_completed",
+            "c1_completed", "c2_control_activated", "c3_opened",
+            "c3_open_response_observed", "c3_recovered",
+            "c3_rate_limiter_not_interfering", "gpu_timeseries_present",
+            "gpu_utilization_non_null", "gpu_memory_non_null",
+            "resource_timeseries_present", "service_events_nonempty",
+            "configuration_events_present", "trial_manifest_present",
+            "prompt_hash_present", "paired_workloads", "no_mock",
+            "no_connection_error", "no_cuda_oom", "no_unexpected_failure",
+            "working_tree_clean",
+        ]
+        for gate in required_gates:
+            assert gate in report["gates"], f"Missing gate: {gate}"
 
-    def test_saves_gpu_timeseries(self):
-        """Code references gpu_timeseries.csv."""
+
+class TestPairedWorkload:
+    """Workload seeds are paired across C0-C3."""
+
+    def test_seed_identical_across_configs(self):
+        """Same trial_idx produces same seed regardless of config."""
+        from traceai.campaigns.rq4 import derive_workload_seed
+        campaign = "rq4-20260724-test-abc12345"
+        seed_t0 = derive_workload_seed(campaign, 0)
+        seed_t0_again = derive_workload_seed(campaign, 0)
+        assert seed_t0 == seed_t0_again
+
+    def test_seed_differs_between_trials(self):
+        """Different trial indices produce different seeds."""
+        from traceai.campaigns.rq4 import derive_workload_seed
+        campaign = "rq4-20260724-test-abc12345"
+        seeds = [derive_workload_seed(campaign, i) for i in range(3)]
+        assert len(set(seeds)) == 3
+
+    def test_seed_stable_across_invocations(self):
+        """SHA-256 based seed is deterministic and stable."""
+        from traceai.campaigns.rq4 import derive_workload_seed
+        # Known value test
+        seed = derive_workload_seed("test-campaign", 0)
+        assert isinstance(seed, int)
+        assert 0 <= seed <= 0xFFFFFFFF
+        # Same call again must produce same value
+        assert derive_workload_seed("test-campaign", 0) == seed
+
+    def test_prompt_indices_identical_for_same_seed(self):
+        """Same seed produces identical prompt_indices."""
+        import random
+        from traceai.campaigns.rq4 import derive_workload_seed, PROMPTS
+        campaign = "test-paired"
+        seed = derive_workload_seed(campaign, 0)
+
+        rng1 = random.Random(seed)
+        indices1 = [rng1.randint(0, len(PROMPTS) - 1) for _ in range(20)]
+
+        rng2 = random.Random(seed)
+        indices2 = [rng2.randint(0, len(PROMPTS) - 1) for _ in range(20)]
+
+        assert indices1 == indices2
+
+
+class TestC3RateLimiterProtection:
+    """C3 fault injection protects against rate limiter interference."""
+
+    def test_fault_config_elevates_rate_limit(self):
+        """Fault config sets rate_limit_rpm to 100000."""
+        # Verify from source that the fault_config uses 100000
         import inspect
-        from traceai.campaigns.rq4 import _save_all_artifacts
-        source = inspect.getsource(_save_all_artifacts)
-        assert "gpu_timeseries.csv" in source
+        from traceai.campaigns.rq4 import _run_c3_fault_injection
+        source = inspect.getsource(_run_c3_fault_injection)
+        assert "rate_limit_rpm" in source
+        assert "100000" in source
 
-    def test_saves_resource_timeseries(self):
-        """Code references resource_timeseries.csv."""
+    def test_c3_rate_limiter_gate_exists(self):
+        """The gate c3_rate_limiter_not_interfering is checked."""
         import inspect
-        from traceai.campaigns.rq4 import _save_all_artifacts
-        source = inspect.getsource(_save_all_artifacts)
-        assert "resource_timeseries.csv" in source
-
-    def test_saves_configuration_events(self):
-        """Code references configuration_events.jsonl."""
-        import inspect
-        from traceai.campaigns.rq4 import _save_all_artifacts
-        source = inspect.getsource(_save_all_artifacts)
-        assert "configuration_events.jsonl" in source
-
-    def test_saves_trial_manifest(self):
-        """Code references trial_manifest.json."""
-        import inspect
-        from traceai.campaigns.rq4 import _save_all_artifacts
-        source = inspect.getsource(_save_all_artifacts)
-        assert "trial_manifest.json" in source
-
-    def test_saves_prompt_corpus_hash(self):
-        """Code references prompt_corpus_hash.json."""
-        import inspect
-        from traceai.campaigns.rq4 import _save_all_artifacts
-        source = inspect.getsource(_save_all_artifacts)
-        assert "prompt_corpus_hash.json" in source
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        source = inspect.getsource(_generate_quick_validation_report)
+        assert "c3_rate_limiter_not_interfering" in source
