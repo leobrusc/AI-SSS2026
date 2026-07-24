@@ -119,7 +119,6 @@ python -m traceai rq4-campaign --profile gpu --quick --mode experimental
 ```
 
 Expected: 3 trials × 4 configs × 20 requests = 240 real inference requests.
-Duration: ~5–15 minutes depending on model load time.
 
 ## 9. Full GPU Campaign
 
@@ -130,7 +129,6 @@ python -m traceai rq4-campaign --profile gpu --mode experimental
 ```
 
 Expected: 30 trials × 4 configs × 200 requests = 24,000 real inference requests.
-Duration: ~1.5–4 hours on NVIDIA L4.
 
 ## 10. Artifact Export
 

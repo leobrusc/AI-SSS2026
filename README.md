@@ -211,7 +211,7 @@ and NVML telemetry. It must be executed on a node with a GPU matching the profil
 in `config/profiles/gpu.yaml`.
 
 ```bash
-# Quick validation (3 trials, ~5–15 min)
+# Quick validation — 3 trials per configuration
 python -m traceai rq4-campaign \
   --profile gpu \
   --quick \
