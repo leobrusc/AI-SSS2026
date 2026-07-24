@@ -353,6 +353,55 @@ python -m traceai rq4-campaign \
     --quick \
     --mode experimental
 
+CAMPAIGN_EXIT=$?
+if [ $CAMPAIGN_EXIT -ne 0 ]; then
+    echo ""
+    echo "  [FAIL] Quick campaign returned exit code $CAMPAIGN_EXIT"
+    exit 1
+fi
+
+# Validate quick_validation_report.json
+echo ""
+echo "--- Quick Validation Report ---"
+REPORT_FILE="generated/gpu/quick_validation_report.json"
+if [ ! -f "$REPORT_FILE" ]; then
+    echo "  [FAIL] quick_validation_report.json not generated"
+    exit 1
+fi
+
+python - <<'PY'
+import json, sys
+
+with open("generated/gpu/quick_validation_report.json") as f:
+    report = json.load(f)
+
+status = report.get("status", "UNKNOWN")
+gates = report.get("gates", {})
+campaign_id = report.get("campaign_id", "unknown")
+
+print(f"  Campaign: {campaign_id}")
+print(f"  Status: {status}")
+print()
+
+failed = []
+for gate, val in gates.items():
+    mark = "✓" if val else "✗"
+    print(f"  {mark} {gate}")
+    if not val:
+        failed.append(gate)
+
+if status != "PASS":
+    print(f"\n  [FAIL] {len(failed)} gate(s) failed: {', '.join(failed)}")
+    sys.exit(1)
+else:
+    print(f"\n  All {len(gates)} gates PASSED.")
+PY
+
+if [ $? -ne 0 ]; then
+    echo "  Quick validation FAILED. Cannot proceed to full campaign."
+    exit 1
+fi
+
 echo ""
 echo "Phase 4 complete: Quick campaign validated."
 
@@ -364,26 +413,11 @@ echo ">>> PHASE 5: Full Publication Campaign"
 echo ""
 
 if [ "$RUN_FULL" = false ]; then
-    echo "Quick validation complete. All preflight and quick campaign gates passed."
+    echo "Quick validation complete."
     echo ""
     echo "To execute the full 30-trial campaign, re-run with:"
     echo "    bash scripts/run_gpu_campaign.sh --in-place --run-full"
     echo ""
-    # Save manifest
-    python - <<PY
-import json, torch
-manifest = {
-    "torch_version": torch.__version__,
-    "torch_cuda": torch.version.cuda,
-    "gpu": "$GPU_MODEL",
-    "tag": "$CURRENT_TAG",
-    "commit": "$CURRENT_COMMIT",
-    "venv": "$VENV_DIR",
-    "mode": "quick",
-}
-with open("generated/gpu/campaign_manifest.json", "w") as f:
-    json.dump(manifest, f, indent=2)
-PY
     echo "==================================================================="
     echo "  Quick Validation Complete"
     echo "  Commit: ${CURRENT_SHORT}"
@@ -393,7 +427,20 @@ PY
     exit 0
 fi
 
-echo "All quick validation gates passed. Proceeding with full campaign."
+# Verify quick PASS before full
+if [ ! -f "$REPORT_FILE" ]; then
+    echo "  [FAIL] No quick validation report. Run quick first."
+    exit 1
+fi
+
+QUICK_STATUS=$(python -c "import json; print(json.load(open('$REPORT_FILE'))['status'])")
+if [ "$QUICK_STATUS" != "PASS" ]; then
+    echo "  [FAIL] Quick validation status is $QUICK_STATUS, not PASS."
+    echo "  Cannot proceed to full campaign."
+    exit 1
+fi
+
+echo "Quick validation PASS confirmed. Proceeding with full campaign."
 echo ""
 
 python -m traceai rq4-campaign \

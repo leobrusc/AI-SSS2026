@@ -1,23 +1,53 @@
 """Tests for RQ4 GPU campaign implementation.
 
 Validates:
+- Async concurrent workload (not sequential)
 - Profile propagation to service
 - Model revision passed to from_pretrained
-- PUT /configuration applied and verified
+- Configuration application and verification
 - Queue depth dynamically updated
 - Concurrency limit enforced
+- Outcome classification
 - GPU metrics conditional on profile
 - Manifest with GPU metadata
-- NOT_APPLICABLE only for non-GPU
+- Quick validation gates logic
 """
+import asyncio
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch, AsyncMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "src"))
+
+
+class TestAsyncWorkload:
+    """Verify the campaign uses async concurrent requests."""
+
+    def test_run_trial_async_is_coroutine(self):
+        """_run_trial_async is a coroutine function."""
+        from traceai.campaigns.rq4 import _run_trial_async
+        assert asyncio.iscoroutinefunction(_run_trial_async)
+
+    def test_send_one_async_is_coroutine(self):
+        """_send_one_async is a coroutine function."""
+        from traceai.campaigns.rq4 import _send_one_async
+        assert asyncio.iscoroutinefunction(_send_one_async)
+
+    def test_c3_fault_injection_is_coroutine(self):
+        """_run_c3_fault_injection is a coroutine function."""
+        from traceai.campaigns.rq4 import _run_c3_fault_injection
+        assert asyncio.iscoroutinefunction(_run_c3_fault_injection)
+
+    def test_no_sequential_loop_in_experimental_path(self):
+        """The run_rq4_campaign source should use _run_trial_async, not sequential loop."""
+        import inspect
+        from traceai.campaigns.rq4 import run_rq4_campaign
+        source = inspect.getsource(run_rq4_campaign)
+        assert "_run_trial_async" in source
+        assert "for req_idx in range" not in source
 
 
 class TestProfilePropagation:
@@ -208,3 +238,123 @@ class TestUpdateConfigRequest:
         )
         assert req.max_new_tokens == 20
         assert req.circuit_breaker_threshold == 3
+
+
+class TestOutcomeClassification:
+    """Outcome classification from HTTP responses."""
+
+    def test_200_is_completed(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_COMPLETED
+        assert _classify_outcome(200, False) == OUTCOME_COMPLETED
+
+    def test_429_is_rate_limit(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_RATE_LIMIT
+        assert _classify_outcome(429, False) == OUTCOME_RATE_LIMIT
+
+    def test_503_circuit_breaker(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_CIRCUIT_BREAKER
+        assert _classify_outcome(503, False, "Circuit breaker open") == OUTCOME_CIRCUIT_BREAKER
+
+    def test_503_queue_full(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_QUEUE_REJECTION
+        assert _classify_outcome(503, False, "Queue full") == OUTCOME_QUEUE_REJECTION
+
+    def test_504_timeout(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_UNEXPECTED_TIMEOUT
+        assert _classify_outcome(504, True) == OUTCOME_UNEXPECTED_TIMEOUT
+
+    def test_500_server_error(self):
+        from traceai.campaigns.rq4 import _classify_outcome, OUTCOME_SERVER_ERROR
+        assert _classify_outcome(500, False) == OUTCOME_SERVER_ERROR
+
+
+class TestQuickValidationGates:
+    """Quick validation report logic."""
+
+    def test_quick_report_fails_without_c2_control(self):
+        """Report status is FAIL if C2 has no control activation."""
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        # Simulate observations with no C2 control activation
+        obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
+                "trial_id": "test-C0-t0"}] * 60
+        obs += [{"configuration_id": "C1", "outcome_class": "COMPLETED",
+                 "trial_id": "test-C1-t0"}] * 60
+        obs += [{"configuration_id": "C2", "outcome_class": "COMPLETED",
+                 "trial_id": "test-C2-t0"}] * 60
+        obs += [{"configuration_id": "C3", "outcome_class": "COMPLETED",
+                 "trial_id": "test-C3-t0"}] * 60
+        events = []
+        report = _generate_quick_validation_report(
+            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+        assert report["gates"]["c2_control_activated"] is False
+        assert report["status"] == "FAIL"
+
+    def test_quick_report_fails_without_c3_recovery(self):
+        """Report status is FAIL if C3 never recovered."""
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
+                "trial_id": "test-C0-t0"}] * 60
+        obs += [{"configuration_id": "C1", "outcome_class": "COMPLETED",
+                 "trial_id": "test-C1-t0"}] * 60
+        obs += [{"configuration_id": "C2", "outcome_class": "EXPECTED_RATE_LIMIT",
+                 "trial_id": "test-C2-t0"}] * 60
+        obs += [{"configuration_id": "C3", "outcome_class": "EXPECTED_CIRCUIT_BREAKER",
+                 "trial_id": "test-C3-t0"}] * 60
+        events = [{"event": "circuit_open", "timestamp": "2026-01-01T00:00:00Z"}]
+        report = _generate_quick_validation_report(
+            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+        assert report["gates"]["c3_recovered"] is False
+        assert report["status"] == "FAIL"
+
+    def test_quick_report_fails_without_gpu_timeseries(self):
+        """Report status is FAIL if no GPU timeseries on gpu profile."""
+        from traceai.campaigns.rq4 import _generate_quick_validation_report
+        obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
+                "trial_id": "test-C0-t0"}] * 240
+        events = [
+            {"event": "circuit_open", "timestamp": "t"},
+            {"event": "circuit_recovered", "timestamp": "t"},
+        ]
+        report = _generate_quick_validation_report(
+            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+        assert report["gates"]["gpu_timeseries_present"] is False
+        assert report["status"] == "FAIL"
+
+
+class TestArtifactPaths:
+    """Mandatory artifacts are referenced in the code."""
+
+    def test_saves_gpu_timeseries(self):
+        """Code references gpu_timeseries.csv."""
+        import inspect
+        from traceai.campaigns.rq4 import _save_all_artifacts
+        source = inspect.getsource(_save_all_artifacts)
+        assert "gpu_timeseries.csv" in source
+
+    def test_saves_resource_timeseries(self):
+        """Code references resource_timeseries.csv."""
+        import inspect
+        from traceai.campaigns.rq4 import _save_all_artifacts
+        source = inspect.getsource(_save_all_artifacts)
+        assert "resource_timeseries.csv" in source
+
+    def test_saves_configuration_events(self):
+        """Code references configuration_events.jsonl."""
+        import inspect
+        from traceai.campaigns.rq4 import _save_all_artifacts
+        source = inspect.getsource(_save_all_artifacts)
+        assert "configuration_events.jsonl" in source
+
+    def test_saves_trial_manifest(self):
+        """Code references trial_manifest.json."""
+        import inspect
+        from traceai.campaigns.rq4 import _save_all_artifacts
+        source = inspect.getsource(_save_all_artifacts)
+        assert "trial_manifest.json" in source
+
+    def test_saves_prompt_corpus_hash(self):
+        """Code references prompt_corpus_hash.json."""
+        import inspect
+        from traceai.campaigns.rq4 import _save_all_artifacts
+        source = inspect.getsource(_save_all_artifacts)
+        assert "prompt_corpus_hash.json" in source
