@@ -54,7 +54,6 @@ dev = [
     "compileall2>=0.8.0",
 ]
 gpu = [
-    "pynvml>=11.5.0",
     "nvidia-ml-py>=12.535.0",
 ]
 

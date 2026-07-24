@@ -10,5 +10,5 @@ mypy>=1.7.0
 # Dependency management
 pip-tools>=7.3.0
 
-# GPU telemetry (optional)
-pynvml>=11.5.0
+# GPU telemetry (optional — nvidia-ml-py provides the pynvml module)
+nvidia-ml-py>=12.535.0

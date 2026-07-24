@@ -102,9 +102,10 @@ def detect_gpu() -> dict[str, Any]:
         if torch.cuda.is_available():
             gpu_info["torch_cuda_version"] = torch.version.cuda or "N/A"
             gpu_info["device_name"] = torch.cuda.get_device_name(0)
-            gpu_info["vram_total_mb"] = round(
-                torch.cuda.get_device_properties(0).total_mem / (1024**2)
-            )
+            props = torch.cuda.get_device_properties(0)
+            total_mem = getattr(props, "total_memory", None) or getattr(props, "total_mem", None)
+            if total_mem is not None:
+                gpu_info["vram_total_mb"] = round(total_mem / (1024**2))
     except ImportError:
         gpu_info["torch_installed"] = False
 

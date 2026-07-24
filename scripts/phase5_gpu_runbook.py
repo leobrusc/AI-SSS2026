@@ -160,6 +160,28 @@ def check_cuda_torch_compatibility() -> PreflightResult:
         )
 
 
+def get_total_gpu_memory_bytes(device_index: int = 0) -> int:
+    """Get total GPU memory in bytes, compatible across PyTorch versions.
+
+    PyTorch >= 2.13 uses ``total_memory``; older versions use ``total_mem``.
+    This function tries both attributes for portability.
+    """
+    import torch
+
+    properties = torch.cuda.get_device_properties(device_index)
+
+    total = getattr(properties, "total_memory", None)
+    if total is None:
+        total = getattr(properties, "total_mem", None)
+
+    if total is None:
+        raise RuntimeError(
+            "Unable to determine total GPU memory from CUDA device properties"
+        )
+
+    return int(total)
+
+
 def check_vram_sufficient(min_mb: Optional[int] = None) -> PreflightResult:
     """Check if GPU has sufficient VRAM per the profile configuration."""
     if min_mb is None:
@@ -175,7 +197,7 @@ def check_vram_sufficient(min_mb: Optional[int] = None) -> PreflightResult:
                 details={"mode": "cpu"},
             )
 
-        total = torch.cuda.get_device_properties(0).total_mem
+        total = get_total_gpu_memory_bytes(0)
         total_mb = total / (1024**2)
         if total_mb >= min_mb:
             return PreflightResult(

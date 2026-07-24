@@ -32,7 +32,7 @@ RUN_CAMPAIGN_SH = ROOT / "scripts" / "run_gpu_campaign.sh"
 PHASE5_SCRIPT = ROOT / "scripts" / "phase5_gpu_runbook.py"
 SETTINGS_PY = ROOT / "src" / "traceai" / "settings.py"
 PYPROJECT_TOML = ROOT / "pyproject.toml"
-ENV_TEX = ROOT / "paper" / "fragments" / "environment_gpu.tex"
+ENV_TEX_TEMPLATE = ROOT / "paper" / "templates" / "environment_gpu.tex.in"
 
 
 def _load_gpu_profile() -> dict:
@@ -195,26 +195,48 @@ class TestModelRevisionsImmutable:
 
 
 class TestEnvironmentFragmentGeneration:
-    """Verify the NVIDIA L4 manuscript fragment is correct."""
+    """Verify the NVIDIA L4 manuscript template is correct.
+
+    Uses the tracked template (paper/templates/environment_gpu.tex.in),
+    not the generated fragment (paper/fragments/environment_gpu.tex) which
+    is gitignored and does not exist in clean clones.
+    """
 
     def test_environment_tex_exists(self):
-        assert ENV_TEX.exists()
+        assert ENV_TEX_TEMPLATE.exists(), (
+            "Tracked template paper/templates/environment_gpu.tex.in must exist"
+        )
 
     def test_environment_tex_references_l4(self):
-        content = ENV_TEX.read_text(encoding="utf-8")
-        assert "NVIDIA L4" in content
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
+        # Template uses @GPU_NAME@ placeholder, but also mentions L4 in context
+        assert "@GPU_NAME@" in content
 
     def test_environment_tex_no_rtx_a5000_claim(self):
-        content = ENV_TEX.read_text(encoding="utf-8")
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
         assert "RTX A5000" not in content
 
     def test_environment_tex_references_gcp(self):
-        content = ENV_TEX.read_text(encoding="utf-8")
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
         assert "Google Cloud Platform" in content or "GCP" in content
 
     def test_environment_tex_references_24gb(self):
-        content = ENV_TEX.read_text(encoding="utf-8")
-        assert "24" in content  # 24 GB GDDR6
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
+        # Template references VRAM via placeholder
+        assert "@GPU_VRAM_MIB@" in content
+
+    def test_environment_tex_is_template_not_evidence(self):
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
+        assert "template" in content.lower()
+        assert "not experimental evidence" in content.lower() or "not evidence" in content.lower()
+
+    def test_environment_tex_has_required_placeholders(self):
+        content = ENV_TEX_TEMPLATE.read_text(encoding="utf-8")
+        required = ["@GPU_NAME@", "@GPU_VRAM_MIB@", "@NVIDIA_DRIVER@",
+                    "@PYTORCH_VERSION@", "@PYTORCH_CUDA_RUNTIME@",
+                    "@OS_VERSION@", "@CAMPAIGN_ID@", "@SOURCE_COMMIT@"]
+        for placeholder in required:
+            assert placeholder in content, f"Missing placeholder: {placeholder}"
 
 
 class TestPython312Metadata:
@@ -250,3 +272,64 @@ class TestGPUHardwareConfigHelper:
         from traceai.settings import load_gpu_hardware_config
         config = load_gpu_hardware_config()
         assert config["minimum_vram_mb"] == 22000
+
+
+
+class TestGetTotalGPUMemoryBytes:
+    """Test the robust GPU memory accessor (no real GPU required)."""
+
+    def test_total_memory_attribute_accepted(self):
+        """PyTorch >= 2.13 uses total_memory."""
+        from unittest.mock import MagicMock, patch
+
+        mock_props = MagicMock()
+        mock_props.total_memory = 24_000_000_000
+        # Ensure total_mem is not present as a real attr
+        del mock_props.total_mem
+
+        with patch("torch.cuda.get_device_properties", return_value=mock_props):
+            from phase5_gpu_runbook import get_total_gpu_memory_bytes
+            result = get_total_gpu_memory_bytes(0)
+            assert result == 24_000_000_000
+
+    def test_total_mem_fallback_accepted(self):
+        """Older PyTorch uses total_mem as fallback."""
+        from unittest.mock import MagicMock, patch
+
+        mock_props = MagicMock(spec=[])
+        mock_props.total_mem = 24_000_000_000
+        # total_memory does not exist on this mock
+
+        with patch("torch.cuda.get_device_properties", return_value=mock_props):
+            from phase5_gpu_runbook import get_total_gpu_memory_bytes
+            result = get_total_gpu_memory_bytes(0)
+            assert result == 24_000_000_000
+
+    def test_neither_attribute_raises_error(self):
+        """Missing both attributes raises RuntimeError."""
+        from unittest.mock import MagicMock, patch
+
+        mock_props = MagicMock(spec=[])
+        # Neither total_memory nor total_mem exists
+
+        with patch("torch.cuda.get_device_properties", return_value=mock_props):
+            from phase5_gpu_runbook import get_total_gpu_memory_bytes
+            with pytest.raises(RuntimeError, match="Unable to determine total GPU memory"):
+                get_total_gpu_memory_bytes(0)
+
+
+class TestNVMLDependencyPolicy:
+    """Verify the gpu extra does not declare both pynvml and nvidia-ml-py."""
+
+    def test_gpu_extra_no_duplicate_nvml(self):
+        """The gpu extra should declare only nvidia-ml-py, not pynvml."""
+        import tomllib
+        with open(PYPROJECT_TOML, "rb") as f:
+            data = tomllib.load(f)
+        gpu_deps = data.get("project", {}).get("optional-dependencies", {}).get("gpu", [])
+        dep_names = [d.split(">")[0].split("=")[0].split("<")[0].strip().lower()
+                     for d in gpu_deps]
+        assert "pynvml" not in dep_names, (
+            "gpu extra should not declare pynvml (deprecated); use nvidia-ml-py only"
+        )
+        assert "nvidia-ml-py" in dep_names
