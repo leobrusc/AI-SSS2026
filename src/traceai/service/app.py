@@ -62,6 +62,8 @@ class ConfigurationResponse(BaseModel):
     configuration_digest: str
     model_id: str
     device: str
+    profile: str
+    model_revision: Optional[str] = None
 
 
 # Global state
@@ -94,6 +96,7 @@ async def lifespan(app: FastAPI):
         model_dir=settings.model_dir,
         device=settings.device,
         max_new_tokens=controls.max_new_tokens,
+        revision=settings.model_revision,
     )
     await engine.load()
 
@@ -106,6 +109,7 @@ async def lifespan(app: FastAPI):
     _app_state["telemetry"] = telemetry
     _app_state["start_time"] = time.time()
     _app_state["settings"] = settings
+    _app_state["concurrency_sem"] = asyncio.Semaphore(controls.max_concurrency)
 
     logger.info("Service initialized successfully")
     yield
@@ -171,6 +175,8 @@ async def configuration():
         "circuit_breaker_enabled": controls.circuit_breaker_enabled,
         "model_id": settings.model_id if settings else "unknown",
         "device": engine.device if engine else "unknown",
+        "profile": settings.profile if settings else "unknown",
+        "model_revision": getattr(settings, "model_revision", None),
     }
 
     return ConfigurationResponse(
@@ -188,6 +194,7 @@ class UpdateConfigRequest(BaseModel):
     rate_limit_rpm: Optional[int] = None
     circuit_breaker_enabled: Optional[bool] = None
     circuit_breaker_timeout: Optional[float] = None
+    circuit_breaker_threshold: Optional[int] = None
 
 
 @app.put("/configuration")
@@ -203,6 +210,7 @@ async def update_configuration(req: UpdateConfigRequest):
         max_concurrency=req.max_concurrency,
         queue_depth=req.queue_depth,
         rate_limit_rpm=req.rate_limit_rpm,
+        circuit_breaker_threshold=req.circuit_breaker_threshold,
     )
 
     # Handle circuit_breaker_enabled toggle
@@ -219,6 +227,15 @@ async def update_configuration(req: UpdateConfigRequest):
         old_val = controls.circuit_breaker_timeout
         controls.circuit_breaker_timeout = req.circuit_breaker_timeout
         changes["circuit_breaker_timeout"] = {"old": old_val, "new": req.circuit_breaker_timeout}
+
+    # Sync queue depth if changed
+    queue: RequestQueue = _app_state.get("queue")
+    if req.queue_depth is not None and queue:
+        queue.set_max_depth(req.queue_depth)
+
+    # Recreate concurrency semaphore if max_concurrency changed
+    if req.max_concurrency is not None:
+        _app_state["concurrency_sem"] = asyncio.Semaphore(req.max_concurrency)
 
     # Reset rate limiter and circuit breaker state on config change
     controls.reset()
@@ -251,21 +268,25 @@ async def generate(req: GenerateRequest, request: Request):
     request_id = req.request_id or f"req-{int(time.time()*1000)}"
     start = time.time()
 
+    # Enforce concurrency limit
+    sem: asyncio.Semaphore = _app_state.get("concurrency_sem")
+
     try:
         max_tokens = min(
             req.max_new_tokens or controls.max_new_tokens,
             controls.max_new_tokens,
         )
 
-        result = await asyncio.wait_for(
-            engine.generate(
-                prompt=req.prompt,
-                max_new_tokens=max_tokens,
-                temperature=req.temperature,
-                seed=req.seed,
-            ),
-            timeout=controls.timeout_seconds,
-        )
+        async with sem:
+            result = await asyncio.wait_for(
+                engine.generate(
+                    prompt=req.prompt,
+                    max_new_tokens=max_tokens,
+                    temperature=req.temperature,
+                    seed=req.seed,
+                ),
+                timeout=controls.timeout_seconds,
+            )
 
         latency_ms = (time.time() - start) * 1000
         controls.record_success()

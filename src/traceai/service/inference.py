@@ -19,11 +19,13 @@ class InferenceEngine:
         model_dir: Optional[str] = None,
         device: str = "auto",
         max_new_tokens: int = 100,
+        revision: Optional[str] = None,
     ):
         self.model_id = model_id
         self.model_dir = model_dir
         self._device_config = device
         self.max_new_tokens = max_new_tokens
+        self.revision = revision
         self._model = None
         self._tokenizer = None
         self._device_resolved = None
@@ -58,17 +60,18 @@ class InferenceEngine:
 
         self._tokenizer = AutoTokenizer.from_pretrained(
             model_source,
+            revision=self.revision,
             padding_side="left",
         )
         if self._tokenizer.pad_token is None:
             self._tokenizer.pad_token = self._tokenizer.eos_token
 
+        dtype = torch.float32 if self._device_resolved == "cpu" else torch.float16
         self._model = AutoModelForCausalLM.from_pretrained(
             model_source,
-            torch_dtype=torch.float32 if self._device_resolved == "cpu" else torch.float16,
-        )
-        self._model.to(self._device_resolved)
-        self._model.eval()
+            revision=self.revision,
+            torch_dtype=dtype,
+        ).to(self._device_resolved).eval()
 
     async def generate(
         self,

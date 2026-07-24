@@ -123,6 +123,7 @@ class ControlsManager:
         max_concurrency: Optional[int] = None,
         queue_depth: Optional[int] = None,
         rate_limit_rpm: Optional[int] = None,
+        circuit_breaker_threshold: Optional[int] = None,
     ) -> dict[str, any]:
         """Update runtime configuration. Returns dict of changes."""
         changes = {}
@@ -141,6 +142,9 @@ class ControlsManager:
         if rate_limit_rpm is not None and rate_limit_rpm != self.rate_limit_rpm:
             changes["rate_limit_rpm"] = {"old": self.rate_limit_rpm, "new": rate_limit_rpm}
             self.rate_limit_rpm = rate_limit_rpm
+        if circuit_breaker_threshold is not None and circuit_breaker_threshold != self.circuit_breaker_threshold:
+            changes["circuit_breaker_threshold"] = {"old": self.circuit_breaker_threshold, "new": circuit_breaker_threshold}
+            self.circuit_breaker_threshold = circuit_breaker_threshold
 
         if changes:
             logger.info(f"Configuration updated: {list(changes.keys())}")

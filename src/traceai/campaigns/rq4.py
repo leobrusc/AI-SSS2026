@@ -29,18 +29,24 @@ logger = get_logger("campaigns.rq4")
 
 # Model for quick CPU tests (tiny, ~100K params, loads in seconds)
 SMOKE_MODEL = "sshleifer/tiny-gpt2"
+SMOKE_REVISION = "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be"
 # Full model for experimental/publication
 FULL_MODEL = "openai-community/gpt2"
+FULL_REVISION = "607a30d783dfa663caf39e06633721c8d4cfcd7e"
 
 CONFIGURATIONS = {
     "C0": {"max_new_tokens": 50, "timeout_seconds": 60, "max_concurrency": 8,
-            "queue_depth": 32, "rate_limit_rpm": 600, "circuit_breaker_enabled": False},
+            "queue_depth": 32, "rate_limit_rpm": 600, "circuit_breaker_threshold": 0,
+            "circuit_breaker_timeout": 30},
     "C1": {"max_new_tokens": 20, "timeout_seconds": 15, "max_concurrency": 8,
-            "queue_depth": 32, "rate_limit_rpm": 600, "circuit_breaker_enabled": False},
+            "queue_depth": 32, "rate_limit_rpm": 600, "circuit_breaker_threshold": 0,
+            "circuit_breaker_timeout": 30},
     "C2": {"max_new_tokens": 20, "timeout_seconds": 15, "max_concurrency": 2,
-            "queue_depth": 4, "rate_limit_rpm": 60, "circuit_breaker_enabled": False},
+            "queue_depth": 4, "rate_limit_rpm": 60, "circuit_breaker_threshold": 0,
+            "circuit_breaker_timeout": 30},
     "C3": {"max_new_tokens": 20, "timeout_seconds": 15, "max_concurrency": 2,
-            "queue_depth": 4, "rate_limit_rpm": 60, "circuit_breaker_enabled": True},
+            "queue_depth": 4, "rate_limit_rpm": 60, "circuit_breaker_threshold": 3,
+            "circuit_breaker_timeout": 5},
 }
 
 PROMPTS = [
@@ -50,6 +56,59 @@ PROMPTS = [
     "Once upon a time",
     "The capital of France is",
 ]
+
+
+def _get_gpu_metadata() -> dict:
+    """Get GPU metadata from NVML if available."""
+    try:
+        import pynvml
+        pynvml.nvmlInit()
+        handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+        name = pynvml.nvmlDeviceGetName(handle)
+        if isinstance(name, bytes):
+            name = name.decode("utf-8")
+        uuid_str = pynvml.nvmlDeviceGetUUID(handle)
+        if isinstance(uuid_str, bytes):
+            uuid_str = uuid_str.decode("utf-8")
+        mem_info = pynvml.nvmlDeviceGetMemoryInfo(handle)
+        driver = pynvml.nvmlSystemGetDriverVersion()
+        if isinstance(driver, bytes):
+            driver = driver.decode("utf-8")
+        pynvml.nvmlShutdown()
+        return {
+            "gpu_name": name,
+            "gpu_uuid": uuid_str,
+            "driver_version": driver,
+            "vram_total_mb": round(mem_info.total / (1024**2)),
+        }
+    except Exception:
+        return {"gpu": "NOT_APPLICABLE"}
+
+
+def _get_gpu_metrics_snapshot() -> tuple:
+    """Return (utilization_percent, memory_mb) or (None, None)."""
+    try:
+        import pynvml
+        pynvml.nvmlInit()
+        handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+        util = pynvml.nvmlDeviceGetUtilizationRates(handle)
+        mem = pynvml.nvmlDeviceGetMemoryInfo(handle)
+        pynvml.nvmlShutdown()
+        return util.gpu, round(mem.used / (1024**2))
+    except Exception:
+        return None, None
+
+
+def _apply_configuration(base_url: str, config_id: str, config: dict) -> dict:
+    """Apply configuration via PUT and verify with GET."""
+    put_resp = httpx.put(f"{base_url}/configuration", json=config, timeout=10)
+    if put_resp.status_code != 200:
+        raise RuntimeError(f"Failed to apply config {config_id}: {put_resp.text}")
+    # Verify
+    get_resp = httpx.get(f"{base_url}/configuration", timeout=10)
+    if get_resp.status_code != 200:
+        raise RuntimeError(f"Failed to read config after apply: {get_resp.text}")
+    return get_resp.json()
 
 
 def run_rq4_campaign(profile: str = "local", quick: bool = False,
@@ -68,19 +127,25 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
     raw_dir = result_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
 
-    # Determine model
-    model_id = SMOKE_MODEL if quick else FULL_MODEL
+    # Determine model and revision
+    if quick:
+        model_id = SMOKE_MODEL
+        model_revision = SMOKE_REVISION
+    else:
+        model_id = FULL_MODEL
+        model_revision = FULL_REVISION
 
     trials = 3 if quick else 30
     requests_per_trial = 20 if quick else 200
     warmup_requests = 3
 
     print(f"\n  RQ4 Campaign: {campaign_id}")
-    print(f"  Mode: {mode}, Model: {model_id}")
+    print(f"  Mode: {mode}, Profile: {profile}, Model: {model_id}")
+    print(f"  Revision: {model_revision}")
     print(f"  Trials: {trials}, Requests/trial: {requests_per_trial}")
 
     # Start service
-    service_proc, port = _start_service(root, model_id)
+    service_proc, port = _start_service(root, model_id, profile=profile, revision=model_revision)
     if service_proc is None:
         print("  [ERROR] Failed to start inference service")
         return 1
@@ -92,6 +157,16 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
 
         for config_id, config_params in CONFIGURATIONS.items():
             print(f"\n  Config {config_id}...")
+
+            # Apply configuration via PUT /configuration
+            try:
+                verified_config = _apply_configuration(base_url, config_id, config_params)
+                logger.info(f"Applied config {config_id}: {verified_config}")
+            except RuntimeError as e:
+                print(f"  [ERROR] {e}")
+                events.append({"event": "config_apply_failed", "config_id": config_id,
+                               "error": str(e), "time": time.time()})
+                continue
 
             for trial_idx in range(trials):
                 trial_id = f"{campaign_id}-{config_id}-t{trial_idx}"
@@ -105,7 +180,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
                     prompt = PROMPTS[req_idx % len(PROMPTS)]
                     obs = _send_measured_request(
                         base_url, trial_id, config_id, config_params,
-                        prompt, req_idx
+                        prompt, req_idx, profile=profile
                     )
                     all_observations.append(obs)
 
@@ -123,7 +198,8 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
 
     # Save results
     _save_rq4_results(all_observations, events, result_dir, campaign_id,
-                      profile, quick, mode, model_id, trials, requests_per_trial)
+                      profile, quick, mode, model_id, model_revision,
+                      trials, requests_per_trial)
 
     # Generate LaTeX
     gen_dir = root / "generated" / "rq4"
@@ -146,11 +222,16 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
     return 0
 
 
-def _start_service(root: Path, model_id: str, port: int = 8199) -> tuple:
+def _start_service(root: Path, model_id: str, port: int = 8199,
+                   profile: str = "local", revision: str = None) -> tuple:
     """Start the inference service as a subprocess."""
     env = os.environ.copy()
-    env["TRACEAI_PROFILE"] = "local"
+    env["TRACEAI_PROFILE"] = profile
     env["TRACEAI_MODEL_ID"] = model_id
+    if revision:
+        env["TRACEAI_MODEL_REVISION"] = revision
+    if profile == "gpu":
+        env.setdefault("TRACEAI_DEVICE", "cuda")
     env["PYTHONIOENCODING"] = "utf-8"
 
     python_exe = sys.executable
@@ -162,7 +243,7 @@ def _start_service(root: Path, model_id: str, port: int = 8199) -> tuple:
         "--log-level", "warning",
     ]
 
-    print(f"  Starting service (model={model_id}, port={port})...")
+    print(f"  Starting service (model={model_id}, port={port}, profile={profile})...")
     proc = subprocess.Popen(
         cmd, cwd=str(root), env=env,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -222,7 +303,8 @@ def _send_request(base_url: str, prompt: str, config: dict, timeout: float = 30)
 
 
 def _send_measured_request(base_url: str, trial_id: str, config_id: str,
-                           config: dict, prompt: str, req_idx: int) -> dict:
+                           config: dict, prompt: str, req_idx: int,
+                           profile: str = "local") -> dict:
     """Send a measured request and record all observations."""
     request_id = f"{trial_id}-r{req_idx}"
     max_tokens = config.get("max_new_tokens", 20)
@@ -274,6 +356,12 @@ def _send_measured_request(base_url: str, trial_id: str, config_id: str,
     mem = psutil.virtual_memory()
     proc_mem = proc.memory_info()
 
+    # GPU metrics (only when profile is gpu)
+    if profile == "gpu":
+        gpu_util, gpu_mem = _get_gpu_metrics_snapshot()
+    else:
+        gpu_util, gpu_mem = None, None
+
     return {
         "request_id": request_id,
         "trial_id": trial_id,
@@ -288,8 +376,8 @@ def _send_measured_request(base_url: str, trial_id: str, config_id: str,
         "cpu_percent": proc.cpu_percent(interval=None),
         "rss_mb": round(proc_mem.rss / (1024**2), 1),
         "host_ram_available_mb": round(mem.available / (1024**2), 1),
-        "gpu_utilization_percent": None,  # NOT_APPLICABLE on CPU
-        "gpu_memory_mb": None,  # NOT_APPLICABLE on CPU
+        "gpu_utilization_percent": gpu_util,
+        "gpu_memory_mb": gpu_mem,
     }
 
 
@@ -305,7 +393,8 @@ def _get_service_metrics(base_url: str) -> dict:
 
 
 def _save_rq4_results(observations, events, result_dir, campaign_id,
-                       profile, quick, mode, model_id, trials, req_per_trial):
+                       profile, quick, mode, model_id, model_revision,
+                       trials, req_per_trial):
     """Save all RQ4 results."""
     # Raw requests CSV
     csv_path = result_dir / "raw_requests.csv"
@@ -328,14 +417,24 @@ def _save_rq4_results(observations, events, result_dir, campaign_id,
         "profile": profile,
         "mode": mode,
         "model_id": model_id,
+        "model_revision": model_revision,
         "quick": quick,
         "trials": trials,
         "requests_per_trial": req_per_trial,
         "total_observations": len(observations),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "inference_type": "REAL_HTTP",
-        "gpu": "NOT_APPLICABLE",
     }
+
+    if profile == "gpu":
+        import torch
+        manifest.update(_get_gpu_metadata())
+        manifest["torch_version"] = torch.__version__
+        manifest["torch_cuda_runtime"] = torch.version.cuda
+        manifest["device"] = "cuda"
+    else:
+        manifest["gpu"] = "NOT_APPLICABLE"
+
     with open(result_dir / "campaign_manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
@@ -354,10 +453,18 @@ def _generate_rq4_outputs(observations, gen_dir, campaign_id, profile, mode):
         cid = o["configuration_id"]
         by_config.setdefault(cid, []).append(o)
 
+    # Determine table caption based on profile
+    if profile == "gpu":
+        caption = r"RQ4 GPU Inference Results"
+        label = r"tab:rq4-gpu"
+    else:
+        caption = r"RQ4 CPU Inference Results (Quick Diagnostic)"
+        label = r"tab:rq4-cpu-quick"
+
     lines = [
         r"\begin{table}[htbp]",
-        r"\caption{RQ4 CPU Inference Results (Quick Diagnostic)}",
-        r"\label{tab:rq4-cpu-quick}",
+        rf"\caption{{{caption}}}",
+        rf"\label{{{label}}}",
         r"\centering\small",
         r"\begin{tabular}{lrrrr}",
         r"\toprule",
@@ -375,18 +482,34 @@ def _generate_rq4_outputs(observations, gen_dir, campaign_id, profile, mode):
         )
 
     lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
-    (gen_dir / "results_cpu_quick_table.tex").write_text("\n".join(lines), encoding="utf-8")
+
+    if profile == "gpu":
+        tex_filename = "results_gpu_table.tex"
+    else:
+        tex_filename = "results_cpu_quick_table.tex"
+    (gen_dir / tex_filename).write_text("\n".join(lines), encoding="utf-8")
 
     # Summary
     total = len(observations)
     success = sum(1 for o in observations if o["status_code"] == 200)
     all_lat = np.array([o["latency_ms"] for o in observations if o["status_code"] == 200])
-    summary = [
-        f"% RQ4 CPU Quick Summary: {campaign_id}",
-        r"\paragraph{RQ4 Availability (CPU Diagnostic)}",
-        f"Real HTTP inference with {total} requests across 4 configurations. "
-        f"Success rate: {success/total:.3f}. "
-        f"Median latency: {np.percentile(all_lat, 50):.0f}ms. "
-        r"\textit{CPU-only diagnostic; GPU campaign pending.}",
-    ]
-    (gen_dir / "rq4_cpu_quick_summary.tex").write_text("\n".join(summary), encoding="utf-8")
+
+    if profile == "gpu":
+        summary = [
+            f"% RQ4 GPU Summary: {campaign_id}",
+            r"\paragraph{RQ4 Availability (GPU)}",
+            f"Real HTTP inference with {total} requests across 4 configurations. "
+            f"Success rate: {success/total:.3f}. "
+            f"Median latency: {np.percentile(all_lat, 50):.0f}ms. ",
+        ]
+        (gen_dir / "rq4_gpu_summary.tex").write_text("\n".join(summary), encoding="utf-8")
+    else:
+        summary = [
+            f"% RQ4 CPU Quick Summary: {campaign_id}",
+            r"\paragraph{RQ4 Availability (CPU Diagnostic)}",
+            f"Real HTTP inference with {total} requests across 4 configurations. "
+            f"Success rate: {success/total:.3f}. "
+            f"Median latency: {np.percentile(all_lat, 50):.0f}ms. "
+            r"\textit{CPU-only diagnostic; GPU campaign pending.}",
+        ]
+        (gen_dir / "rq4_cpu_quick_summary.tex").write_text("\n".join(summary), encoding="utf-8")

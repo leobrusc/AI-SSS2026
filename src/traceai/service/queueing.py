@@ -58,6 +58,12 @@ class RequestQueue:
                 "utilization": self._current_depth / self.max_depth if self.max_depth > 0 else 0,
             }
 
+    def set_max_depth(self, new_depth: int) -> None:
+        """Update max queue depth. Safe to call at runtime."""
+        with self._lock:
+            self.max_depth = new_depth
+            logger.info(f"Queue max_depth updated to {new_depth}")
+
     def reset(self) -> None:
         """Reset queue state."""
         with self._lock:
