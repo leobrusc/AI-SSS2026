@@ -38,21 +38,17 @@ models/
 # Cache
 .cache/
 
-# Results (raw data not tracked - keep .gitkeep files)
-results/
-!results/.gitkeep
-!results/raw/.gitkeep
-!results/normalized/.gitkeep
-!results/summary/.gitkeep
-!results/public/.gitkeep
+# Results (raw data not tracked - only results/public/ is committed)
+results/*
+!results/public/
 
 # Generated outputs (not tracked)
 generated/
 !generated/.gitkeep
 
-# Paper fragments (generated)
-paper/fragments/*.tex
-paper/fragments/*.pdf
+# Paper fragments (generated, not tracked)
+paper/fragments/
+!paper/fragments/.gitkeep
 
 # OS files
 Thumbs.db

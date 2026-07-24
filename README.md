@@ -120,20 +120,34 @@ deactivate
 
 ---
 
+## Current Evidence Status
+
+| Area | Status |
+|------|--------|
+| **RQ1–RQ3** | Real local-tool evidence completed; current public status is quick/local evidence. |
+| **RQ4** | CPU diagnostic completed; NVIDIA L4 GPU campaign pending. |
+| **Industrial profile** | Not executed — Harbor, K3s/Kubernetes, and Dependency-Track are not provisioned. |
+
+---
+
 ## Execution Profiles
 
-TraceAI supports three execution profiles that control infrastructure dependencies and experiment fidelity:
+TraceAI supports four execution profiles that control infrastructure dependencies and experiment fidelity:
 
 | Profile | Description | Infrastructure | Use Case |
 |---------|-------------|---------------|----------|
 | **`local`** | Fully self-contained on the developer machine. Uses file-system stubs for registry and vulnerability-tracker interactions. | None (Python + filesystem only) | Development, CI, replication review |
+| **`gpu`** | Real CUDA inference and NVML telemetry on a dedicated GPU node. | NVIDIA GPU configured in `config/profiles/gpu.yaml` | RQ4 GPU publication evidence |
 | **`container`** | Runs inference inside OCI containers with signed images. Requires Docker but no external services. | Docker Desktop | Container attestation experiments (RQ2) |
 | **`industrial`** | Connects to real Harbor registry, K3s cluster, and Dependency-Track instance. Requires pre-provisioned infrastructure. | Harbor, K3s, Dependency-Track, cosign | Full industrial validation (all RQs) |
+
+> **CPU fallback policy:** CPU fallback is permitted for local diagnostics and development.
+> CPU fallback is **forbidden** when collecting GPU publication evidence (`gpu` profile).
 
 Select a profile with the `-Profile` parameter:
 
 ```powershell
-.\tasks.ps1 <command> -Profile <local|container|industrial>
+.\tasks.ps1 <command> -Profile <local|container|industrial|gpu>
 ```
 
 ---
@@ -168,7 +182,7 @@ Runs the full experimental pipeline with a single trial per treatment for rapid 
 .\tasks.ps1 publication-artifacts -Profile local -Quick
 ```
 
-**Duration:** ~15 minutes | **Trials:** 1 | **Output:** Full results structure
+**Trials:** 1 | **Output:** Full results structure
 
 ### Full Campaign (30 Trials)
 
@@ -188,7 +202,32 @@ Runs the complete experimental design with 30 independent trials for statistical
 .\tasks.ps1 publication-artifacts -Profile local
 ```
 
-**Duration:** ~4 hours (CPU) / ~1.5 hours (GPU) | **Trials:** 30 | **Output:** Publication-ready artifacts
+**Trials:** 30 | **Output:** Publication-ready artifacts
+
+### GPU Campaign (RQ4 — NVIDIA L4)
+
+The GPU campaign produces publication-quality RQ4 evidence with real CUDA inference
+and NVML telemetry. It must be executed on a node with a GPU matching the profile
+in `config/profiles/gpu.yaml`.
+
+```bash
+# Quick validation (3 trials, ~5–15 min)
+python -m traceai rq4-campaign \
+  --profile gpu \
+  --quick \
+  --mode experimental
+```
+
+Only after all quick validation gates pass:
+
+```bash
+# Full publication campaign (30 trials)
+python -m traceai rq4-campaign \
+  --profile gpu \
+  --mode experimental
+```
+
+See [docs/GPU_CAMPAIGN_NVIDIA_L4.md](docs/GPU_CAMPAIGN_NVIDIA_L4.md) for the complete runbook.
 
 ---
 
@@ -253,15 +292,15 @@ python --version  # Should show Python 3.11.x or newer
 
 ---
 
-### Missing GPU (Optional)
+### Missing GPU (Optional for local profile)
 
 **Symptom:** `WARNING: No CUDA-capable GPU detected. Falling back to CPU.`
 
-**Impact:** Experiments will run on CPU. This is fully supported but slower (~3× for RQ4 latency campaigns).
+**Impact:** Local-profile experiments will run on CPU. This is supported for development and RQ1–RQ3 campaigns. CPU fallback is **not** permitted for the `gpu` profile (RQ4 publication evidence).
 
-**Fix:** This is informational only. GPU is optional. To enable GPU acceleration, install:
+**Fix:** This is informational for the local profile. To enable GPU acceleration, install:
 1. NVIDIA driver (latest Game Ready or Studio)
-2. CUDA Toolkit 12.1+
+2. CUDA Toolkit 12.x+
 3. PyTorch with CUDA support (select correct wheel from [pytorch.org](https://pytorch.org/get-started/locally/))
 
 ---

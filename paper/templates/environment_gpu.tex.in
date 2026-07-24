@@ -1,0 +1,33 @@
+% TraceAI — GPU Environment Template
+%
+% WARNING: This file is a template and is not experimental evidence.
+% The final fragment is generated only from captured GCP campaign metadata.
+%
+% Placeholders are filled by the campaign export script using values
+% recorded during actual GPU execution. Do not fill manually.
+%
+% Template location: paper/templates/environment_gpu.tex.in
+% Output location:   paper/fragments/environment_gpu.tex (ignored by Git)
+
+\paragraph{Execution Environment.}
+The GPU availability campaign (RQ4) is executed on a Google Cloud Platform
+node equipped with one @GPU_NAME@ GPU and approximately
+@GPU_VRAM_MIB@\,MiB of GDDR6 memory (UUID: \texttt{@GPU_UUID@}).
+The host operating system is @OS_VERSION@ with NVIDIA driver~@NVIDIA_DRIVER@.
+PyTorch~@PYTORCH_VERSION@ is installed with CUDA runtime~@PYTORCH_CUDA_RUNTIME@;
+the specific CUDA wheel is selected at deployment time based on driver
+compatibility rather than being hard-coded.
+
+\paragraph{Reproducibility Controls.}
+Model weights are pinned to immutable Hugging Face Hub revisions:
+\texttt{openai-community/gpt2} at commit
+\texttt{607a30d783dfa663caf39e06633721c8d4cfcd7e} (full model) and
+\texttt{sshleifer/tiny-gpt2} at commit
+\texttt{5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be} (quick validation).
+GPU name validation, VRAM thresholds, and safety limits are read from
+\texttt{config/profiles/gpu.yaml} at runtime rather than hard-coded
+in scripts.
+
+\paragraph{Provenance.}
+Campaign identifier: \texttt{@CAMPAIGN_ID@}.
+Source commit: \texttt{@SOURCE_COMMIT@}.
