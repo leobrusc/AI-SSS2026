@@ -1,0 +1,17 @@
+{
+  "links": [
+    {
+      "source": "urn:uuid:8cf19153-7ab1-4388-a3ad-bf5656209ea6",
+      "target": "urn:uuid:2559bc2a-fe36-40cb-9514-a8e4ffe6f567",
+      "type": "sbom-trivy",
+      "rel": "dependsOn"
+    },
+    {
+      "source": "urn:uuid:8cf19153-7ab1-4388-a3ad-bf5656209ea6",
+      "target": "urn:uuid:e9e82e27-c2e4-4e90-acfd-46649b3bfe34",
+      "type": "obom",
+      "rel": "describedBy"
+    }
+  ],
+  "count": 2
+}

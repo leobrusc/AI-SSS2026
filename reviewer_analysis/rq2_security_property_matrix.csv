@@ -1,0 +1,14 @@
+scenario,enforced,scope,finding
+CR-SIG,True,normal LocalVerifier,"Fixed mutation; ECDSA nonce is randomized by library, not deterministic."
+CR-META-artifact_identity,False,DeploymentGate,Artifact bytes and signed envelope unchanged; supplied attestation differs.
+CR-META-model_identifier,False,DeploymentGate,Artifact bytes and signed envelope unchanged; supplied attestation differs.
+CR-META-source_revision,False,DeploymentGate,Artifact bytes and signed envelope unchanged; supplied attestation differs.
+CR-META-security_metadata,False,DeploymentGate,Artifact bytes and signed envelope unchanged; supplied attestation differs.
+CR-REPLAY-EXPIRED,True,LocalVerifier,"Age uses unsigned envelope timestamp, not signed payload timestamp."
+CR-REPLAY-FRESH,False,LocalVerifier,REPLAY_RESISTANCE_NOT_ENFORCED; baseline verification already consumed identical envelope.
+CR-ROLLBACK,False,DeploymentGate,ROLLBACK_RESISTANCE_NOT_ENFORCED; no approved revision registry input exists.
+CR-ALLOWLIST-REMOVAL,True,LocalVerifier,"Nonempty residual allowlist; demonstrates allowlist removal, not CRL/OCSP."
+CR-EMPTY-ALLOWLIST,False,LocalVerifier,EMPTY_ALLOWLIST_DISABLES_AUTHORIZATION
+CR-COMPROMISED-AUTHORIZED-KEY,False,DeploymentGate,Possession of still-authorized key is outside protection.
+CR-KEYID-BINDING,False,LocalVerifier,KEYID_PUBLIC_KEY_BINDING_NOT_ENFORCED; assumes trusted public-key input.
+CR-UNSIGNED-TIMESTAMP-REFRESH,False,LocalVerifier,Freshness timestamp is outside signed payload.

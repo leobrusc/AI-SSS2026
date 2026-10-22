@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-22T14:31:23-03:00",
+  "trivy_version": "0.72.0",
+  "fixture_sha256": "c2aeabfbba170ded94b359771b7c49e0cbc06b8496fff6e798f483494a3e018a",
+  "probes": [
+    {
+      "command": "trivy fs --format cyclonedx fixtures/trivy_python_probe",
+      "components_found": 6,
+      "classification": "SUPPORTED_AND_DETECTED"
+    },
+    {
+      "command": "trivy fs --format json fixtures/trivy_python_probe",
+      "components_found": 5,
+      "classification": "SUPPORTED_BUT_ZERO_VULNERABILITIES"
+    },
+    {
+      "command": "trivy fs --file-patterns pip:requirements-exact.txt .",
+      "components_found": 23,
+      "classification": "SUPPORTED_AND_DETECTED"
+    }
+  ],
+  "corrected_classification": "SUPPORTED_INPUT_FORMAT_MISMATCH",
+  "root_cause": "requirements.txt uses >= specifiers; Trivy needs =="
+}

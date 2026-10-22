@@ -1,0 +1,60 @@
+{
+  "campaign_id": "cr-20261020T223734Z-ffdfff82",
+  "commit": "bb2d9e4b4703b8f59dcd6ef563df374fcbe79720",
+  "rq2_original": {
+    "scenario": "ALL",
+    "n": 240,
+    "TP": 210,
+    "TN": 30,
+    "FP": 0,
+    "FN": 0,
+    "TPR": 1.0,
+    "TPR_CP95": "[0.9825872917321363, 1.0]",
+    "TNR": 1.0,
+    "TNR_CP95": "[0.8842966917779722, 1.0]",
+    "FPR": 0.0,
+    "FPR_CP95": "[0.0, 0.11570330822202779]",
+    "FNR": 0.0,
+    "FNR_CP95": "[0.0, 0.01741270826786368]"
+  },
+  "extension_n": 42,
+  "extension_counts": {
+    "TP": 32,
+    "FN": 10
+  },
+  "property_agreements": 500,
+  "rq3": [
+    {
+      "basis": "raw_package_version_advisory",
+      "trivy": 54,
+      "grype": 35,
+      "intersection": 4,
+      "union": 85,
+      "trivy_only": 50,
+      "grype_only": 31,
+      "jaccard": 0.047058823529411764
+    },
+    {
+      "basis": "canonical_package_version_advisory",
+      "trivy": 54,
+      "grype": 35,
+      "intersection": 35,
+      "union": 54,
+      "trivy_only": 19,
+      "grype_only": 0,
+      "jaccard": 0.6481481481481481
+    },
+    {
+      "basis": "raw_advisory_only",
+      "trivy": 54,
+      "grype": 35,
+      "intersection": 4,
+      "union": 85,
+      "trivy_only": 50,
+      "grype_only": 31,
+      "jaccard": 0.047058823529411764
+    }
+  ],
+  "historical_files_unchanged": 356,
+  "main_tex_found": false
+}

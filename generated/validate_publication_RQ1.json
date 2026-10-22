@@ -1,0 +1,43 @@
+{
+  "research_question": "RQ1",
+  "profile": "local",
+  "timestamp": "2026-07-22T17:16:09.195598+00:00",
+  "ready": true,
+  "checks": [
+    {
+      "check": "git_tree_clean",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "check": "rq1_campaign_executed",
+      "pass": true,
+      "detail": "6 campaign(s) found"
+    },
+    {
+      "check": "ground_truth_graph_exists",
+      "pass": true,
+      "detail": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\results\\rq1\\rq1-20260722-140850-18433df2\\ground_truth_graph.json"
+    },
+    {
+      "check": "syft_sbom_generated",
+      "pass": true,
+      "detail": "Syft CycloneDX SBOM present"
+    },
+    {
+      "check": "trivy_sbom_generated",
+      "pass": true,
+      "detail": "Trivy CycloneDX SBOM present"
+    },
+    {
+      "check": "ml_bom_generated",
+      "pass": true,
+      "detail": "TraceAI ML-BOM present"
+    },
+    {
+      "check": "rq1_latex_table",
+      "pass": true,
+      "detail": "results_rq1_table.tex"
+    }
+  ]
+}

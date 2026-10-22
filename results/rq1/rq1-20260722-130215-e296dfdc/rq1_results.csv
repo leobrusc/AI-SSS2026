@@ -1,0 +1,15 @@
+metric,value
+ground_truth_nodes,28
+ground_truth_edges,28
+syft_component_count,106
+trivy_component_count,0
+traceai_component_count,8
+syft_trivy_jaccard,N/A
+syft_trivy_intersection,N/A
+traceai_gt_coverage,0.0714
+traceai_gt_matched,2
+schema_validation_failures,0
+duplicate_rate_syft,0.3457
+duplicate_rate_trivy,0
+duplicate_rate_traceai,0.0
+gpu_nodes_applicable,False

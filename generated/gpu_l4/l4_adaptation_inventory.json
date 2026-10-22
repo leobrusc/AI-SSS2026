@@ -1,0 +1,114 @@
+{
+  "generated": "2026-07-23T15:04:11-03:00",
+  "baseline_commit": "66284be51872445ce66544b3eb0a893cb4aca227",
+  "baseline_tag": "traceai-gpu-ready-v6",
+  "target_gpu": "NVIDIA L4",
+  "target_environment": "gcp-m4-insp-2",
+  "matches": [
+    {
+      "file": "config/profiles/gpu.yaml",
+      "line": 2,
+      "pattern": "RTX A5000",
+      "classification": "active_configuration",
+      "action": "update_to_nvidia_l4"
+    },
+    {
+      "file": "docs/GPU_CAMPAIGN_RTX_A5000.md",
+      "line": 1,
+      "pattern": "RTX A5000",
+      "classification": "documentation",
+      "action": "rename_and_update"
+    },
+    {
+      "file": "docs/GPU_CAMPAIGN_RTX_A5000.md",
+      "line": 5,
+      "pattern": "RTX A5000",
+      "classification": "documentation",
+      "action": "update_to_nvidia_l4"
+    },
+    {
+      "file": "docs/GPU_CAMPAIGN_RTX_A5000.md",
+      "line": 75,
+      "pattern": "RTX A5000",
+      "classification": "documentation",
+      "action": "update_to_nvidia_l4"
+    },
+    {
+      "file": "docs/GPU_CAMPAIGN_RTX_A5000.md",
+      "line": 173,
+      "pattern": "RTX A5000",
+      "classification": "documentation",
+      "action": "update_to_nvidia_l4"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 3,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "update_header"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 21,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "update_banner"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 203,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "use_profile_regex"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 207,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "use_profile_regex"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 208,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "use_profile_regex"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 278,
+      "pattern": "RTX A5000",
+      "classification": "active_validation",
+      "action": "use_profile_regex"
+    },
+    {
+      "file": "scripts/run_gpu_campaign.sh",
+      "line": 174,
+      "pattern": "cu124",
+      "classification": "active_validation",
+      "action": "remove_hardcoded_example"
+    }
+  ],
+  "no_matches": [
+    "expected_gpu",
+    "minimum_vram",
+    "cu121"
+  ],
+  "torch_index_url_references": {
+    "active_code": [
+      "scripts/run_gpu_campaign.sh:158",
+      "scripts/run_gpu_campaign.sh:160",
+      "scripts/run_gpu_campaign.sh:170",
+      "scripts/run_gpu_campaign.sh:174",
+      "scripts/run_gpu_campaign.sh:180",
+      "scripts/run_gpu_campaign.sh:181"
+    ],
+    "documentation": [
+      "docs/GPU_CAMPAIGN_RTX_A5000.md:54",
+      "docs/GPU_CAMPAIGN_RTX_A5000.md:55",
+      "docs/WINDOWS_SETUP.md:184",
+      "docs/WINDOWS_SETUP.md:295"
+    ]
+  }
+}

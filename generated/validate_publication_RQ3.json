@@ -1,0 +1,33 @@
+{
+  "research_question": "RQ3",
+  "profile": "local",
+  "timestamp": "2026-07-22T17:16:12.674031+00:00",
+  "ready": true,
+  "checks": [
+    {
+      "check": "git_tree_clean",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "check": "rq3_campaign_executed",
+      "pass": true,
+      "detail": "4 campaign(s)"
+    },
+    {
+      "check": "scanner_findings_exist",
+      "pass": true,
+      "detail": "Normalized scanner findings CSV"
+    },
+    {
+      "check": "vex_decisions_exist",
+      "pass": true,
+      "detail": "VEX scenario decisions CSV"
+    },
+    {
+      "check": "scanner_comparison_real",
+      "pass": true,
+      "detail": "Trivy=54, Grype=35"
+    }
+  ]
+}

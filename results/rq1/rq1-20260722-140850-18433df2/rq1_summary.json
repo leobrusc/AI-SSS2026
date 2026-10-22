@@ -1,0 +1,49 @@
+{
+  "campaign_id": "rq1-20260722-140850-18433df2",
+  "profile": "local",
+  "quick": false,
+  "timestamp": "2026-07-22T17:11:32.625705+00:00",
+  "metrics": {
+    "domain_coverage": {
+      "mlbom": {
+        "applicable": 6,
+        "matched": 1,
+        "coverage": 0.1667
+      },
+      "sbom": {
+        "applicable": 17,
+        "matched": 0,
+        "coverage": 0.0
+      },
+      "hbom": {
+        "applicable": 4,
+        "matched": 3,
+        "coverage": 0.75
+      },
+      "obom": {
+        "applicable": 3,
+        "matched": 1,
+        "coverage": 0.3333
+      }
+    },
+    "composite_coverage": 0.1724,
+    "composite_matched": 5,
+    "composite_applicable": 29,
+    "syft": {
+      "component_count": 0,
+      "status": "error: Command '['C:\\\\Users\\\\leolima\\\\Documents\\\\traceai-ladc2026\\\\.tools\\\\bin\\\\syft.exe', 'dir:C:\\\\Users\\\\leolima\\\\Documents\\\\traceai-ladc2026', '-o', 'cyclonedx-json=results\\\\rq1\\\\rq1-20260722-140850-18433df2\\\\syft.cdx.json']' timed out after 120 seconds"
+    },
+    "trivy": {
+      "component_count": 0,
+      "status": "TOOL_LIMITATION",
+      "limitation": "Trivy fs scan found 0 components. This occurs when Trivy does not detect a supported lockfile format in the project root. The project uses requirements.lock (pip freeze format) which may not be recognized by this Trivy version. This is a tool limitation, not evidence of absence."
+    },
+    "syft_trivy_jaccard": "N/A",
+    "schema_validation_failures": 0,
+    "duplicate_rate_syft": 0,
+    "duplicate_rate_traceai": 0.0,
+    "ground_truth_total": 31,
+    "ground_truth_applicable": 29,
+    "ground_truth_edges": 28
+  }
+}

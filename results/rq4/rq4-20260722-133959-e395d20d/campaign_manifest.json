@@ -1,0 +1,14 @@
+{
+  "campaign_id": "rq4-20260722-133959-e395d20d",
+  "campaign_type": "rq4-availability",
+  "profile": "local",
+  "mode": "experimental",
+  "model_id": "sshleifer/tiny-gpt2",
+  "quick": true,
+  "trials": 3,
+  "requests_per_trial": 20,
+  "total_observations": 240,
+  "timestamp": "2026-07-22T16:42:20.644143+00:00",
+  "inference_type": "REAL_HTTP",
+  "gpu": "NOT_APPLICABLE"
+}

@@ -1,0 +1,9 @@
+scenario_id,scenario_name,vulnerability_id,target_component,vex_status,component_linkage,signature_state,expiration_state,expected_decision,actual_decision,conformance_passed,reason_code,latency_ms
+V0,no_vex_baseline,CVE-2023-37920,comp-certifi,no_vex,N/A,N/A,N/A,VEX_MALFORMED,VEX_MALFORMED,True,No VEX document provided,0.0
+V1,valid_not_affected,CVE-2023-37920,comp-certifi,not_affected,correct,unsigned,valid,APPROVED,APPROVED,True,VEX document passes all policy checks,0.0
+V2,wrong_component_linkage,CVE-2023-37920,comp-certifi,not_affected,wrong,unsigned,valid,VEX_WRONG_COMPONENT,VEX_WRONG_COMPONENT,True,VEX linked to wrong component,0.0
+V3,unsigned_local_profile,CVE-2023-37920,comp-certifi,not_affected,correct,unsigned,valid,APPROVED,APPROVED,True,VEX document passes all policy checks,0.0
+V4,expired_vex_document,CVE-2023-37920,comp-certifi,not_affected,correct,unsigned,expired,VEX_EXPIRED,VEX_EXPIRED,True,VEX document has expired,0.0
+V5,under_investigation,CVE-2023-37920,comp-certifi,under_investigation,correct,unsigned,valid,APPROVED,APPROVED,True,VEX document passes all policy checks,0.0
+V6,affected_with_workaround,CVE-2023-37920,comp-certifi,affected,correct,unsigned,valid,APPROVED,APPROVED,True,VEX document passes all policy checks,0.0
+V7,fixed_version_inconsistent,CVE-2023-37920,comp-certifi,fixed,correct,unsigned,valid,APPROVED,APPROVED,True,VEX document passes all policy checks,0.0

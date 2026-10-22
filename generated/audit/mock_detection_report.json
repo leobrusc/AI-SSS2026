@@ -1,0 +1,20 @@
+{
+  "findings": [
+    {
+      "component": "availability_campaign",
+      "classification": "MOCK_ONLY",
+      "detail": "Availability campaign uses _simulate_request() which generates synthetic latency via random.gauss(). No actual HTTP calls to the inference service. Observations are NOT from real model inference."
+    },
+    {
+      "component": "vulnerability_scanning",
+      "classification": "NOT_IMPLEMENTED",
+      "detail": "Scanner integration code exists but tools are not installed. No actual scanner output has been produced. RQ3 evidence is missing."
+    },
+    {
+      "component": "publication_tables",
+      "classification": "UNVERIFIED",
+      "detail": "Tables are generated from analysis_results.json which is computed from raw campaign files. Availability data traces to synthetic observations (MOCK_ONLY). Security data traces to real policy evaluation (REAL_EVIDENCE)."
+    }
+  ],
+  "timestamp": "2026-07-22T16:01:12.270583+00:00"
+}

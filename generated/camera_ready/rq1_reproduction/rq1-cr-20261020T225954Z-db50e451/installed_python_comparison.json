@@ -1,0 +1,612 @@
+{
+  "universe_id": "installed_python_comparison",
+  "nodes": [
+    {
+      "id": "pkg:pypi/annotated-doc@0.0.4",
+      "name": "pkg:pypi/annotated-doc@0.0.4",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/annotated-types@0.7.0",
+      "name": "pkg:pypi/annotated-types@0.7.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/anyio@4.14.2",
+      "name": "pkg:pypi/anyio@4.14.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/ast-serialize@0.6.0",
+      "name": "pkg:pypi/ast-serialize@0.6.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/attrs@26.1.0",
+      "name": "pkg:pypi/attrs@26.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/autocommand@2.2.2",
+      "name": "pkg:pypi/autocommand@2.2.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/backports-tarfile@1.2.0",
+      "name": "pkg:pypi/backports-tarfile@1.2.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/build@1.5.0",
+      "name": "pkg:pypi/build@1.5.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/certifi@2026.7.22",
+      "name": "pkg:pypi/certifi@2026.7.22",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/cffi@2.1.0",
+      "name": "pkg:pypi/cffi@2.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/click@8.4.2",
+      "name": "pkg:pypi/click@8.4.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/colorama@0.4.6",
+      "name": "pkg:pypi/colorama@0.4.6",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/contourpy@1.3.3",
+      "name": "pkg:pypi/contourpy@1.3.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/coverage@7.15.2",
+      "name": "pkg:pypi/coverage@7.15.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/cryptography@49.0.0",
+      "name": "pkg:pypi/cryptography@49.0.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/cycler@0.12.1",
+      "name": "pkg:pypi/cycler@0.12.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/fastapi@0.139.2",
+      "name": "pkg:pypi/fastapi@0.139.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/filelock@3.29.0",
+      "name": "pkg:pypi/filelock@3.29.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/fonttools@4.63.0",
+      "name": "pkg:pypi/fonttools@4.63.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/fsspec@2026.4.0",
+      "name": "pkg:pypi/fsspec@2026.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/h11@0.16.0",
+      "name": "pkg:pypi/h11@0.16.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/hf-xet@1.5.2",
+      "name": "pkg:pypi/hf-xet@1.5.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/httpcore@1.0.9",
+      "name": "pkg:pypi/httpcore@1.0.9",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/httptools@0.8.0",
+      "name": "pkg:pypi/httptools@0.8.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/httpx@0.28.1",
+      "name": "pkg:pypi/httpx@0.28.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/huggingface-hub@1.24.0",
+      "name": "pkg:pypi/huggingface-hub@1.24.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/hypothesis@6.160.0",
+      "name": "pkg:pypi/hypothesis@6.160.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/idna@3.18",
+      "name": "pkg:pypi/idna@3.18",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/importlib-metadata@8.7.1",
+      "name": "pkg:pypi/importlib-metadata@8.7.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/iniconfig@2.3.0",
+      "name": "pkg:pypi/iniconfig@2.3.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jaraco-context@6.1.0",
+      "name": "pkg:pypi/jaraco-context@6.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jaraco-functools@4.4.0",
+      "name": "pkg:pypi/jaraco-functools@4.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jaraco-text@4.0.0",
+      "name": "pkg:pypi/jaraco-text@4.0.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jinja2@3.1.6",
+      "name": "pkg:pypi/jinja2@3.1.6",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jsonschema-specifications@2025.9.1",
+      "name": "pkg:pypi/jsonschema-specifications@2025.9.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/jsonschema@4.26.0",
+      "name": "pkg:pypi/jsonschema@4.26.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/kiwisolver@1.5.0",
+      "name": "pkg:pypi/kiwisolver@1.5.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/librt@0.13.0",
+      "name": "pkg:pypi/librt@0.13.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/markdown-it-py@4.2.0",
+      "name": "pkg:pypi/markdown-it-py@4.2.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/markupsafe@3.0.3",
+      "name": "pkg:pypi/markupsafe@3.0.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/matplotlib@3.11.1",
+      "name": "pkg:pypi/matplotlib@3.11.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/mdurl@0.1.2",
+      "name": "pkg:pypi/mdurl@0.1.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/more-itertools@10.8.0",
+      "name": "pkg:pypi/more-itertools@10.8.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/mpmath@1.3.0",
+      "name": "pkg:pypi/mpmath@1.3.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/mypy-extensions@1.1.0",
+      "name": "pkg:pypi/mypy-extensions@1.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/mypy@2.3.0",
+      "name": "pkg:pypi/mypy@2.3.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/networkx@3.6.1",
+      "name": "pkg:pypi/networkx@3.6.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/numpy@2.4.4",
+      "name": "pkg:pypi/numpy@2.4.4",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/packaging@26.0",
+      "name": "pkg:pypi/packaging@26.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/packaging@26.2",
+      "name": "pkg:pypi/packaging@26.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pandas@3.0.3",
+      "name": "pkg:pypi/pandas@3.0.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pathspec@1.1.1",
+      "name": "pkg:pypi/pathspec@1.1.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pillow@12.2.0",
+      "name": "pkg:pypi/pillow@12.2.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pip-tools@7.6.0",
+      "name": "pkg:pypi/pip-tools@7.6.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pip@26.1.2",
+      "name": "pkg:pypi/pip@26.1.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/platformdirs@4.4.0",
+      "name": "pkg:pypi/platformdirs@4.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pluggy@1.6.0",
+      "name": "pkg:pypi/pluggy@1.6.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/psutil@7.2.2",
+      "name": "pkg:pypi/psutil@7.2.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pycparser@3.0",
+      "name": "pkg:pypi/pycparser@3.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pydantic-core@2.46.4",
+      "name": "pkg:pypi/pydantic-core@2.46.4",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pydantic-settings@2.14.2",
+      "name": "pkg:pypi/pydantic-settings@2.14.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pydantic@2.13.4",
+      "name": "pkg:pypi/pydantic@2.13.4",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pygments@2.20.0",
+      "name": "pkg:pypi/pygments@2.20.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pyparsing@3.3.2",
+      "name": "pkg:pypi/pyparsing@3.3.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pyproject-hooks@1.2.0",
+      "name": "pkg:pypi/pyproject-hooks@1.2.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pytest-asyncio@1.4.0",
+      "name": "pkg:pypi/pytest-asyncio@1.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pytest-cov@7.1.0",
+      "name": "pkg:pypi/pytest-cov@7.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pytest@9.1.1",
+      "name": "pkg:pypi/pytest@9.1.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/python-dateutil@2.9.0.post0",
+      "name": "pkg:pypi/python-dateutil@2.9.0.post0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/python-dotenv@1.2.2",
+      "name": "pkg:pypi/python-dotenv@1.2.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/pyyaml@6.0.3",
+      "name": "pkg:pypi/pyyaml@6.0.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/referencing@0.37.0",
+      "name": "pkg:pypi/referencing@0.37.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/regex@2026.7.19",
+      "name": "pkg:pypi/regex@2026.7.19",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/rich@15.0.0",
+      "name": "pkg:pypi/rich@15.0.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/rpds-py@2026.6.3",
+      "name": "pkg:pypi/rpds-py@2026.6.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/ruff@0.15.22",
+      "name": "pkg:pypi/ruff@0.15.22",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/safetensors@0.8.0",
+      "name": "pkg:pypi/safetensors@0.8.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/scipy@1.17.1",
+      "name": "pkg:pypi/scipy@1.17.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/setuptools@83.0.0",
+      "name": "pkg:pypi/setuptools@83.0.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/shellingham@1.5.4",
+      "name": "pkg:pypi/shellingham@1.5.4",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/six@1.17.0",
+      "name": "pkg:pypi/six@1.17.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/sortedcontainers@2.4.0",
+      "name": "pkg:pypi/sortedcontainers@2.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/starlette@1.3.1",
+      "name": "pkg:pypi/starlette@1.3.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/sympy@1.14.0",
+      "name": "pkg:pypi/sympy@1.14.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/tokenizers@0.22.2",
+      "name": "pkg:pypi/tokenizers@0.22.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/tomli@2.4.0",
+      "name": "pkg:pypi/tomli@2.4.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/torch@2.13.0%2Bcpu",
+      "name": "pkg:pypi/torch@2.13.0%2Bcpu",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/torchvision@0.28.0%2Bcpu",
+      "name": "pkg:pypi/torchvision@0.28.0%2Bcpu",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/tqdm@4.69.0",
+      "name": "pkg:pypi/tqdm@4.69.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/traceai@0.1.0",
+      "name": "pkg:pypi/traceai@0.1.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/transformers@5.14.1",
+      "name": "pkg:pypi/transformers@5.14.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/typer@0.27.0",
+      "name": "pkg:pypi/typer@0.27.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/typing-extensions@4.15.0",
+      "name": "pkg:pypi/typing-extensions@4.15.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/typing-inspection@0.4.2",
+      "name": "pkg:pypi/typing-inspection@0.4.2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/tzdata@2026.3",
+      "name": "pkg:pypi/tzdata@2026.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/uvicorn@0.51.0",
+      "name": "pkg:pypi/uvicorn@0.51.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/watchfiles@1.2.0",
+      "name": "pkg:pypi/watchfiles@1.2.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/websockets@16.1.1",
+      "name": "pkg:pypi/websockets@16.1.1",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/wheel@0.46.3",
+      "name": "pkg:pypi/wheel@0.46.3",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/wheel@0.47.0",
+      "name": "pkg:pypi/wheel@0.47.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pkg:pypi/zipp@3.23.0",
+      "name": "pkg:pypi/zipp@3.23.0",
+      "version": "",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "notes": "101 distinct PyPI name/version PURLs; scanner-observed subset, not independently complete environment inventory"
+}

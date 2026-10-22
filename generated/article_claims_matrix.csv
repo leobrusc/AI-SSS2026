@@ -1,0 +1,10 @@
+claim,rq,required_evidence,current_evidence,status,artifact_path
+BOM representation coverage of ground-truth graph,RQ1,Ground-truth graph + Syft/Trivy/TraceAI BOMs + coverage metrics,6 RQ1 campaign(s) with scanner output,SUPPORTED_QUICK_ONLY,C:\Users\leolima\Documents\traceai-ladc2026\results\rq1\rq1-20260722-140850-18433df2
+Cryptographic tamper detection across supply-chain scenarios,RQ2,Real SHA-256 + ECDSA signing + policy evaluation on fixtures,4 security campaign(s) with real crypto,SUPPORTED_QUICK_ONLY,C:\Users\leolima\Documents\traceai-ladc2026\results\raw\security-20260722-140421-f4aee0f2
+Scanner agreement and VEX triage effectiveness,RQ3,Real Trivy/Grype scan output + VEX policy evaluation,4 RQ3 campaign(s),SUPPORTED_QUICK_ONLY,C:\Users\leolima\Documents\traceai-ladc2026\results\rq3\rq3-20260722-140819-082e9531
+Runtime overhead and drift detection,RQ4,Real model inference + measured latency + observed telemetry,Availability campaign uses SIMULATED inference (MOCK_ONLY),UNSUPPORTED,N/A — requires real inference implementation
+GPU utilization and memory metrics,RQ4,Real GPU telemetry from NVML/pynvml during inference,No GPU,BLOCKED_GPU,N/A
+Harbor OCI storage and signature distribution,RQ2,Harbor registry + pushed/signed images,Harbor not configured,BLOCKED_EXTERNAL_INFRASTRUCTURE,N/A
+Dependency-Track BOM/VEX ingestion and processing,RQ3,DT API upload + response metadata,Dependency-Track not configured,BLOCKED_EXTERNAL_INFRASTRUCTURE,N/A
+Kubernetes/OBOM runtime observation,RQ4,K3s deployment + runtime snapshot from live cluster,Kubernetes not configured,BLOCKED_EXTERNAL_INFRASTRUCTURE,N/A
+Industrial deployment end-to-end pipeline,ALL,Industrial profile execution with all external services,Industrial profile not executed,BLOCKED_EXTERNAL_INFRASTRUCTURE,N/A

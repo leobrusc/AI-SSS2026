@@ -38,6 +38,23 @@ models/
 
 # Cache
 .cache/
+.uv-cache/
+.hf-cache/
+*.zip
+_l4_bundle_stage/
+gpu_bundle_build/
+requirements-local-freeze.txt
+source_commit.txt
+source_status.txt
+traceai_l4_gpu_bundle.tar.gz.sha256
+build_linux_l4_bundle.ps1
+reviewer_analysis/evidence_paths_to_stage.txt
+reviewer_analysis/a100_remote_ssh_preflight.txt
+reviewer_analysis/A100_REMOTE_RESUME_STATUS.md
+reviewer_analysis/A100_AUDIT_STOP.md
+reviewer_analysis/a100_preflight_observations.json
+reviewer_analysis/a100_nvidia_smi_raw.txt
+reviewer_analysis/current_repository_state.md
 
 # Results (raw data not tracked - only results/public/ is committed)
 results/*

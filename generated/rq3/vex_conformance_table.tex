@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\caption{VEX Policy Conformance Tests (RQ3)}
+\label{tab:vex-conformance}
+\centering\small
+\begin{tabular}{llllc}
+\toprule
+\textbf{ID} & \textbf{Scenario} & \textbf{Expected} & \textbf{Actual} & \textbf{Pass} \\
+\midrule
+  V0 & no\_vex\_baseline & VEX\_MALFORMED & VEX\_MALFORMED & \checkmark \\
+  V1 & valid\_not\_affected & APPROVED & APPROVED & \checkmark \\
+  V2 & wrong\_component\_linkage & VEX\_WRONG\_COMPONENT & VEX\_WRONG\_COMPONENT & \checkmark \\
+  V3 & unsigned\_local\_profile & APPROVED & APPROVED & \checkmark \\
+  V4 & expired\_vex\_document & VEX\_EXPIRED & VEX\_EXPIRED & \checkmark \\
+  V5 & under\_investigation & APPROVED & APPROVED & \checkmark \\
+  V6 & affected\_with\_workaround & APPROVED & APPROVED & \checkmark \\
+  V7 & fixed\_version\_inconsistent & APPROVED & APPROVED & \checkmark \\
+\midrule
+  \multicolumn{4}{l}{\textbf{Policy conformance: 8/8 rules passed}} & \\
+\bottomrule
+\end{tabular}
+\end{table}

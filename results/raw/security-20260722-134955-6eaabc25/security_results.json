@@ -1,0 +1,422 @@
+[
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S0-t0",
+    "scenario_id": "S0",
+    "scenario_name": "approved_deployment",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:55.668911+00:00",
+    "seed": 42,
+    "decision": "APPROVED",
+    "reason_code": "All policy checks passed",
+    "detection_latency_ms": 84.04302597045898,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S1-t0",
+    "scenario_id": "S1",
+    "scenario_name": "model_weight_tampering",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:55.749031+00:00",
+    "seed": 42,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 72.60346412658691,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239",
+      "tampered": "f33946813993721813b9042d4db3ca45dd5a617d53e538822e48336116c6d3bb"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S2-t0",
+    "scenario_id": "S2",
+    "scenario_name": "tokenizer_substitution",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:55.836086+00:00",
+    "seed": 42,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 76.5542984008789,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "f29a9241f3b11895eb8af138b806c3fb2588b59091a2c4c4340730056f4d77e8",
+      "tampered": "4c40c53cb47ef4611025663227cbcb4cd9ac39a32c10660360316fee51bae298"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S3-t0",
+    "scenario_id": "S3",
+    "scenario_name": "dataset_manifest_alteration",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:55.924527+00:00",
+    "seed": 42,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 69.48661804199219,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "b0a6dc2df9e931a059f9556daf68bb8a7e9247715cbf152072358c9700c020ee",
+      "tampered": "b1c46b1b0483efcdb5ff905f0d7b80bda07a0ae02e91f657750d5bf9a93e2422"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9a-t0",
+    "scenario_id": "S9a",
+    "scenario_name": "invalid_signature",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:55.960360+00:00",
+    "seed": 42,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 21.52419090270996,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "d4d80df88a12fb45be47cab5d345363df7263999279ec2ef9b052f69747ae3a4"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9b-t0",
+    "scenario_id": "S9b",
+    "scenario_name": "unauthorized_signer",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.001837+00:00",
+    "seed": 42,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 29.726028442382812,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "a0775a6af98d4c88695f1e6d98b61b1af3a2a70a9bc59829e0d2a35939812b13"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9c-t0",
+    "scenario_id": "S9c",
+    "scenario_name": "missing_model_digest_attestation",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.038264+00:00",
+    "seed": 42,
+    "decision": "MISSING_ATTESTATION",
+    "reason_code": "Policy check failed: attestation_valid",
+    "detection_latency_ms": 10.862350463867188,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "3a8de7e47930913e3f2e3f77f7588d74bed64c8be28b8dcda07bd42a44a7629b"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9d-t0",
+    "scenario_id": "S9d",
+    "scenario_name": "substituted_external_model",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.078413+00:00",
+    "seed": 42,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 26.81589126586914,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "c3c05178d626b6b59e07efd853dfd72f0638cc62f8ca2b25d841f0c0d188dc18",
+      "substituted": "cbef794300b118098bb1ef4e930c09e623f645531e9568869b4ae8902f8db6d1"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S0-t1",
+    "scenario_id": "S0",
+    "scenario_name": "approved_deployment",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.115505+00:00",
+    "seed": 43,
+    "decision": "APPROVED",
+    "reason_code": "All policy checks passed",
+    "detection_latency_ms": 24.962902069091797,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S1-t1",
+    "scenario_id": "S1",
+    "scenario_name": "model_weight_tampering",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.194978+00:00",
+    "seed": 43,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 72.01838493347168,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239",
+      "tampered": "e581fe23cb375e630aa018ce9625c9b3015b140ca4388459c10dbc4ef442b151"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S2-t1",
+    "scenario_id": "S2",
+    "scenario_name": "tokenizer_substitution",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.289002+00:00",
+    "seed": 43,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 73.37665557861328,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "f29a9241f3b11895eb8af138b806c3fb2588b59091a2c4c4340730056f4d77e8",
+      "tampered": "3c4eaf84d371a3c29ae30be8adbea8b51849ff9bb9d11f1d6af7af1e6f8928c6"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S3-t1",
+    "scenario_id": "S3",
+    "scenario_name": "dataset_manifest_alteration",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.372011+00:00",
+    "seed": 43,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 66.4067268371582,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "b0a6dc2df9e931a059f9556daf68bb8a7e9247715cbf152072358c9700c020ee",
+      "tampered": "b1c46b1b0483efcdb5ff905f0d7b80bda07a0ae02e91f657750d5bf9a93e2422"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9a-t1",
+    "scenario_id": "S9a",
+    "scenario_name": "invalid_signature",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.411492+00:00",
+    "seed": 43,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 13.273000717163086,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "f9632253ed774b05ba96d9054ba680f9089a6d59269615b9c45f2c689256ae48"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9b-t1",
+    "scenario_id": "S9b",
+    "scenario_name": "unauthorized_signer",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.454648+00:00",
+    "seed": 43,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 31.740665435791016,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "94b63245aa840654783ff13ea4c50b13176e2ddce40d99bac880e50f5965bbe5"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9c-t1",
+    "scenario_id": "S9c",
+    "scenario_name": "missing_model_digest_attestation",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.488855+00:00",
+    "seed": 43,
+    "decision": "MISSING_ATTESTATION",
+    "reason_code": "Policy check failed: attestation_valid",
+    "detection_latency_ms": 15.068769454956055,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "c8f663a4c643ae715f340b5dc9fc0e3f7a1aee93aca4d8de5c2cfa863a0ebd30"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9d-t1",
+    "scenario_id": "S9d",
+    "scenario_name": "substituted_external_model",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.524670+00:00",
+    "seed": 43,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 25.79641342163086,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "7b1ef7a2bab475f5d3e40401e21b0076d8f40593cb96bd723e00025b1ba23504",
+      "substituted": "cc329dd085ca62728f8894476c3f782e9efd4b35e122d3be3599c09c79816a07"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S0-t2",
+    "scenario_id": "S0",
+    "scenario_name": "approved_deployment",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.561738+00:00",
+    "seed": 44,
+    "decision": "APPROVED",
+    "reason_code": "All policy checks passed",
+    "detection_latency_ms": 19.692659378051758,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S1-t2",
+    "scenario_id": "S1",
+    "scenario_name": "model_weight_tampering",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.633441+00:00",
+    "seed": 44,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 61.7368221282959,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "7c1af5374fe32114a566f437c69186f8e1370a8bdc5b343e2a71b6e974701239",
+      "tampered": "8b195202d070a6970c99cf33eb5d93232d9f4e4a28e86729a8f162db34be45a4"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S2-t2",
+    "scenario_id": "S2",
+    "scenario_name": "tokenizer_substitution",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.711569+00:00",
+    "seed": 44,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 72.72148132324219,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "f29a9241f3b11895eb8af138b806c3fb2588b59091a2c4c4340730056f4d77e8",
+      "tampered": "2277571bda5f36f4247566be1a2ed4170d8d5a43bd8f0c8f2eb7cb9732ca5e7d"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S3-t2",
+    "scenario_id": "S3",
+    "scenario_name": "dataset_manifest_alteration",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.804916+00:00",
+    "seed": 44,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 76.64012908935547,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "b0a6dc2df9e931a059f9556daf68bb8a7e9247715cbf152072358c9700c020ee",
+      "tampered": "b1c46b1b0483efcdb5ff905f0d7b80bda07a0ae02e91f657750d5bf9a93e2422"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9a-t2",
+    "scenario_id": "S9a",
+    "scenario_name": "invalid_signature",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.841749+00:00",
+    "seed": 44,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 20.04861831665039,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "80e77f551cee684870984af8f80d50debbcf3a875d2721f9d25781642c5fd2bf"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9b-t2",
+    "scenario_id": "S9b",
+    "scenario_name": "unauthorized_signer",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.874995+00:00",
+    "seed": 44,
+    "decision": "UNAUTHORIZED_SIGNER",
+    "reason_code": "Policy check failed: signer_authorized",
+    "detection_latency_ms": 22.61066436767578,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "88634bee7148b9824c2706c5264eed43ad816d8dce60caba6f14e16187eca8c1"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9c-t2",
+    "scenario_id": "S9c",
+    "scenario_name": "missing_model_digest_attestation",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.921676+00:00",
+    "seed": 44,
+    "decision": "MISSING_ATTESTATION",
+    "reason_code": "Policy check failed: attestation_valid",
+    "detection_latency_ms": 22.37987518310547,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "model": "8433e4295b4220cce3b20531c61ce8e27584d4be63df1c721a98b4cd892acb22"
+    },
+    "restoration_verified": true
+  },
+  {
+    "trial_id": "security-20260722-134955-6eaabc25-S9d-t2",
+    "scenario_id": "S9d",
+    "scenario_name": "substituted_external_model",
+    "profile": "local",
+    "timestamp": "2026-07-22T16:49:56.966367+00:00",
+    "seed": 44,
+    "decision": "DIGEST_MISMATCH",
+    "reason_code": "Policy check failed: digest_match",
+    "detection_latency_ms": 34.16872024536133,
+    "false_positive": false,
+    "false_negative": false,
+    "input_hashes": {
+      "original": "01d3a649fc95bd25f0743ef1dd30db3f12099decbcbbb34a26b79295a8285ba4",
+      "substituted": "492dd915702f63bdb26e6d6fe932e4e15e8310d22523687a1a0fcce67077cc66"
+    },
+    "restoration_verified": true
+  }
+]

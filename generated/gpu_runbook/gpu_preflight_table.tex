@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\caption{GPU Preflight Validation Results}
+\label{tab:gpu-preflight}
+\centering\small
+\begin{tabular}{llp{6cm}}
+\toprule
+\textbf{Check} & \textbf{Status} & \textbf{Details} \\
+\midrule
+  torch\_installed & \checkmark & PyTorch 2.13.0+cpu installed \\
+  nvidia\_driver & \texttimes & nvidia-smi not found in PATH \\
+  cuda\_available & \texttimes & CUDA not available (torch.cuda.is\_available() = False) \\
+  gpu\_name\_matches & \checkmark & N/A (CPU mode, profile expects: NVIDIA L4) \\
+  cuda\_torch\_compat & \checkmark & N/A (CPU mode — no compatibility issue) \\
+  vram\_sufficient & \checkmark & N/A (CPU mode) \\
+  nvml\_available & \texttimes & pynvml not installed (install with: pip install pynvml) \\
+  no\_competing\_gpu\_processes & \checkmark & nvidia-smi not available (skipped on this platform) \\
+  device\_config & \checkmark & TRACEAI\_DEVICE='auto' (valid) \\
+  model\_loadable & \checkmark & Model config loaded: sshleifer/tiny-gpt2 (gpt2) \\
+\midrule
+  \textbf{Recommended} & \multicolumn{2}{l}{\texttt{cpu}} \\
+\bottomrule
+\end{tabular}
+\end{table}

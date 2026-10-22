@@ -1,0 +1,22 @@
+{
+  "envelope": {
+    "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYnVpbGRUeXBlIjoiaHR0cHM6Ly90cmFjZWFpLmRldi9idWlsZC92MSIsImJ1aWxkZXIiOnsiaWQiOiJ0cmFjZWFpLWxvY2FsIn0sIm1hdGVyaWFscyI6W10sIm1ldGFkYXRhIjp7ImJ1aWxkU3RhcnRlZE9uIjoiMjAyNi0xMC0yMFQyMjozNzoyNC42Nzg5NjErMDA6MDAiLCJjb21wbGV0ZW5lc3MiOnsiZW52aXJvbm1lbnQiOnRydWUsIm1hdGVyaWFscyI6dHJ1ZSwicGFyYW1ldGVycyI6dHJ1ZX19LCJ0cmFjZWFpIjp7ImJvbV9kaWdlc3QiOiIiLCJtb2RlbF9kaWdlc3QiOiJmZGJiZDQ2YjE0NjM4MTkzMDQ1ZThiYWI2NWRiOWZjY2Q1ZmZmNmMyOGNhY2JiOWRjZGNlZDEyOWJjMDQ1ZTRlIiwicG9saWN5X3ZlcnNpb24iOiIiLCJzYm9tX2RpZ2VzdCI6IiIsInNvdXJjZV9yZXZpc2lvbiI6Im9sZCIsInRva2VuaXplcl9kaWdlc3QiOiIifX0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL3RyYWNlYWkuZGV2L2F0dGVzdGF0aW9uL3YxIiwic3ViamVjdCI6W3siZGlnZXN0Ijp7InNoYTI1NiI6ImZkYmJkNDZiMTQ2MzgxOTMwNDVlOGJhYjY1ZGI5ZmNjZDVmZmY2YzI4Y2FjYmI5ZGNkY2VkMTI5YmMwNDVlNGUifSwibmFtZSI6Im1vZGVsIn1dfQ==",
+    "payloadType": "application/json",
+    "signatures": [
+      {
+        "sig": "3046022100c3c59181326c95dfab179192a9c8334bfa0a33c5aa4b23adf18ae4ce6da891fd02210083377bb88bf1a2fd88f9b5ac269c0b5733e1bda51a08a4eb49494244691fc1a5",
+        "keyid": "dfbe12e2d2664cbf6a3c217d455c7290",
+        "signer_id": "traceai-local-test",
+        "timestamp": "2026-10-20T22:37:24.767358+00:00"
+      }
+    ]
+  },
+  "result": {
+    "decision": "INVALID_SIGNATURE",
+    "reason": "Cryptographic signature verification failed",
+    "approved": false,
+    "latency_ms": 0.9915828704833984,
+    "details": {}
+  },
+  "verify_calls": 1
+}

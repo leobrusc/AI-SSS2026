@@ -1,8 +1,9 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+* text=auto eol=lf
 
 # Force LF for scripts and source
 *.py text eol=lf
+*.sh text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
 *.json text eol=lf
@@ -10,13 +11,15 @@
 *.txt text eol=lf
 *.in text eol=lf
 *.toml text eol=lf
+uv.lock text eol=lf
+.python-version text eol=lf
 *.cfg text eol=lf
 *.ini text eol=lf
 
-# Force CRLF for Windows scripts
-*.ps1 text eol=crlf
-*.bat text eol=crlf
-*.cmd text eol=crlf
+# Deterministic source archives; PowerShell also accepts LF.
+*.ps1 text eol=lf
+*.bat text eol=lf
+*.cmd text eol=lf
 
 # Binary files
 *.pdf binary
@@ -30,3 +33,11 @@
 requirements.lock merge=ours
 tools.lock.json merge=ours
 model.lock.json merge=ours
+
+# Preserve audited scientific bytes, including original CRLF, in source archives.
+results/** -text !eol
+generated/** -text !eol
+reviewer_analysis/** -text !eol
+config/** -text !eol
+fixtures/** -text !eol
+manifests/** -text !eol

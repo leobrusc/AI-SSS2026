@@ -1,0 +1,104 @@
+[
+  {
+    "asset_id": "python-package:torch",
+    "distribution_name": "torch",
+    "version": "2.13.0+cpu",
+    "METADATA_SHA256": "41e4ceaab6bf5c7bf11fbfb4f56717ca8da32a5b7add513d20e53e698f296a27"
+  },
+  {
+    "asset_id": "python-package:transformers",
+    "distribution_name": "transformers",
+    "version": "5.14.1",
+    "METADATA_SHA256": "be47444bbcf63c6813decf9509d4076972f261699bbddd8c0fdf53fb73b09307"
+  },
+  {
+    "asset_id": "python-package:tokenizers",
+    "distribution_name": "tokenizers",
+    "version": "0.22.2",
+    "METADATA_SHA256": "15a5ddaf489f592b77e0a934c0eeb46b51130a94064ca129232afdb0a3868efc"
+  },
+  {
+    "asset_id": "python-package:fastapi",
+    "distribution_name": "fastapi",
+    "version": "0.139.2",
+    "METADATA_SHA256": "c86d24b58212c20d55d906fbbb537b2d2e63320eb22969257cebc596ee56a35e"
+  },
+  {
+    "asset_id": "python-package:uvicorn",
+    "distribution_name": "uvicorn",
+    "version": "0.51.0",
+    "METADATA_SHA256": "07c70790c0cde6812f89168f7aa7c185800a690f7e657dfb5603848c1375017e"
+  },
+  {
+    "asset_id": "python-package:pydantic",
+    "distribution_name": "pydantic",
+    "version": "2.13.4",
+    "METADATA_SHA256": "d1e56c3412492512fb6b59a9dfc25ab7af2a8204585cd7bca000513023133394"
+  },
+  {
+    "asset_id": "python-package:pydantic-settings",
+    "distribution_name": "pydantic-settings",
+    "version": "2.14.2",
+    "METADATA_SHA256": "c0f50f045d2f48268cd6c467bef348b5da6184f354c1f03e5fc9bdf78b4cbc32"
+  },
+  {
+    "asset_id": "python-package:httpx",
+    "distribution_name": "httpx",
+    "version": "0.28.1",
+    "METADATA_SHA256": "febb9b0f8f3e80d57c8199c304f35c4336e8581d1d18d7983c92766b82793b25"
+  },
+  {
+    "asset_id": "python-package:pyyaml",
+    "distribution_name": "PyYAML",
+    "version": "6.0.3",
+    "METADATA_SHA256": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34"
+  },
+  {
+    "asset_id": "python-package:pandas",
+    "distribution_name": "pandas",
+    "version": "3.0.3",
+    "METADATA_SHA256": "be337b6c2e9b006aaaea77696d7023378664f610f45062c74ffa467d4a69095d"
+  },
+  {
+    "asset_id": "python-package:numpy",
+    "distribution_name": "numpy",
+    "version": "2.4.4",
+    "METADATA_SHA256": "8f9e04338ffa930868a2d157ce44f6e4cb7ac524b968fb13d04187a6ac575282"
+  },
+  {
+    "asset_id": "python-package:scipy",
+    "distribution_name": "scipy",
+    "version": "1.17.1",
+    "METADATA_SHA256": "3a61ac02d145c9ca53f53d3f6f58d09017727a317731d0af02909730d4403e32"
+  },
+  {
+    "asset_id": "python-package:matplotlib",
+    "distribution_name": "matplotlib",
+    "version": "3.11.1",
+    "METADATA_SHA256": "e42a4867d0c790804bce9ccd38972e1e71e24a81f2dbc9633efc71e63ce69f59"
+  },
+  {
+    "asset_id": "python-package:psutil",
+    "distribution_name": "psutil",
+    "version": "7.2.2",
+    "METADATA_SHA256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f"
+  },
+  {
+    "asset_id": "python-package:jsonschema",
+    "distribution_name": "jsonschema",
+    "version": "4.26.0",
+    "METADATA_SHA256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2"
+  },
+  {
+    "asset_id": "python-package:cryptography",
+    "distribution_name": "cryptography",
+    "version": "49.0.0",
+    "METADATA_SHA256": "1fc839d24efc355f0e5c507aa807822bca4371e732603b6d3e92b24038deded2"
+  },
+  {
+    "asset_id": "python-package:traceai",
+    "distribution_name": "traceai",
+    "version": "0.1.0",
+    "METADATA_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

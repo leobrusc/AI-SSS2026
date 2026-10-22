@@ -1,0 +1,532 @@
+{
+  "label": "CAMERA_READY_RQ1",
+  "version": 1,
+  "campaign_id": "rq1-cr-20261020T225913Z-2565d651",
+  "timestamp": "2026-10-20T22:59:13.496320+00:00",
+  "commit": "bb2d9e4b4703b8f59dcd6ef563df374fcbe79720",
+  "definition": "Union raw31 and finalizer-added runtime-snapshot; exclude GPU/CUDA by CPU scope only",
+  "scope": "CPU-host deployment-reference representation benchmark; no loaded model/running deployment asserted",
+  "representation_rule": "Predeclared exact predicates; first-class components, exact Python name/version/PURL, file hashes, model revision; no substrings",
+  "assets": [
+    {
+      "asset_id": "model-gpt2",
+      "raw_id": "model-gpt2",
+      "name": "openai-community/gpt2",
+      "role": "model",
+      "class": "model",
+      "source": "rq4.py FULL_MODEL/FULL_REVISION: declared target, NOT loaded",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "model_revision",
+        "name": "openai-community/gpt2",
+        "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "model-weights",
+      "raw_id": "model-weights",
+      "name": "model.safetensors",
+      "role": "weight",
+      "class": "model",
+      "source": "workspace/models/model.safetensors",
+      "source_present": false,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "model.safetensors",
+        "SHA256": null,
+        "required_source_present": false
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "tokenizer",
+      "raw_id": "tokenizer",
+      "name": "gpt2-tokenizer",
+      "role": "tokenizer",
+      "class": "tokenizer",
+      "source": "workspace/models/tokenizer.json",
+      "source_present": false,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "tokenizer.json",
+        "SHA256": null,
+        "required_source_present": false
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "model-config",
+      "raw_id": "model-config",
+      "name": "config.json",
+      "role": "dataset",
+      "class": "configuration",
+      "source": "workspace/models/config.json",
+      "source_present": false,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "config.json",
+        "SHA256": null,
+        "required_source_present": false
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "generation-config",
+      "raw_id": "generation-config",
+      "name": "generation_config.json",
+      "role": "dataset",
+      "class": "configuration",
+      "source": "workspace/models/generation_config.json",
+      "source_present": false,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "generation_config.json",
+        "SHA256": null,
+        "required_source_present": false
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "dataset-manifest",
+      "raw_id": "dataset-manifest",
+      "name": "fixtures/datasets/manifest.json",
+      "role": "dataset",
+      "class": "dataset",
+      "source": "fixtures/datasets/manifest.json",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "prompt-fixtures",
+        "SHA256": "7ed5531b5afabcab1af0614199d9dfc1f3975259c0e8f68c63c563cd63db88a6",
+        "required_source_present": true
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:torch",
+      "raw_id": "pytorch",
+      "name": "torch",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: torch",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "torch",
+        "version": "2.13.0+cpu"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:transformers",
+      "raw_id": "transformers-pkg",
+      "name": "transformers",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: transformers",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "transformers",
+        "version": "5.14.1"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:tokenizers",
+      "raw_id": "pkg-tokenizers",
+      "name": "tokenizers",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: tokenizers",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "tokenizers",
+        "version": "0.22.2"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:fastapi",
+      "raw_id": "pkg-fastapi",
+      "name": "fastapi",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: fastapi",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "fastapi",
+        "version": "0.139.2"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:uvicorn",
+      "raw_id": "pkg-uvicorn",
+      "name": "uvicorn",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: uvicorn",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "uvicorn",
+        "version": "0.51.0"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:pydantic",
+      "raw_id": "pkg-pydantic",
+      "name": "pydantic",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: pydantic",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "pydantic",
+        "version": "2.13.4"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:pydantic-settings",
+      "raw_id": "pkg-pydantic-settings",
+      "name": "pydantic-settings",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: pydantic-settings",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "pydantic-settings",
+        "version": "2.14.2"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:httpx",
+      "raw_id": "pkg-httpx",
+      "name": "httpx",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: httpx",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:pyyaml",
+      "raw_id": "pkg-pyyaml",
+      "name": "pyyaml",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: pyyaml",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "pyyaml",
+        "version": "6.0.3"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:pandas",
+      "raw_id": "pkg-pandas",
+      "name": "pandas",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: pandas",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "pandas",
+        "version": "3.0.3"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:numpy",
+      "raw_id": "pkg-numpy",
+      "name": "numpy",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: numpy",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "numpy",
+        "version": "2.4.4"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:scipy",
+      "raw_id": "pkg-scipy",
+      "name": "scipy",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: scipy",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "scipy",
+        "version": "1.17.1"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:matplotlib",
+      "raw_id": "pkg-matplotlib",
+      "name": "matplotlib",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: matplotlib",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "matplotlib",
+        "version": "3.11.1"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:psutil",
+      "raw_id": "pkg-psutil",
+      "name": "psutil",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: psutil",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "psutil",
+        "version": "7.2.2"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:jsonschema",
+      "raw_id": "pkg-jsonschema",
+      "name": "jsonschema",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: jsonschema",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:cryptography",
+      "raw_id": "pkg-cryptography",
+      "name": "cryptography",
+      "role": "package",
+      "class": "software",
+      "source": "installed distribution METADATA: cryptography",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "cryptography",
+        "version": "49.0.0"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-runtime",
+      "raw_id": "python-runtime",
+      "name": "python",
+      "role": "runtime",
+      "class": "runtime",
+      "source": "current interpreter platform.python_version",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "cpython",
+        "version": "3.11.6",
+        "cdx_type": "platform"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "os-platform",
+      "raw_id": "os-platform",
+      "name": "Windows",
+      "role": "runtime",
+      "class": "runtime",
+      "source": "platform.system/release",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "Windows",
+        "version": "10",
+        "cdx_type": "operating-system"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "host-cpu",
+      "raw_id": "host-cpu",
+      "name": "CPU",
+      "role": "hardware",
+      "class": "hardware",
+      "source": "host CPU role and os.cpu_count (not unique silicon ID)",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "cpu",
+        "version": "14",
+        "cdx_type": "device"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "host-ram",
+      "raw_id": "host-ram",
+      "name": "RAM",
+      "role": "hardware",
+      "class": "hardware",
+      "source": "host RAM role and observed capacity (not DIMM serial)",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "ram",
+        "version": "31.5GB",
+        "cdx_type": "device"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "host-gpu",
+      "raw_id": "host-gpu",
+      "name": "GPU",
+      "role": "hardware",
+      "class": "hardware",
+      "source": "CPU-only scope; no GPU detection/execution",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "not_applicable_cpu_scope"
+      },
+      "applicability": "NOT_APPLICABLE_CPU_SCOPE",
+      "applicability_reason": "CPU-scope exclusion, not measured hardware absence"
+    },
+    {
+      "asset_id": "cuda-runtime",
+      "raw_id": "cuda-runtime",
+      "name": "CUDA",
+      "role": "runtime",
+      "class": "runtime",
+      "source": "CPU-only scope; no GPU detection/execution",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "not_applicable_cpu_scope"
+      },
+      "applicability": "NOT_APPLICABLE_CPU_SCOPE",
+      "applicability_reason": "CPU-scope exclusion, not measured hardware absence"
+    },
+    {
+      "asset_id": "inference-service",
+      "raw_id": "inference-service",
+      "name": "traceai-inference",
+      "role": "service",
+      "class": "software",
+      "source": "pyproject.toml and service role: declared, NOT running",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "traceai-inference",
+        "version": "0.1.0",
+        "cdx_type": "application"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "runtime-policy",
+      "raw_id": "runtime-policy",
+      "name": "config/policy.yaml",
+      "role": "policy",
+      "class": "configuration",
+      "source": "config/policy.yaml",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "file_sha256",
+        "name": "policy.yaml",
+        "SHA256": "e4f436d0295f9ed6397917e2ba73a8dd9fad606e71564abef91cd81dfffa541e",
+        "required_source_present": true
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "python-package:traceai",
+      "raw_id": "traceai-app",
+      "name": "traceai",
+      "role": "service",
+      "class": "software",
+      "source": "installed distribution METADATA: traceai",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "python_distribution",
+        "name": "traceai",
+        "version": "0.1.0"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Reference requirement retained even when artifact absent"
+    },
+    {
+      "asset_id": "runtime-snapshot",
+      "raw_id": "",
+      "name": "process-snapshot",
+      "role": "operational_state",
+      "class": "runtime",
+      "source": "current experiment process PID",
+      "source_present": true,
+      "expected_representation": {
+        "kind": "typed_name_version",
+        "name": "process-snapshot",
+        "version": "pid=20968",
+        "cdx_type": "platform"
+      },
+      "applicability": "REQUIRED",
+      "applicability_reason": "Finalizer-added role retained alongside raw traceai-app, NOT substituted for it"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "universe_id": "generic_builder_8",
+  "nodes": [
+    {
+      "bom_ref": "ref-model-9957f04dd19712e5",
+      "type": "model",
+      "name": "openai-community/gpt2",
+      "version": "",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-model-9957f04dd19712e5",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-tokenizer-86c6e8709f7f70bd",
+      "type": "tokenizer",
+      "name": "openai-community/gpt2-tokenizer",
+      "version": "",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-tokenizer-86c6e8709f7f70bd",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-config-17c3e97e70c4a82b",
+      "type": "config",
+      "name": "openai-community/gpt2-config",
+      "version": "",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-config-17c3e97e70c4a82b",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-dataset-ab564653e44fd49b",
+      "type": "dataset",
+      "name": "prompt-fixtures",
+      "version": "",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-dataset-ab564653e44fd49b",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-library-3d6f771d8cf482ae",
+      "type": "library",
+      "name": "python-dependencies",
+      "version": "",
+      "hashes": {
+        "sha256": "eecc978f84577ad211971e35ca214af1554168c0a57e0ece8aa8eb6f889ca643"
+      },
+      "purl": null,
+      "license": null,
+      "id": "ref-library-3d6f771d8cf482ae",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-runtime-c0dc34a96516cfba",
+      "type": "runtime",
+      "name": "python-runtime",
+      "version": "3.11.6",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-runtime-c0dc34a96516cfba",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-service-6c69f4b773741239",
+      "type": "service",
+      "name": "traceai-inference",
+      "version": "0.1.0",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-service-6c69f4b773741239",
+      "applicability": "REQUIRED"
+    },
+    {
+      "bom_ref": "ref-config-93d31b8dac55a8ec",
+      "type": "config",
+      "name": "deployment-policy",
+      "version": "",
+      "hashes": {},
+      "purl": null,
+      "license": null,
+      "id": "ref-config-93d31b8dac55a8ec",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "authority": "CURRENT_CODE",
+  "notes": "Called inside rq1._generate_ml_bom, distinct from external evaluation universe."
+}

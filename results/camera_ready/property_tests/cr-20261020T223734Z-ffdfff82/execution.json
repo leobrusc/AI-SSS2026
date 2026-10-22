@@ -1,0 +1,5016 @@
+{
+  "total_cases": 500,
+  "seed": 42,
+  "require_signing": false,
+  "agreements": 500,
+  "agreement_rate": 1.0,
+  "counterexamples": [],
+  "counterexample_count": 0,
+  "cases": [
+    {
+      "case_id": 0,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 1,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 2,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 3,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 4,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 5,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 6,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 7,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 8,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 9,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 10,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 11,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 12,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 13,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 14,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 15,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 16,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 17,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 18,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 19,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 20,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 21,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 22,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 23,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 24,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 25,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 26,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 27,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 28,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 29,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 30,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 31,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 32,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 33,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 34,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 35,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 36,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 37,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 38,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 39,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 40,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 41,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 42,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 43,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 44,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 45,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 46,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 47,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 48,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 49,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 50,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 51,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 52,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 53,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 54,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 55,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 56,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 57,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 58,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 59,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 60,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 61,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 62,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 63,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 64,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 65,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 66,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 67,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 68,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 69,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 70,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 71,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 72,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 73,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 74,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 75,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 76,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 77,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 78,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 79,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 80,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 81,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 82,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 83,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 84,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 85,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 86,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 87,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 88,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 89,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 90,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 91,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 92,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 93,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 94,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 95,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 96,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 97,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 98,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 99,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 100,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 101,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 102,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 103,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 104,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 105,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 106,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 107,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 108,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 109,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 110,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 111,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 112,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 113,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 114,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 115,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 116,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 117,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 118,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 119,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 120,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 121,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 122,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 123,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 124,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 125,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 126,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 127,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 128,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 129,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 130,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 131,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 132,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 133,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 134,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 135,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 136,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 137,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 138,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 139,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 140,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 141,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 142,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 143,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 144,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 145,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 146,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 147,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 148,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 149,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 150,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 151,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 152,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 153,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 154,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 155,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 156,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 157,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 158,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 159,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 160,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 161,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 162,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 163,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 164,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 165,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 166,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 167,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 168,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 169,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 170,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 171,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 172,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 173,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 174,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 175,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 176,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 177,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 178,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 179,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 180,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 181,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 182,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 183,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 184,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 185,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 186,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 187,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 188,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 189,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 190,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 191,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 192,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 193,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 194,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 195,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 196,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 197,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 198,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 199,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 200,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 201,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 202,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 203,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 204,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 205,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 206,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 207,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 208,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 209,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 210,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 211,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 212,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 213,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 214,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 215,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 216,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 217,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 218,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 219,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 220,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 221,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 222,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 223,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 224,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 225,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 226,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 227,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 228,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 229,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 230,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 231,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 232,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 233,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 234,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 235,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 236,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 237,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 238,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 239,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 240,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 241,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 242,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 243,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 244,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 245,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 246,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 247,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 248,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 249,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 250,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 251,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 252,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 253,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 254,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 255,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 256,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 257,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 258,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 259,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 260,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 261,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 262,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 263,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 264,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 265,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 266,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 267,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 268,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 269,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 270,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 271,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 272,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 273,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 274,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 275,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 276,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 277,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 278,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 279,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 280,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 281,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 282,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 283,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 284,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 285,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 286,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 287,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 288,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 289,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 290,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 291,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 292,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 293,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 294,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 295,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 296,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 297,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 298,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 299,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 300,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 301,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 302,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 303,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 304,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 305,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 306,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 307,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 308,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 309,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 310,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 311,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 312,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 313,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 314,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 315,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 316,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 317,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 318,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 319,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 320,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 321,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 322,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 323,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 324,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 325,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 326,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 327,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 328,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 329,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 330,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 331,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 332,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 333,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 334,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 335,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 336,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 337,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 338,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 339,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 340,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 341,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 342,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 343,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 344,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 345,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 346,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 347,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 348,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 349,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 350,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 351,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 352,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 353,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 354,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 355,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 356,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 357,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 358,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 359,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 360,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 361,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 362,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 363,
+      "schema_valid": false,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 364,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 365,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 366,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 367,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 368,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 369,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 370,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 371,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 372,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 373,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 374,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 375,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 376,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 377,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 378,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 379,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 380,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 381,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 382,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 383,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 384,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 385,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 386,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 387,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 388,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 389,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 390,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 391,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 392,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 393,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 394,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 395,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 396,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 397,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 398,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 399,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 400,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 401,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 402,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 403,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 404,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 405,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 406,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 407,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 408,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 409,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 410,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 411,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 412,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 413,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 414,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 415,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 416,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 417,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 418,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 419,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 420,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 421,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 422,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 423,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 424,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 425,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 426,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 427,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 428,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 429,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 430,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 431,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 432,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 433,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 434,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 435,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 436,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 437,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 438,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 439,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 440,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 441,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 442,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 443,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 444,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 445,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 446,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 447,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 448,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 449,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 450,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 451,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 452,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 453,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 454,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 455,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 456,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 457,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 458,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 459,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 460,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 461,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 462,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 463,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 464,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 465,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 466,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 467,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 468,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 469,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 470,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 471,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 472,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 473,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 474,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 475,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 476,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 477,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 478,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 479,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 480,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 481,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 482,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 483,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 484,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 485,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 486,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 487,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 488,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 489,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 490,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_WRONG_COMPONENT",
+      "observed_decision": "VEX_WRONG_COMPONENT",
+      "agrees": true
+    },
+    {
+      "case_id": 491,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 492,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 493,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    },
+    {
+      "case_id": 494,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": false,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 495,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 496,
+      "schema_valid": false,
+      "expired": false,
+      "component_match": true,
+      "signed": false,
+      "expected_decision": "VEX_MALFORMED",
+      "observed_decision": "VEX_MALFORMED",
+      "agrees": true
+    },
+    {
+      "case_id": 497,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": false,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 498,
+      "schema_valid": true,
+      "expired": true,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "VEX_EXPIRED",
+      "observed_decision": "VEX_EXPIRED",
+      "agrees": true
+    },
+    {
+      "case_id": 499,
+      "schema_valid": true,
+      "expired": false,
+      "component_match": true,
+      "signed": true,
+      "expected_decision": "APPROVED",
+      "observed_decision": "APPROVED",
+      "agrees": true
+    }
+  ],
+  "timestamp": "2026-10-20T22:37:48.150622+00:00",
+  "commit": "bb2d9e4b4703b8f59dcd6ef563df374fcbe79720",
+  "oracle_sha256": "47ba90b22b41ad190cb0a0349cb18d4c9f3dc2d72683eca0c5af8fd0fcc78463",
+  "generator": "random.Random",
+  "framework": "direct Python invocation"
+}

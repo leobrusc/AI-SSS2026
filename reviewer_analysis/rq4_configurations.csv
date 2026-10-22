@@ -1,0 +1,14 @@
+config_id,config_name,description,max_new_tokens,timeout_seconds,max_concurrency,queue_depth,rate_limit_rpm,circuit_breaker_threshold,circuit_breaker_timeout_seconds,circuit_breaker_enabled,source_file,source_key,campaign_id
+C0,permissive_baseline,"High but safety-bounded limits; no rejection mechanisms",512,120,32,128,1000,disabled,N/A,false,config/experiment.yaml,configurations[0],rq4-20260722-133959-e395d20d
+C1,token_limit_timeout,"Token limit (100) and timeout (30s); high concurrency",100,30,32,128,1000,disabled,N/A,false,config/experiment.yaml,configurations[1],rq4-20260722-133959-e395d20d
+C2,rate_bounded,"C1 plus rate limit (120 rpm) and bounded queue (16)",100,30,4,16,120,disabled,N/A,false,config/experiment.yaml,configurations[2],rq4-20260722-133959-e395d20d
+C3,full_protection,"C2 plus circuit breaker (threshold=5 failures; 30s cooldown)",100,30,4,16,120,5,30,true,config/experiment.yaml,configurations[3],rq4-20260722-133959-e395d20d
+notes_model,sshleifer/tiny-gpt2,CPU diagnostic campaign (no GPU),,,,,,,,,,results/rq4/rq4-20260722-133959-e395d20d/campaign_manifest.json,model_id,rq4-20260722-133959-e395d20d
+notes_model_revision,5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be,From control_activation_results.json,,,,,,,,,,generated/rq4/control_activation_results.json,model_revision,rq4-stress-20260723-103231-90518de9
+notes_trials,3,Quick campaign (quick=true),,,,,,,,,,results/rq4/rq4-20260722-133959-e395d20d/campaign_manifest.json,trials,rq4-20260722-133959-e395d20d
+notes_requests_per_trial,20,Per configuration per trial,,,,,,,,,,results/rq4/rq4-20260722-133959-e395d20d/campaign_manifest.json,requests_per_trial,rq4-20260722-133959-e395d20d
+notes_total_observations,240,"3 trials × 4 configs × 20 requests = 240",,,,,,,,,,results/rq4/rq4-20260722-133959-e395d20d/campaign_manifest.json,total_observations,rq4-20260722-133959-e395d20d
+notes_gpu,NOT_APPLICABLE,"CPU-only campaign; GPU campaign status=FAIL",,,,,,,,,,generated/gpu/quick_validation_report.json,status,test
+notes_inference_type,REAL_HTTP,Real HTTP inference (not mock),,,,,,,,,,results/rq4/rq4-20260722-133959-e395d20d/campaign_manifest.json,inference_type,rq4-20260722-133959-e395d20d
+notes_c0_c3_identical_issue,"C0-C3 identical in analysis_results.json","analysis_results.json shows identical latency p50=257.72ms for all C0-C3. This is an issue in the analysis aggregation. The raw_requests.csv shows distinct values (C0:406.5ms C1:396.7ms C2:390.4ms C3:397.3ms p50). Use raw CSV values.",,,,,,,,,,generated/analysis_results.json,availability.configurations,rq4-20260722-133959-e395d20d
+notes_gpu_profile_configs,"GPU profile (config/profiles/gpu.yaml)","max_new_tokens=100 timeout=30 max_concurrency=8 queue_depth=32 rate_limit_rpm=120 circuit_breaker_threshold=5 timeout=30",,,,,,,,,,config/profiles/gpu.yaml,inference,N/A

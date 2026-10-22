@@ -1,66 +1,24 @@
-name: TraceAI Tests
-
+name: AI-SSS 2026 checks
 on:
   push:
-    branches: [main, develop]
+    branches: [main, camera-ready-a100-prep]
   pull_request:
     branches: [main]
-
 jobs:
   test:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12"]
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v6
         with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install -r requirements.in
-          python -m pip install pytest pytest-cov pytest-asyncio ruff
-          python -m pip install -e .
-
-      - name: Lint with ruff
-        run: |
-          python -m ruff check src/ tests/
-
-      - name: Compile check
-        run: |
-          python -m compileall src/ tests/
-
-      - name: Run unit tests
-        run: |
-          python -m pytest tests/unit -v --tb=short -q
-
-      - name: Run integration tests
-        run: |
-          python -m pytest tests/integration -v --tb=short -q
-
-      - name: Run doctor (local profile)
-        run: |
-          python -m traceai doctor --profile local --output generated
-        continue-on-error: true
-
-  lint:
+          version: "0.11.1"
+          python-version: "3.11"
+      - run: uv lock --check
+      - run: uv sync --locked --extra dev
+      - run: uv run --locked pytest
+      - run: uv run --locked python scripts/a100/benchmark.py --dry-run
+  shell:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install ruff
-        run: pip install ruff
-
-      - name: Check formatting
-        run: ruff check src/ tests/
+      - run: bash -n scripts/a100/run_all.sh

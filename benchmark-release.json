@@ -1,0 +1,15 @@
+{
+  "artifact": "AI-SSS2026",
+  "release_tag": "ai-sss2026-a100-benchmark-v1",
+  "audited_source_baseline": "bb2d9e4b4703b8f59dcd6ef563df374fcbe79720",
+  "rq4_status": "PENDING_A100_EXECUTION",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "python": "3.11",
+  "torch": "2.9.1",
+  "cuda_wheel": "cu129",
+  "model": "sshleifer/tiny-gpt2",
+  "revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+  "dtype": "torch.float16",
+  "normal_observations": 240,
+  "fault_observations": 6
+}

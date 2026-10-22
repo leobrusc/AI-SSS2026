@@ -1,0 +1,16 @@
+AUDITED_SOURCE_BASELINE=bb2d9e4b4703b8f59dcd6ef563df374fcbe79720
+HEAD
+bb2d9e4b4703b8f59dcd6ef563df374fcbe79720
+STATUS
+?? _l4_bundle_stage/
+?? build_linux_l4_bundle.ps1
+?? requirements-local-freeze.txt
+?? reviewer_analysis/
+?? source_commit.txt
+?? source_status.txt
+?? traceai_l4_gpu_bundle.tar.gz.sha256
+BRANCH
+main
+REMOTES
+origin	git@github.com:leobrusc/traceai-ladc2026.git (fetch)
+origin	git@github.com:leobrusc/traceai-ladc2026.git (push)

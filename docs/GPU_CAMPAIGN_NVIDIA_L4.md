@@ -1,3 +1,5 @@
+> Historical instructions retained for provenance. For AI-SSS 2026 use README.md and docs/A100_RQ4_RUNBOOK.md with uv.
+
 # GPU Campaign Runbook — NVIDIA L4
 
 ## Target Environment
@@ -29,15 +31,15 @@ hardware:
 ## 1. Clone or Update Repository
 
 ```bash
-git clone git@github.com:leobrusc/traceai-ladc2026.git
-cd traceai-ladc2026
+git clone git@github.com:leobrusc/AI-SSS2026.git
+cd AI-SSS2026
 git checkout traceai-gcp-l4-ready-v7.5
 ```
 
 Or, if the repository already exists:
 
 ```bash
-cd ~/traceai-ladc2026
+cd ~/AI-SSS2026
 git fetch origin --prune --tags
 git checkout traceai-gcp-l4-ready-v7.5
 ```

@@ -1,0 +1,17 @@
+package,version,in_manifest,trivy_detected,syft_detected
+cryptography,49.0.0,True,True,True
+fastapi,0.139.2,True,True,True
+httpx,0.28.1,True,True,True
+jsonschema,4.26.0,True,True,True
+matplotlib,3.11.1,True,True,True
+numpy,2.4.4,True,True,True
+pandas,3.0.3,True,True,True
+psutil,7.2.2,True,True,True
+pydantic,2.13.4,True,True,True
+pydantic-settings,2.14.2,True,True,True
+pyyaml,6.0.3,True,True,True
+scipy,1.17.1,True,True,True
+tokenizers,0.22.2,True,True,True
+torch,2.13.0+cpu,True,True,True
+transformers,5.14.1,True,True,True
+uvicorn,0.51.0,True,True,True

@@ -1,0 +1,50 @@
+path,tracked,size,category,reason,action
+.cache,False,12161966,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL
+.editorconfig,True,367,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+.env.example,True,452,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+.git,False,0,REMOVE_LOCAL_ONLY,Git metadata excluded from archives; retained locally,EXCLUDE_RETAIN_LOCAL
+.gitattributes,True,852,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+.github,True,622,KEEP_REPRODUCIBILITY,GitHub CI,PRESERVE
+.gitignore,True,1380,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+.pytest_cache,False,21731,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL
+.python-version,True,5,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+.tools,False,461477048,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL
+.venv,False,993296799,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL
+.venv-uv,False,862734092,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL
+_l4_bundle_stage,False,1515071,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+benchmark-release.json,True,471,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+benchmark-source-manifest.json,True,6863,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+build_linux_l4_bundle.ps1,False,15701,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+ci,True,2366,KEEP_REPRODUCIBILITY,Historical CI configuration,PRESERVE
+CITATION.cff,True,390,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+config,True,12434,KEEP_REPRODUCIBILITY,Historical frozen configuration; A100 wrapper enforces hardware,PRESERVE
+docker,True,2340,KEEP_REPRODUCIBILITY,Historical deployment specification,PRESERVE
+docs,True,93457,KEEP_DOCUMENTATION,Runbooks; historical installation instructions superseded,PRESERVE
+fixtures,True,12330,KEEP_CAMERA_READY_EVIDENCE,Scientific fixture inputs; preserve,PRESERVE
+generated,True,3161222,KEEP_CAMERA_READY_EVIDENCE,Native outputs referenced by immutable evidence manifests,PRESERVE
+LICENSE,True,1072,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+Makefile,True,2247,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+manifests,True,5466,KEEP_REPRODUCIBILITY,Deployment manifests,PRESERVE
+model.lock.json,True,1246,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+paper,True,2861,KEEP_CAMERA_READY_EVIDENCE,Publication templates; no manuscript source supplied,PRESERVE
+pyproject.toml,True,2591,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+README.md,True,4394,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+requirements-dev.in,True,245,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+requirements-exact.txt,True,292,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+requirements-local-freeze.txt,False,3378,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+requirements.in,True,436,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+requirements.lock,True,1634,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+requirements.txt,True,360,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+results,True,5120443,KEEP_CAMERA_READY_EVIDENCE,Classified campaigns; only curated allowlist committed,PRESERVE
+reviewer_analysis,True,1273106,KEEP_CAMERA_READY_EVIDENCE,Audits and lineage; exclude caches and SSH diagnostics,PRESERVE
+scripts,True,323162,KEEP_REPRODUCIBILITY,Campaign tools and A100 entrypoint,PRESERVE
+source_commit.txt,False,86,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+source_status.txt,False,204,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+src,True,996921,KEEP_CORE,Python runtime package,PRESERVE
+tasks.ps1,True,10385,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+tests,True,528071,KEEP_TEST,Regression and schema tests,PRESERVE
+tools.lock.json,True,1107,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+traceai_l4_gpu_bundle.tar.gz,False,853434,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+traceai_l4_gpu_bundle.tar.gz.sha256,False,96,REMOVE_DUPLICATE,Superseded L4 staging/freeze provenance; ignored and retained locally,EXCLUDE_RETAIN_LOCAL
+uv.lock,True,123829,KEEP_REPRODUCIBILITY,Project metadata or reproducibility input,PRESERVE
+workspace,False,18547,REMOVE_LOCAL_ONLY,Environment/cache/tools/keys excluded; retained locally,EXCLUDE_RETAIN_LOCAL

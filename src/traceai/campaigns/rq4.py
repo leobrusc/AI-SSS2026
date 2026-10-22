@@ -201,7 +201,7 @@ class GPUTimeseriesSampler:
                 try:
                     power = pynvml.nvmlDeviceGetPowerUsage(self._handle) / 1000.0
                 except Exception:
-                    power = 0.0
+                    power = None
                 self.samples.append({
                     "timestamp_utc": datetime.now(timezone.utc).isoformat(),
                     "campaign_id": self.campaign_id,
@@ -211,7 +211,7 @@ class GPUTimeseriesSampler:
                     "memory_used_mb": round(mem.used / (1024**2)),
                     "memory_total_mb": round(mem.total / (1024**2)),
                     "temperature_c": temp,
-                    "power_w": round(power, 1),
+                    "power_w": round(power, 1) if power is not None else None,
                 })
             except Exception:
                 pass
@@ -458,6 +458,8 @@ async def _run_trial_async(base_url: str, trial_id: str, config_id: str,
                 await asyncio.sleep(0.01)
 
         results = await asyncio.gather(*tasks)
+        for row, prompt_index in zip(results, prompt_indices):
+            row["prompt_index"] = prompt_index
         return list(results), prompt_indices
 
 
@@ -583,6 +585,7 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
         # Phase 3: Confirm OPEN state
         if open_timestamp:
             try:
+                confirm_start = time.perf_counter()
                 resp = await client.post(
                     f"{base_url}/generate",
                     json={"prompt": "confirm open", "max_new_tokens": 5},
@@ -599,7 +602,7 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                             "trial_id": f"{campaign_id}-C3-fault",
                             "configuration_id": "C3",
                             "timestamp": datetime.now(timezone.utc).isoformat(),
-                            "latency_ms": 0,
+                            "latency_ms": round((time.perf_counter() - confirm_start) * 1000, 2),
                             "status_code": 503,
                             "tokens_generated": 0,
                             "timed_out": False,
@@ -648,6 +651,7 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                 pass
 
             try:
+                recovery_start = time.perf_counter()
                 resp = await client.post(
                     f"{base_url}/generate",
                     json={"prompt": "recovery probe", "max_new_tokens": 5},
@@ -664,7 +668,7 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
                         "trial_id": f"{campaign_id}-C3-fault",
                         "configuration_id": "C3",
                         "timestamp": datetime.now(timezone.utc).isoformat(),
-                        "latency_ms": 0,
+                        "latency_ms": round((time.perf_counter() - recovery_start) * 1000, 2),
                         "status_code": 200,
                         "tokens_generated": resp.json().get("tokens_generated", 0),
                         "timed_out": False,
@@ -707,13 +711,15 @@ async def _run_c3_fault_injection(base_url: str, campaign_id: str,
 # ---------------------------------------------------------------------------
 def run_rq4_campaign(profile: str = "local", quick: bool = False,
                      mode: str = "experimental",
-                     output_dir: Path = Path("results")) -> int:
+                     output_dir: Path = Path("results"),
+                     campaign_id: Optional[str] = None,
+                     a100_release: bool = False) -> int:
     """Run RQ4 availability campaign with real concurrent inference."""
     root = get_project_root()
     campaign_start = datetime.now(timezone.utc)
 
-    campaign_id = f"rq4-{campaign_start.strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:8]}"
-    result_dir = root / output_dir / "rq4" / campaign_id
+    campaign_id = campaign_id or f"rq4-{campaign_start.strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:8]}"
+    result_dir = root / output_dir if a100_release else root / output_dir / "rq4" / campaign_id
     result_dir.mkdir(parents=True, exist_ok=True)
 
     # Model selection
@@ -766,6 +772,8 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
         initial_service_config = {}
         try:
             init_resp = httpx.get(f"{base_url}/configuration", timeout=10)
+            if a100_release:
+                init_resp.raise_for_status()
             if init_resp.status_code == 200:
                 initial_service_config = init_resp.json()
                 events.append({
@@ -773,7 +781,17 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
                     "timestamp": datetime.now(timezone.utc).isoformat(),
                     "config": initial_service_config,
                 })
+                if a100_release:
+                    if not (
+                        initial_service_config.get("resolved_revision") == SMOKE_REVISION
+                        and initial_service_config.get("parameter_device", "").startswith("cuda")
+                        and initial_service_config.get("parameter_dtype") == "torch.float16"
+                        and initial_service_config.get("model_id") == SMOKE_MODEL
+                    ):
+                        raise RuntimeError("Loaded service model failed A100 identity/device/dtype gate")
         except Exception as e:
+            if a100_release:
+                raise
             events.append({
                 "event": "service_configuration_capture_failed",
                 "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -901,6 +919,7 @@ def run_rq4_campaign(profile: str = "local", quick: bool = False,
             result_dir=result_dir, config_events=config_events,
             trial_manifests=trial_manifests,
             service_config=initial_service_config,
+            archive_source=a100_release,
         )
         if report["status"] != "PASS":
             print(f"\n  [FAIL] Quick validation: {report['status']}")
@@ -1017,6 +1036,12 @@ def _save_all_artifacts(result_dir, campaign_id, profile, mode, quick,
         "exact_tag": exact_tag,
         "working_tree_clean": working_tree_clean,
     }
+    release_metadata = root / "benchmark-release.json"
+    if release_metadata.exists():
+        manifest["release_metadata"] = json.loads(release_metadata.read_text(encoding="utf-8"))
+        source_manifest = root / "benchmark-source-manifest.json"
+        if source_manifest.exists():
+            manifest["source_manifest_sha256"] = hashlib.sha256(source_manifest.read_bytes()).hexdigest()
 
     if profile == "gpu":
         try:
@@ -1046,7 +1071,8 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
                                       gpu_samples, resource_samples,
                                       expected_obs, model_revision,
                                       result_dir=None, config_events=None,
-                                      trial_manifests=None, service_config=None) -> dict:
+                                      trial_manifests=None, service_config=None,
+                                      archive_source=False) -> dict:
     """Generate quick validation gates report. All gates derived from real data."""
     gates = {}
     config_events = config_events or []
@@ -1182,6 +1208,9 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
         gates["working_tree_clean"] = len(status) == 0
     except Exception:
         gates["working_tree_clean"] = False
+    if archive_source:
+        # Release archives have no Git directory. Source hashes are checked by the A100 wrapper.
+        gates.pop("working_tree_clean", None)
 
     # Overall status
     all_pass = all(gates.values())
@@ -1197,7 +1226,7 @@ def _generate_quick_validation_report(root, campaign_id, observations, events,
     }
 
     # Save report
-    gpu_dir = root / "generated" / "gpu"
+    gpu_dir = result_dir if archive_source else root / "generated" / "gpu"
     gpu_dir.mkdir(parents=True, exist_ok=True)
     with open(gpu_dir / "quick_validation_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)

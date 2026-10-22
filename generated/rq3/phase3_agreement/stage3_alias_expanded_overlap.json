@@ -1,0 +1,14 @@
+{
+  "computable": true,
+  "result": "COMPUTED",
+  "alias_sources": [
+    "grype.relatedVulnerabilities[].id",
+    "trivy.VendorIDs"
+  ],
+  "alias_mappings_count": 49,
+  "trivy_expanded_size": 103,
+  "grype_expanded_size": 66,
+  "intersection_size": 66,
+  "union_size": 103,
+  "jaccard": 0.6408
+}

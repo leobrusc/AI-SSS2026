@@ -75,14 +75,15 @@ class InferenceEngine:
         ).to(self._device_resolved).eval()
 
         # Resolve the actual revision from the loaded model config
-        try:
-            model_config = self._model.config
-            self._resolved_revision = getattr(model_config, "_commit_hash", None)
-            if self._resolved_revision is None:
-                # Fall back to the requested revision if commit hash unavailable
-                self._resolved_revision = self.revision
-        except Exception:
-            self._resolved_revision = self.revision
+        self._resolved_revision = getattr(self._model.config, "_commit_hash", None)
+
+    @property
+    def parameter_device(self) -> str:
+        return str(next(self._model.parameters()).device) if self._model is not None else "unknown"
+
+    @property
+    def parameter_dtype(self) -> str:
+        return str(next(self._model.parameters()).dtype) if self._model is not None else "unknown"
 
     async def generate(
         self,

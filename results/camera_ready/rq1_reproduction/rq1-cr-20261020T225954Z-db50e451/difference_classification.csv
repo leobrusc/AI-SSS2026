@@ -1,0 +1,15 @@
+difference,classification,evidence,explanation
+legacy first campaign -> typed campaigns,CODE_CHANGE,469dc67 vs94c0b7e,ML-only distinct-name evaluation became typed composite evaluation
+legacy30-node universe -> typed31-node universe,UNIVERSE_CHANGE,Saved ground_truth_graph files,Node membership/schema change; applicability rules and names differ
+5/29 final raw vs earlier23/29,SYFT_FAILURE,Raw timeout120s and zero-byte Syft file,Software components unavailable to final raw run
+raw -> finalizer,UNIVERSE_CHANGE,rq1.py vs rq1_finalizer.py,Remove traceai-app and CUDA; add runtime-snapshot; several names/IDs changed;29 applicable is not same membership
+raw sparse ML -> six-role final ML,FINALIZER_ENRICHMENT,generate_complete_ml_bom,Hardcoded logical model/artifact declarations added without artifact discovery
+raw exact names -> finalizer heuristic,REPRESENTATION_RULE_CHANGE,compute_final_coverage.matches_any,RAM falsely matches colorama; Python runtime may match different interpreter versions
+dataset manifest -> prompt-fixtures,UNKNOWN,Source rename; no correspondence digest,Possible DATASET_CHANGE cannot be established from files; no invented claim of changed dataset bytes
+27/29 ->29/29 files,POST_PROCESSING,Saved OBOM7 components vs native finalizer3,OS/Python/CPU/RAM components present in expanded file; two unmatched names now found
+HBOM4/OBOM3 -> HBOM2/OBOM5,POST_PROCESSING,final_metrics.json and domain_reclassification_audit.csv,Domain reassignment; cannot itself increase composite matched count
+27/29 tex/unmatched vs29/29 metrics,STALE_OUTPUT,Existing generated summaries disagree,Outputs from different processing states coexist
+exact postprocessor/source manifest,UNKNOWN,No source generator for enriched OBOM found,Do not invent command or precise input provenance
+prior28/29 audit,REPRESENTATION_RULE_CHANGE,reviewer_analysis/refine_audit.py,Raw-universe role aliases; dataset byte identity remains unresolved
+new20/30,UNIVERSE_CHANGE,Frozen explicit union32 with GPU/CUDA scope exclusions,Keep app and snapshot simultaneously; missing required assets stay in denominator
+new exact identity criteria,REPRESENTATION_RULE_CHANGE,frozen_universe_v1.json and matcher code hash,"Package version/PURL, required file SHA256, model revision, typed/versioned roles; no substring matches"

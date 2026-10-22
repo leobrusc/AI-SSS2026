@@ -1,0 +1,52 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b86cb763-4447-425e-bc57-6166b7d28c01",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-20T22:59:18.594729+00:00"
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "0.1.0",
+      "bom-ref": "obom-service"
+    },
+    {
+      "type": "file",
+      "name": "policy.yaml",
+      "bom-ref": "obom-policy",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4f436d0295f9ed6397917e2ba73a8dd9fad606e71564abef91cd81dfffa541e"
+        }
+      ]
+    },
+    {
+      "type": "platform",
+      "name": "process-snapshot",
+      "version": "pid=20968",
+      "bom-ref": "obom-snapshot",
+      "properties": [
+        {
+          "name": "traceai:cpu_percent",
+          "value": "8.9"
+        },
+        {
+          "name": "traceai:rss_mb",
+          "value": "52.9"
+        },
+        {
+          "name": "traceai:ram_available_gb",
+          "value": "16.1"
+        },
+        {
+          "name": "traceai:observation_time",
+          "value": "2026-10-20T22:59:18.699259+00:00"
+        }
+      ]
+    }
+  ]
+}

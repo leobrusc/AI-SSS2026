@@ -1,0 +1,5 @@
+domain,applicable,matched,coverage
+mlbom,6,1,0.1667
+sbom,17,0,0.0
+hbom,4,3,0.75
+obom,3,1,0.3333

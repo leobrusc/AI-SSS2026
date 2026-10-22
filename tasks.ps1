@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    TraceAI task runner for LADC 2026 experiments.
+    TraceAI task runner retained for AI-SSS 2026 experiments.
 
 .DESCRIPTION
     Canonical command interface for all TraceAI operations.
@@ -52,7 +52,7 @@ if (-not (Test-Path "$script:ProjectRoot\pyproject.toml")) {
     if (Test-Path ".\pyproject.toml") {
         $script:ProjectRoot = (Get-Location).Path
     } else {
-        Write-Error "Cannot find project root. Run from the traceai-ladc2026 directory."
+        Write-Error "Cannot find project root. Run from the AI-SSS2026 directory."
         exit 1
     }
 }

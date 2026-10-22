@@ -239,18 +239,20 @@ class TestEnvironmentFragmentGeneration:
             assert placeholder in content, f"Missing placeholder: {placeholder}"
 
 
-class TestPython312Metadata:
-    """Verify Python 3.12 compatibility metadata."""
+class TestPythonReleaseMetadata:
+    """Verify the AI-SSS release's requested Python 3.11 target."""
 
-    def test_requires_python_includes_312(self):
-        content = PYPROJECT_TOML.read_text(encoding="utf-8")
-        # requires-python = ">=3.10,<3.13" includes 3.12
-        assert ">=3.10" in content
-        assert "<3.13" in content
+    def test_requires_python_targets_311(self):
+        import tomllib
+        from packaging.specifiers import SpecifierSet
+        metadata = tomllib.loads(PYPROJECT_TOML.read_text(encoding="utf-8"))
+        supported = SpecifierSet(metadata["project"]["requires-python"])
+        assert "3.11.6" in supported
+        assert "3.12" not in supported
 
-    def test_classifier_declares_312(self):
+    def test_classifier_declares_311(self):
         content = PYPROJECT_TOML.read_text(encoding="utf-8")
-        assert "Programming Language :: Python :: 3.12" in content
+        assert "Programming Language :: Python :: 3.11" in content
 
 
 class TestGPUHardwareConfigHelper:

@@ -1,0 +1,11 @@
+Claim,RQ,Status,Evidence
+BOM coverage across typed domains,RQ1,PASS_EXPERIMENTAL,Composite 0.931; 2 HBOM nodes unmatched
+Cryptographic tamper detection (30 instances),RQ2,PASS_PUBLICATION_READY,"240 obs, 0 FP, 0 FN, Wilson CI [0.886,1.0]"
+Scanner agreement measurement,RQ3,PASS_EXPERIMENTAL,"Trivy=54, Grype=35, Jaccard=0.047"
+VEX policy conformance,RQ3,PASS_PUBLICATION_READY,8 deterministic + 500 property-based cases
+Real HTTP inference latency (CPU),RQ4,SUPPORTED_QUICK_ONLY,"P50=397ms on tiny-gpt2, CPU only"
+GPU utilization metrics,RQ4,BLOCKED_GPU,No NVIDIA GPU on host
+Harbor OCI storage,RQ2,BLOCKED_EXTERNAL_INFRASTRUCTURE,Not configured
+Dependency-Track BOM ingestion,RQ3,BLOCKED_EXTERNAL_INFRASTRUCTURE,Not configured
+Kubernetes runtime observation,RQ4,BLOCKED_EXTERNAL_INFRASTRUCTURE,Not configured
+Industrial deployment pipeline,ALL,BLOCKED_EXTERNAL_INFRASTRUCTURE,Not configured

@@ -1,0 +1,103 @@
+{
+  "universe_id": "direct_pinned_manifest",
+  "nodes": [
+    {
+      "id": "package:torch",
+      "name": "torch",
+      "version": "2.13.0+cpu",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:transformers",
+      "name": "transformers",
+      "version": "5.14.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:tokenizers",
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:fastapi",
+      "name": "fastapi",
+      "version": "0.139.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:uvicorn",
+      "name": "uvicorn",
+      "version": "0.51.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pydantic",
+      "name": "pydantic",
+      "version": "2.13.4",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pydantic-settings",
+      "name": "pydantic-settings",
+      "version": "2.14.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:httpx",
+      "name": "httpx",
+      "version": "0.28.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pyyaml",
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pandas",
+      "name": "pandas",
+      "version": "3.0.3",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:numpy",
+      "name": "numpy",
+      "version": "2.4.4",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:scipy",
+      "name": "scipy",
+      "version": "1.17.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:matplotlib",
+      "name": "matplotlib",
+      "version": "3.11.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:psutil",
+      "name": "psutil",
+      "version": "7.2.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:jsonschema",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:cryptography",
+      "name": "cryptography",
+      "version": "49.0.0",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "authority": "OBSERVED",
+  "notes": "Not composite29 denominator; constraints and pins are distinct identities."
+}

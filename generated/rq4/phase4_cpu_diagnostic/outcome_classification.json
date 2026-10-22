@@ -1,0 +1,10 @@
+{
+  "COMPLETED": "Request processed successfully",
+  "EXPECTED_RATE_LIMIT": "Rejected by rate limiter (429)",
+  "EXPECTED_QUEUE_REJECTION": "Rejected because queue is full (503)",
+  "EXPECTED_CIRCUIT_BREAKER": "Rejected by open circuit breaker (503)",
+  "TIMEOUT": "Request timed out (504 or client timeout)",
+  "SERVER_ERROR": "Unexpected server error (5xx)",
+  "CLIENT_ERROR": "Client error (4xx, not rate limit)",
+  "EMERGENCY_ABORT": "Campaign aborted by operator"
+}

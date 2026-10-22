@@ -22,6 +22,14 @@
       "license": "MIT",
       "status": "pending",
       "notes": "GPT-2 (124M) used for full campaign"
+    },
+    "rq4_a100": {
+      "repository": "sshleifer/tiny-gpt2",
+      "revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+      "dtype": "torch.float16",
+      "config_sha256": "77a9e9830c3abeba929f5c61e0e97c398f98b4481ad75516c0be5bf038b340b0",
+      "verified_config_url": "https://huggingface.co/sshleifer/tiny-gpt2/resolve/5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be/config.json",
+      "download_procedure": "snapshot_download(repo_id=repository, revision=revision); see scripts/a100/benchmark.py"
     }
   }
 }

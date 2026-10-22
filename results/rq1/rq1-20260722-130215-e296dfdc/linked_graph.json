@@ -1,0 +1,26 @@
+{
+  "links": [
+    {
+      "source": "urn:uuid:8eb9df4d-18fc-4649-a0ac-6abb9a417ee4",
+      "source_type": "ai-ml-bom",
+      "target": "urn:uuid:9dae6127-b87d-44b6-b986-75a7979e2e32",
+      "target_type": "sbom-syft",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "urn:uuid:8eb9df4d-18fc-4649-a0ac-6abb9a417ee4",
+      "source_type": "ai-ml-bom",
+      "target": "urn:uuid:74348f0b-5601-4c7f-9f1d-7210b6a01d18",
+      "target_type": "sbom-trivy",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "urn:uuid:8eb9df4d-18fc-4649-a0ac-6abb9a417ee4",
+      "source_type": "ai-ml-bom",
+      "target": "urn:uuid:1a4717b6-8fd8-4828-bb55-cecaa9bf55df",
+      "target_type": "obom",
+      "relationship": "describedBy"
+    }
+  ],
+  "link_count": 3
+}

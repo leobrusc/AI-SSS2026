@@ -1,0 +1,7 @@
+"scenario_id","scenario","expected","actual","pass"
+"CS1","valid_signature_authorized","APPROVED","APPROVED","True"
+"CS2","invalid_signature","DENIED","DENIED","True"
+"CS3","modified_artifact_after_signing","DENIED","DENIED","True"
+"CS4","valid_sig_unauthorized_signer","DENIED","DENIED","True"
+"CS5","missing_attestation_predicate","DENIED_BY_POLICY","DENIED_BY_POLICY","True"
+"CS6","mismatched_subject_digest","DENIED","DENIED","True"

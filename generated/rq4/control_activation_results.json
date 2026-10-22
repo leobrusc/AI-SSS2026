@@ -1,0 +1,114 @@
+{
+  "campaign_id": "rq4-stress-20260723-103231-90518de9",
+  "timestamp_start": "2026-07-23T13:32:31.571079+00:00",
+  "timestamp_end": "2026-07-23T13:34:19.262441+00:00",
+  "model": "sshleifer/tiny-gpt2",
+  "model_revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+  "configurations": {
+    "C0": {
+      "config_id": "C0",
+      "n_requests": 15,
+      "outcome_counts": {
+        "COMPLETED": 15
+      },
+      "completed_count": 15,
+      "completed_rate": 1.0,
+      "expected_rejection_count": 0,
+      "expected_rejection_rate": 0.0,
+      "unexpected_failure_count": 0,
+      "unexpected_failure_rate": 0.0,
+      "timeout_count": 0,
+      "latency_p50_ms": 315.8,
+      "latency_p95_ms": 338.7,
+      "latency_p99_ms": 342.8,
+      "tokens_per_second": 97.75,
+      "total_tokens": 450
+    },
+    "C1": {
+      "config_id": "C1",
+      "n_requests": 24,
+      "outcome_counts": {
+        "COMPLETED": 24
+      },
+      "completed_count": 24,
+      "completed_rate": 1.0,
+      "expected_rejection_count": 0,
+      "expected_rejection_rate": 0.0,
+      "unexpected_failure_count": 0,
+      "unexpected_failure_rate": 0.0,
+      "timeout_count": 0,
+      "latency_p50_ms": 309.1,
+      "latency_p95_ms": 322.5,
+      "latency_p99_ms": 325.6,
+      "tokens_per_second": 49.95,
+      "total_tokens": 360
+    },
+    "C2": {
+      "config_id": "C2",
+      "n_requests": 45,
+      "outcome_counts": {
+        "EXPECTED_RATE_LIMIT": 15,
+        "COMPLETED": 30
+      },
+      "completed_count": 30,
+      "completed_rate": 0.6667,
+      "expected_rejection_count": 15,
+      "expected_rejection_rate": 0.3333,
+      "unexpected_failure_count": 0,
+      "unexpected_failure_rate": 0.0,
+      "timeout_count": 0,
+      "latency_p50_ms": 11238.7,
+      "latency_p95_ms": 11791.6,
+      "latency_p99_ms": 11792.4,
+      "tokens_per_second": 1.32,
+      "total_tokens": 450
+    },
+    "C3": {
+      "config_id": "C3",
+      "n_requests": 45,
+      "outcome_counts": {
+        "TIMEOUT": 23,
+        "EXPECTED_CIRCUIT_BREAKER": 22
+      },
+      "completed_count": 0,
+      "completed_rate": 0.0,
+      "expected_rejection_count": 22,
+      "expected_rejection_rate": 0.4889,
+      "unexpected_failure_count": 0,
+      "unexpected_failure_rate": 0.0,
+      "timeout_count": 23,
+      "latency_p50_ms": 0,
+      "latency_p95_ms": 0,
+      "latency_p99_ms": 0,
+      "tokens_per_second": 0,
+      "total_tokens": 0
+    }
+  },
+  "validation": {
+    "C0_completes_inference": {
+      "passed": true,
+      "detail": "15 requests completed"
+    },
+    "C1_completes_inference": {
+      "passed": true,
+      "detail": "24 requests completed"
+    },
+    "C2_control_activation": {
+      "passed": true,
+      "detail": "15 expected rejections (rate-limit or queue-full)"
+    },
+    "C3_circuit_opens": {
+      "passed": true,
+      "detail": "22 circuit-breaker rejections observed"
+    },
+    "C3_circuit_recovers": {
+      "passed": true,
+      "detail": "Circuit recovered after cooldown"
+    },
+    "unexpected_failures_reported": {
+      "passed": true,
+      "detail": "0 total unexpected failures across all configs"
+    }
+  },
+  "total_observations": 129
+}

@@ -1,0 +1,14 @@
+{
+  "sshleifer/tiny-gpt2": {
+    "model_id": "sshleifer/tiny-gpt2",
+    "sha": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+    "last_modified": "2021-05-23 12:55:11+00:00",
+    "pipeline_tag": "text-generation"
+  },
+  "openai-community/gpt2": {
+    "model_id": "openai-community/gpt2",
+    "sha": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "last_modified": "2024-02-19 10:57:45+00:00",
+    "pipeline_tag": "text-generation"
+  }
+}

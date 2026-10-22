@@ -1,0 +1,10 @@
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+Suggestions:                                                                          
+                                                                                      
+ ❖ Given expression "--select-catalogers python-installed-package-cataloger"          
+   However, names are not allowed with this operation (must use tags).                
+   It seems like you are intending to add a cataloger in addition to the default set. 
+   ... Did you mean "--select-catalogers +python-installed-package-cataloger" instead?
+                                                                                      
+[0000] ERROR 1 error occurred:
+	* invalid expression: "python-installed-package-cataloger": names are not allowed with this operation (must use tags)

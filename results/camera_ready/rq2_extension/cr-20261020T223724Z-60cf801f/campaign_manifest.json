@@ -1,0 +1,8 @@
+{
+  "campaign_id": "cr-20261020T223724Z-60cf801f",
+  "timestamp": "2026-10-20T22:37:25.377335+00:00",
+  "n": 42,
+  "key_fixture_scalar": 42,
+  "nonce": "library randomized",
+  "classification": "CAMERA_READY_EXTENSION"
+}

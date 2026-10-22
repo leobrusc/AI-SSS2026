@@ -1,3 +1,5 @@
+> Historical instructions retained for provenance. For AI-SSS 2026 use README.md and docs/A100_RQ4_RUNBOOK.md with uv.
+
 # TraceAI Experiment Protocol
 
 ## Overview

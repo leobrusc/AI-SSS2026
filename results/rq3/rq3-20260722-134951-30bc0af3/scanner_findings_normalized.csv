@@ -1,0 +1,90 @@
+canonical_advisory_id,ecosystem,canonical_purl,installed_version,severity,fix_version,scanner,package_name,data_source
+CVE-2023-37920,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,HIGH,2023.7.22,trivy,certifi,GitHub Security Advisory pip
+CVE-2022-23491,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,MEDIUM,2022.12.07,trivy,certifi,GitHub Security Advisory pip
+CVE-2024-39689,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,LOW,2024.7.4,trivy,certifi,GitHub Security Advisory pip
+CVE-2023-0286,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,39.0.1,trivy,cryptography,GitHub Security Advisory pip
+CVE-2023-50782,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,42.0.0,trivy,cryptography,GitHub Security Advisory pip
+CVE-2024-26130,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,42.0.4,trivy,cryptography,GitHub Security Advisory pip
+CVE-2026-26007,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,46.0.5,trivy,cryptography,GitHub Security Advisory pip
+GHSA-537C-GMF6-5CCF,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,48.0.1,trivy,cryptography,GitHub Security Advisory pip
+CVE-2023-23931,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,39.0.1,trivy,cryptography,GitHub Security Advisory pip
+CVE-2023-49083,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,41.0.6,trivy,cryptography,GitHub Security Advisory pip
+CVE-2024-0727,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,42.0.2,trivy,cryptography,GitHub Security Advisory pip
+GHSA-H4GH-QQ45-VH27,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,43.0.1,trivy,cryptography,GitHub Security Advisory pip
+CVE-2026-34073,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,46.0.6,trivy,cryptography,GitHub Security Advisory pip
+GHSA-5CPQ-8WJ7-HF2V,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.0,trivy,cryptography,GitHub Security Advisory pip
+GHSA-JM77-QPHF-C4W8,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.3,trivy,cryptography,GitHub Security Advisory pip
+GHSA-V8GR-M533-GHJ9,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.4,trivy,cryptography,GitHub Security Advisory pip
+CVE-2022-22817,pypi,pkg:pypi/pillow@9.0.0,9.0.0,CRITICAL,9.0.1,trivy,pillow,GitHub Security Advisory pip
+CVE-2023-50447,pypi,pkg:pypi/pillow@9.0.0,9.0.0,CRITICAL,10.2.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2022-24303,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,9.0.1,trivy,pillow,GitHub Security Advisory pip
+CVE-2022-45198,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,9.2.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2023-44271,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.0.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2023-4863,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.0.1,trivy,pillow,GitHub Security Advisory pip
+CVE-2024-28219,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-54058,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-54059,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-54060,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-55379,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-55380,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59197,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59199,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59200,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59204,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59205,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-42308,pypi,pkg:pypi/pillow@9.0.0,9.0.0,MEDIUM,12.2.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-42310,pypi,pkg:pypi/pillow@9.0.0,9.0.0,MEDIUM,12.2.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-55798,pypi,pkg:pypi/pillow@9.0.0,9.0.0,MEDIUM,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2026-59198,pypi,pkg:pypi/pillow@9.0.0,9.0.0,MEDIUM,12.3.0,trivy,pillow,GitHub Security Advisory pip
+CVE-2023-32681,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.31.0,trivy,requests,GitHub Security Advisory pip
+CVE-2024-35195,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.32.0,trivy,requests,GitHub Security Advisory pip
+CVE-2024-47081,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.32.4,trivy,requests,GitHub Security Advisory pip
+CVE-2026-25645,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.33.0,trivy,requests,GitHub Security Advisory pip
+CVE-2022-40897,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,65.5.1,trivy,setuptools,GitHub Security Advisory pip
+CVE-2024-6345,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,70.0.0,trivy,setuptools,GitHub Security Advisory pip
+CVE-2025-47273,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,78.1.1,trivy,setuptools,GitHub Security Advisory pip
+CVE-2026-59890,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,MEDIUM,83.0.0,trivy,setuptools,GitHub Security Advisory pip
+CVE-2021-33503,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,1.26.5,trivy,urllib3,GitHub Security Advisory pip
+CVE-2023-43804,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,"2.0.6, 1.26.17",trivy,urllib3,GitHub Security Advisory pip
+CVE-2025-66418,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.0,trivy,urllib3,GitHub Security Advisory pip
+CVE-2025-66471,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.0,trivy,urllib3,GitHub Security Advisory pip
+CVE-2026-21441,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.3,trivy,urllib3,GitHub Security Advisory pip
+CVE-2026-44431,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.7.0,trivy,urllib3,GitHub Security Advisory pip
+CVE-2023-45803,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,"2.0.7, 1.26.18",trivy,urllib3,GitHub Security Advisory pip
+CVE-2024-37891,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,"1.26.19, 2.2.2",trivy,urllib3,GitHub Security Advisory pip
+CVE-2025-50181,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,2.5.0,trivy,urllib3,GitHub Security Advisory pip
+GHSA-XQR8-7JWR-RHP7,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,HIGH,2023.7.22,grype,certifi,https://github.com/advisories/GHSA-xqr8-7jwr-rhp7
+GHSA-43FP-RHV2-5GV8,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,MEDIUM,2022.12.07,grype,certifi,https://github.com/advisories/GHSA-43fp-rhv2-5gv8
+GHSA-248V-346W-9CWC,pypi,pkg:pypi/certifi@2022.9.24,2022.9.24,LOW,2024.7.4,grype,certifi,https://github.com/advisories/GHSA-248v-346w-9cwc
+GHSA-X4QR-2FVF-3MR5,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,39.0.1,grype,cryptography,https://github.com/advisories/GHSA-x4qr-2fvf-3mr5
+GHSA-R6PH-V2QM-Q3C2,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,46.0.5,grype,cryptography,https://github.com/advisories/GHSA-r6ph-v2qm-q3c2
+GHSA-6VQW-3V5J-54X4,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,42.0.4,grype,cryptography,https://github.com/advisories/GHSA-6vqw-3v5j-54x4
+GHSA-3WW4-GG4F-JR7F,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,HIGH,42.0.0,grype,cryptography,https://github.com/advisories/GHSA-3ww4-gg4f-jr7f
+GHSA-W7PP-M8WF-VJ6R,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,39.0.1,grype,cryptography,https://github.com/advisories/GHSA-w7pp-m8wf-vj6r
+GHSA-JFHM-5GHH-2F97,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,41.0.6,grype,cryptography,https://github.com/advisories/GHSA-jfhm-5ghh-2f97
+GHSA-H4GH-QQ45-VH27,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,43.0.1,grype,cryptography,https://github.com/advisories/GHSA-h4gh-qq45-vh27
+GHSA-9V9H-CGJ8-H64P,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,MEDIUM,42.0.2,grype,cryptography,https://github.com/advisories/GHSA-9v9h-cgj8-h64p
+GHSA-V8GR-M533-GHJ9,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.4,grype,cryptography,https://github.com/advisories/GHSA-v8gr-m533-ghj9
+GHSA-JM77-QPHF-C4W8,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.3,grype,cryptography,https://github.com/advisories/GHSA-jm77-qphf-c4w8
+GHSA-5CPQ-8WJ7-HF2V,pypi,pkg:pypi/cryptography@39.0.0,39.0.0,LOW,41.0.0,grype,cryptography,https://github.com/advisories/GHSA-5cpq-8wj7-hf2v
+GHSA-8VJ2-VXX3-667W,pypi,pkg:pypi/pillow@9.0.0,9.0.0,CRITICAL,9.0.1,grype,pillow,https://github.com/advisories/GHSA-8vj2-vxx3-667w
+GHSA-3F63-HFP8-52JQ,pypi,pkg:pypi/pillow@9.0.0,9.0.0,CRITICAL,10.2.0,grype,pillow,https://github.com/advisories/GHSA-3f63-hfp8-52jq
+GHSA-M2VV-5VJ5-2HM7,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,9.2.0,grype,pillow,https://github.com/advisories/GHSA-m2vv-5vj5-2hm7
+GHSA-J7HP-H8JX-5PPR,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.0.1,grype,pillow,https://github.com/advisories/GHSA-j7hp-h8jx-5ppr
+GHSA-9J59-75QJ-795W,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,9.0.1,grype,pillow,https://github.com/advisories/GHSA-9j59-75qj-795w
+GHSA-8GHJ-P4VJ-MR35,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.0.0,grype,pillow,https://github.com/advisories/GHSA-8ghj-p4vj-mr35
+GHSA-44WM-F244-XHP3,pypi,pkg:pypi/pillow@9.0.0,9.0.0,HIGH,10.3.0,grype,pillow,https://github.com/advisories/GHSA-44wm-f244-xhp3
+GHSA-J8R2-6X86-Q33Q,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.31.0,grype,requests,https://github.com/advisories/GHSA-j8r2-6x86-q33q
+GHSA-9WX4-H78V-VM56,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.32.0,grype,requests,https://github.com/advisories/GHSA-9wx4-h78v-vm56
+GHSA-9HJG-9R4M-MVJ7,pypi,pkg:pypi/requests@2.25.0,2.25.0,MEDIUM,2.32.4,grype,requests,https://github.com/advisories/GHSA-9hjg-9r4m-mvj7
+GHSA-R9HX-VWMV-Q579,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,65.5.1,grype,setuptools,https://github.com/advisories/GHSA-r9hx-vwmv-q579
+GHSA-CX63-2MW6-8HW5,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,70.0.0,grype,setuptools,https://github.com/advisories/GHSA-cx63-2mw6-8hw5
+GHSA-5RJG-FVGR-3XXF,pypi,pkg:pypi/setuptools@65.0.0,65.0.0,HIGH,78.1.1,grype,setuptools,https://github.com/advisories/GHSA-5rjg-fvgr-3xxf
+GHSA-V845-JXX5-VC9F,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,1.26.17,grype,urllib3,https://github.com/advisories/GHSA-v845-jxx5-vc9f
+GHSA-Q2Q7-5PP4-W6PG,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,1.26.5,grype,urllib3,https://github.com/advisories/GHSA-q2q7-5pp4-w6pg
+GHSA-GM62-XV2J-4W53,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.0,grype,urllib3,https://github.com/advisories/GHSA-gm62-xv2j-4w53
+GHSA-38JV-5279-WG99,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.3,grype,urllib3,https://github.com/advisories/GHSA-38jv-5279-wg99
+GHSA-2XPW-W6GG-JR37,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,HIGH,2.6.0,grype,urllib3,https://github.com/advisories/GHSA-2xpw-w6gg-jr37
+GHSA-PQ67-6M6Q-MJ2V,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,2.5.0,grype,urllib3,https://github.com/advisories/GHSA-pq67-6m6q-mj2v
+GHSA-G4MX-Q9VG-27P4,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,1.26.18,grype,urllib3,https://github.com/advisories/GHSA-g4mx-q9vg-27p4
+GHSA-34JH-P97F-MPXF,pypi,pkg:pypi/urllib3@1.26.4,1.26.4,MEDIUM,1.26.19,grype,urllib3,https://github.com/advisories/GHSA-34jh-p97f-mpxf

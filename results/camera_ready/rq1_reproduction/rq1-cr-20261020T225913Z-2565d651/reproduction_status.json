@@ -1,0 +1,11 @@
+{
+  "classification": "HISTORICAL_27_29_NOT_REPRODUCIBLE",
+  "numeric_metric_reconstruction_27_29": true,
+  "historical_frozen_run_reproduced": false,
+  "missing_exact_inputs": [
+    "Original finalizer ground-truth JSON not persisted",
+    "Original native three-component OBOM bytes overwritten by seven-component enriched file",
+    "No run manifest binding source revision, selected scanner file, inventory and BOM hashes"
+  ],
+  "warning": "Only a labeled source-projection metric reconstruction; original full run NOT reproduced. RAM matches colorama by substring, a false semantic match."
+}

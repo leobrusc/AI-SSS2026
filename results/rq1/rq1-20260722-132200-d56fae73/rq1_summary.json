@@ -1,0 +1,49 @@
+{
+  "campaign_id": "rq1-20260722-132200-d56fae73",
+  "profile": "local",
+  "quick": true,
+  "timestamp": "2026-07-22T16:23:37.854011+00:00",
+  "metrics": {
+    "domain_coverage": {
+      "mlbom": {
+        "applicable": 6,
+        "matched": 1,
+        "coverage": 0.1667
+      },
+      "sbom": {
+        "applicable": 17,
+        "matched": 17,
+        "coverage": 1.0
+      },
+      "hbom": {
+        "applicable": 4,
+        "matched": 3,
+        "coverage": 0.75
+      },
+      "obom": {
+        "applicable": 3,
+        "matched": 1,
+        "coverage": 0.3333
+      }
+    },
+    "composite_coverage": 0.7931,
+    "composite_matched": 23,
+    "composite_applicable": 29,
+    "syft": {
+      "component_count": 162,
+      "status": "success"
+    },
+    "trivy": {
+      "component_count": 0,
+      "status": "TOOL_LIMITATION",
+      "limitation": "Trivy fs scan found 0 components. This occurs when Trivy does not detect a supported lockfile format in the project root. The project uses requirements.lock (pip freeze format) which may not be recognized by this Trivy version. This is a tool limitation, not evidence of absence."
+    },
+    "syft_trivy_jaccard": 0.0,
+    "schema_validation_failures": 0,
+    "duplicate_rate_syft": 0.3457,
+    "duplicate_rate_traceai": 0.0,
+    "ground_truth_total": 31,
+    "ground_truth_applicable": 29,
+    "ground_truth_edges": 28
+  }
+}

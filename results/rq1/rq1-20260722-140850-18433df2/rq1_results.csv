@@ -1,0 +1,10 @@
+metric,value
+campaign_id,rq1-20260722-140850-18433df2
+composite_coverage,0.1724
+mlbom_coverage,0.1667
+sbom_coverage,0.0
+hbom_coverage,0.75
+obom_coverage,0.3333
+syft_trivy_jaccard,N/A
+schema_failures,0
+trivy_status,TOOL_LIMITATION

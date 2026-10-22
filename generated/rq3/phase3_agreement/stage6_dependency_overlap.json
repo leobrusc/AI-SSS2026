@@ -1,0 +1,11 @@
+{
+  "trivy_direct": 13,
+  "trivy_transitive": 41,
+  "grype_direct": 11,
+  "grype_transitive": 24,
+  "direct_id_overlap": 4,
+  "transitive_id_overlap": 0,
+  "direct_deps_scanned": [
+    "cryptography"
+  ]
+}

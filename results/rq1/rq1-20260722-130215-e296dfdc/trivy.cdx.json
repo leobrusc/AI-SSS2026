@@ -1,0 +1,42 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:74348f0b-5601-4c7f-9f1d-7210b6a01d18",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T16:04:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.72.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "32086a07-b5d8-4825-bfec-85d044b9eb8a",
+      "type": "application",
+      "name": "C:/Users/leolima/Documents/traceai-ladc2026",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "32086a07-b5d8-4825-bfec-85d044b9eb8a",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

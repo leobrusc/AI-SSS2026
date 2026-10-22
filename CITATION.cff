@@ -1,21 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the LADC 2026 paper."
-title: "TraceAI: From Static AI/ML-BOMs to Runtime-Aware Assurance"
+message: "Please cite the AI-SSS 2026 artifact and associated paper."
+title: "Operational Assurance for Secure Generative AI Supply Chains with CycloneDX"
 type: software
 authors:
   - family-names: "Lima"
     given-names: "Leonardo"
-version: "0.1.0"
-date-released: "2026-07-22"
+version: "ai-sss2026-a100-benchmark-v1"
+date-released: "2026-10-22"
 license: MIT
-repository-code: "https://github.com/traceai-ladc2026/traceai-ladc2026"
-preferred-citation:
-  type: conference-paper
-  title: "From Static AI/ML-BOMs to Runtime-Aware Assurance: An Industrial Experience with CycloneDX for Dependable LLM Pipelines"
-  authors:
-    - family-names: "Lima"
-      given-names: "Leonardo"
-  collection-title: "Proceedings of the 12th Latin-American Symposium on Dependable and Secure Computing (LADC 2026)"
-  year: 2026
-  publisher:
-    name: "Springer"
+repository-code: "https://github.com/leobrusc/AI-SSS2026"

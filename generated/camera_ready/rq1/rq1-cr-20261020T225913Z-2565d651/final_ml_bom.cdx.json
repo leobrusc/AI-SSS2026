@@ -1,0 +1,113 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:92384806-11ec-4313-bd07-7554ffbf0a4e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-20T22:59:18.581364+00:00",
+    "tools": {
+      "components": [
+        {
+          "name": "traceai",
+          "version": "0.1.0",
+          "type": "application"
+        }
+      ]
+    },
+    "component": {
+      "type": "machine-learning-model",
+      "name": "traceai-ml-pipeline",
+      "version": "0.1.0",
+      "bom-ref": "root-pipeline"
+    }
+  },
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "name": "openai-community/gpt2",
+      "bom-ref": "comp-model",
+      "properties": [
+        {
+          "name": "traceai:type",
+          "value": "causal-lm"
+        },
+        {
+          "name": "traceai:architecture",
+          "value": "GPT2LMHeadModel"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "model.safetensors",
+      "bom-ref": "comp-weights",
+      "properties": [
+        {
+          "name": "traceai:artifact-type",
+          "value": "model-weights"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "tokenizer.json",
+      "bom-ref": "comp-tokenizer",
+      "properties": [
+        {
+          "name": "traceai:artifact-type",
+          "value": "tokenizer"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "config.json",
+      "bom-ref": "comp-config",
+      "properties": [
+        {
+          "name": "traceai:artifact-type",
+          "value": "model-configuration"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "generation_config.json",
+      "bom-ref": "comp-genconfig",
+      "properties": [
+        {
+          "name": "traceai:artifact-type",
+          "value": "generation-configuration"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "prompt-fixtures",
+      "bom-ref": "comp-dataset",
+      "properties": [
+        {
+          "name": "traceai:artifact-type",
+          "value": "evaluation-dataset"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "root-pipeline",
+      "dependsOn": [
+        "comp-model"
+      ]
+    },
+    {
+      "ref": "comp-model",
+      "dependsOn": [
+        "comp-weights",
+        "comp-tokenizer",
+        "comp-config",
+        "comp-genconfig"
+      ]
+    }
+  ]
+}

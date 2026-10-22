@@ -1,0 +1,4 @@
+command,components,classification
+trivy fs --format cyclonedx fixtures/trivy_python_probe,6,SUPPORTED_AND_DETECTED
+trivy fs --format json fixtures/trivy_python_probe,5,SUPPORTED_BUT_ZERO_VULNERABILITIES
+trivy fs --file-patterns pip:requirements-exact.txt .,23,SUPPORTED_AND_DETECTED

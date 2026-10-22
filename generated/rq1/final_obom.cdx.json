@@ -1,0 +1,77 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:8b7f30e3-d851-4290-9e85-c7bf15c3a92b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T17:33:29.907963+00:00"
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "0.1.0",
+      "bom-ref": "obom-service"
+    },
+    {
+      "type": "file",
+      "name": "policy.yaml",
+      "bom-ref": "obom-policy"
+    },
+    {
+      "type": "platform",
+      "name": "process-snapshot",
+      "bom-ref": "obom-snapshot",
+      "properties": [
+        {
+          "name": "traceai:cpu_percent",
+          "value": "1.2"
+        },
+        {
+          "name": "traceai:rss_mb",
+          "value": "23.2"
+        }
+      ]
+    },
+    {
+      "type": "operating-system",
+      "name": "windows",
+      "version": "10.0.26200",
+      "bom-ref": "obom-os"
+    },
+    {
+      "type": "platform",
+      "name": "cpython",
+      "version": "3.11.6",
+      "bom-ref": "obom-python"
+    },
+    {
+      "type": "device",
+      "name": "cpu",
+      "bom-ref": "obom-cpu",
+      "version": "12C/14T",
+      "properties": [
+        {
+          "name": "traceai:processor",
+          "value": "Intel64 Family 6 Model 181 Stepping 0, GenuineIntel"
+        },
+        {
+          "name": "traceai:architecture",
+          "value": "AMD64"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "name": "ram",
+      "bom-ref": "obom-ram",
+      "version": "31.5GB",
+      "properties": [
+        {
+          "name": "traceai:total_bytes",
+          "value": "33777467392"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+"scenario","decision","pass"
+"valid_signature","DENIED","False"
+"invalid_signature","DENIED","True"
+"modified_artifact","DENIED","True"
+"unauthorized_signer","DENIED","True"
+"missing_attestation_predicate","DENIED_BY_POLICY","True"
+"mismatched_subject_digest","DENIED","True"

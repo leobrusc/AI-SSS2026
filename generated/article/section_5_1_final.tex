@@ -1,0 +1,9 @@
+\subsection{Experimental Setup}
+
+Experiments execute on a Windows~11 workstation (Python~3.11.6, PyTorch~2.13.0 CPU-only, 16 logical cores, 32\,GB RAM) using the \texttt{local} profile. Security scanning tools: Syft~1.18.1 (SHA-256 verified), Grype~0.86.1 (SHA-256 verified), Trivy~0.72.0, Cosign~2.4.1. All experiments reference commit \texttt{traceai-local-evidence-v3}.
+
+The RQ1 ground truth uses typed domain coverage separating AI/ML-BOM (6~nodes), SBOM (16~nodes), HBOM (4~nodes, 1~NOT\_APPLICABLE), and OBOM (3~nodes). GPU/CUDA nodes are marked NOT\_APPLICABLE on this host. Trivy filesystem scanning discovers 0~components due to a documented tool limitation (pip freeze format not recognized); SBOM coverage uses Syft only. Trivy is retained for vulnerability scanning of supplied CycloneDX SBOMs.
+
+RQ3 scanner findings are deduplicated by canonical advisory identifier before computing agreement. VEX evaluation uses 8~deterministic conformance tests and 500~property-based cases validated against an independent decision oracle.
+
+The RQ2 campaign executes 30~independent fault instances per scenario (240~total observations) with real SHA-256 hashing and ECDSA signature verification. RQ4 uses real HTTP inference with \texttt{sshleifer/tiny-gpt2} (revision \texttt{5f91d94}) as CPU diagnostic evidence; GPU results are pending execution on NVIDIA RTX~A5000.

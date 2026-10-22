@@ -1,0 +1,20 @@
+{
+  "target_sbom_hash": "9460eec24ce994f30f549817f4d422e140fe47af551f6370b7d3238c39043338",
+  "scanners": {
+    "trivy": {
+      "available": true,
+      "scanner_version": "0.72.0",
+      "db_version": 2,
+      "db_updated_at": "2026-07-22T13:17:28.096603393Z",
+      "scan_timestamp": "2026-07-22T17:08:19.429470+00:00"
+    },
+    "grype": {
+      "available": true,
+      "scanner_version": "0.86.1",
+      "db_version": "",
+      "db_updated_at": "",
+      "scan_timestamp": "2026-07-22T17:08:20.220873+00:00"
+    }
+  },
+  "metadata_timestamp": "2026-07-22T17:08:22.054240+00:00"
+}

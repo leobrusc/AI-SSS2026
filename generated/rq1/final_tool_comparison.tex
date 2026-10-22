@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\caption{RQ1 Tool Comparison: Separated Inventory Universes (Corrected)}
+\label{tab:rq1-corrected}
+\centering\small
+\begin{tabular}{llrrl}
+\toprule
+\textbf{Universe} & \textbf{Metric} & \textbf{Trivy} & \textbf{Syft} & \textbf{Value} \\
+\midrule
+  Direct deps & Expected & \multicolumn{2}{c}{16} & --- \\
+  Direct deps & Detected & 16 & 16 & --- \\
+  Direct deps & Recall & 1.0000 & 1.0000 & --- \\
+  Direct deps & Jaccard & \multicolumn{2}{c}{---} & 1.0000 \\
+  \midrule
+  Installed env & Syft count & --- & 101 & --- \\
+  Installed env & Trivy & \multicolumn{3}{l}{NOT\_COMPARABLE\_ON\_WINDOWS} \\
+\bottomrule
+\end{tabular}
+\end{table}

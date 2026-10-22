@@ -1,0 +1,33 @@
+{
+  "research_question": "RQ2",
+  "profile": "local",
+  "timestamp": "2026-07-22T17:16:10.959623+00:00",
+  "ready": true,
+  "checks": [
+    {
+      "check": "git_tree_clean",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "check": "security_campaign_executed",
+      "pass": true,
+      "detail": "4 campaign(s)"
+    },
+    {
+      "check": "zero_false_negatives",
+      "pass": true,
+      "detail": "0 false negatives"
+    },
+    {
+      "check": "uses_real_hashing",
+      "pass": true,
+      "detail": "Security campaign uses SHA-256 on actual fixture files"
+    },
+    {
+      "check": "uses_real_policy_engine",
+      "pass": true,
+      "detail": "Gate decisions from PolicyEngine with ECDSA verification"
+    }
+  ]
+}

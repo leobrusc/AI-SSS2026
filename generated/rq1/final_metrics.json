@@ -1,0 +1,35 @@
+{
+  "domain_coverage": {
+    "mlbom": {
+      "applicable": 6,
+      "matched": 6,
+      "coverage": 1.0,
+      "unmatched": []
+    },
+    "sbom": {
+      "applicable": 16,
+      "matched": 16,
+      "coverage": 1.0,
+      "unmatched": []
+    },
+    "hbom": {
+      "applicable": 2,
+      "matched": 2,
+      "coverage": 1.0,
+      "unmatched": []
+    },
+    "obom": {
+      "applicable": 5,
+      "matched": 5,
+      "coverage": 1.0,
+      "unmatched": []
+    }
+  },
+  "composite_coverage": 1.0,
+  "composite_matched": 29,
+  "composite_applicable": 29,
+  "trivy_status": "SUPPORTED_INPUT_FORMAT_MISMATCH",
+  "trivy_probe_result": "Trivy discovers 23 components with exact-pinned requirements-exact.txt",
+  "syft_components": 108,
+  "trivy_components_probe": 18
+}

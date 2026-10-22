@@ -1,0 +1,18 @@
+{
+  "campaign_id": "availability-20260722-115011-8f551ebe",
+  "campaign_type": "availability",
+  "profile": "local",
+  "started_at": "2026-07-22T14:50:11.943644+00:00",
+  "trial_count": 3,
+  "requests_per_trial": 20,
+  "configurations": [
+    "C0",
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "total_observations": 240,
+  "quick": true,
+  "raw_directory": "results\\raw\\availability-20260722-115011-8f551ebe",
+  "results_file": "results\\raw\\availability-20260722-115011-8f551ebe\\availability_results.json"
+}

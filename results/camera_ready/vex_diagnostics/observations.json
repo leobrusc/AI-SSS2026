@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-20T22:43:17.330902+00:00",
+  "observations": [
+    {
+      "status": "affected",
+      "remaining": 1,
+      "suppressed": 0,
+      "expired": false,
+      "wrong_component": true
+    },
+    {
+      "status": "not_affected",
+      "remaining": 0,
+      "suppressed": 1,
+      "expired": false,
+      "wrong_component": true
+    },
+    {
+      "status": "fixed",
+      "remaining": 1,
+      "suppressed": 0,
+      "expired": false,
+      "wrong_component": true
+    },
+    {
+      "status": "under_investigation",
+      "remaining": 1,
+      "suppressed": 0,
+      "expired": false,
+      "wrong_component": true
+    },
+    {
+      "status": "unknown",
+      "remaining": 1,
+      "suppressed": 0,
+      "expired": false,
+      "wrong_component": true
+    },
+    {
+      "case": "explicit_expiry",
+      "expired": true
+    },
+    {
+      "case": "explicit_expiry_without_timestamp",
+      "expired": false
+    },
+    {
+      "case": "conflicting_first_statement_wins",
+      "status": "not_affected"
+    }
+  ]
+}

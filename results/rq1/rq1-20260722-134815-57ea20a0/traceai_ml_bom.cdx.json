@@ -1,0 +1,159 @@
+{
+  "$schema": "https://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:32926901-ea05-4198-8a89-51f9e1384fa0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T16:49:49.743384+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "traceai",
+          "version": "0.1.0",
+          "bom-ref": "tool-traceai"
+        }
+      ]
+    },
+    "component": {
+      "type": "machine-learning-model",
+      "name": "traceai-inference-pipeline",
+      "version": "0.1.0",
+      "bom-ref": "root-pipeline"
+    },
+    "properties": [
+      {
+        "name": "traceai:profile",
+        "value": "local"
+      },
+      {
+        "name": "traceai:spec-version",
+        "value": "1.6"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "name": "openai-community/gpt2",
+      "bom-ref": "ref-model-9957f04dd19712e5",
+      "properties": [
+        {
+          "name": "traceai:type",
+          "value": "causal-lm"
+        },
+        {
+          "name": "traceai:architecture",
+          "value": "GPT-2"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "openai-community/gpt2-tokenizer",
+      "bom-ref": "ref-tokenizer-86c6e8709f7f70bd",
+      "properties": [
+        {
+          "name": "traceai:type",
+          "value": "BPE"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "openai-community/gpt2-config",
+      "bom-ref": "ref-config-17c3e97e70c4a82b",
+      "properties": [
+        {
+          "name": "traceai:file",
+          "value": "config.json"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "prompt-fixtures",
+      "bom-ref": "ref-dataset-ab564653e44fd49b",
+      "properties": [
+        {
+          "name": "traceai:manifest",
+          "value": "fixtures/datasets/manifest.json"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "python-dependencies",
+      "bom-ref": "ref-library-3d6f771d8cf482ae",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "eecc978f84577ad211971e35ca214af1554168c0a57e0ece8aa8eb6f889ca643"
+        }
+      ],
+      "properties": [
+        {
+          "name": "traceai:lock_file",
+          "value": "requirements.lock"
+        }
+      ]
+    },
+    {
+      "type": "platform",
+      "name": "python-runtime",
+      "bom-ref": "ref-runtime-c0dc34a96516cfba",
+      "version": "3.11.6",
+      "properties": [
+        {
+          "name": "traceai:os",
+          "value": "Windows"
+        },
+        {
+          "name": "traceai:arch",
+          "value": "AMD64"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "traceai-inference",
+      "bom-ref": "ref-service-6c69f4b773741239",
+      "version": "0.1.0"
+    },
+    {
+      "type": "file",
+      "name": "deployment-policy",
+      "bom-ref": "ref-config-93d31b8dac55a8ec",
+      "properties": [
+        {
+          "name": "traceai:file",
+          "value": "config/policy.yaml"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "ref-model-9957f04dd19712e5",
+      "dependsOn": [
+        "ref-tokenizer-86c6e8709f7f70bd",
+        "ref-library-3d6f771d8cf482ae",
+        "ref-runtime-c0dc34a96516cfba"
+      ]
+    },
+    {
+      "ref": "ref-service-6c69f4b773741239",
+      "dependsOn": [
+        "ref-model-9957f04dd19712e5",
+        "ref-tokenizer-86c6e8709f7f70bd"
+      ]
+    },
+    {
+      "ref": "root-pipeline",
+      "dependsOn": [
+        "ref-service-6c69f4b773741239"
+      ]
+    }
+  ]
+}

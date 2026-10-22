@@ -1,0 +1,3 @@
+artifact,match,reason
+generated/rq3/canonical_advisory_agreement.json,True,Semantically equivalent (timestamps excluded)
+generated/rq1/rq1_comparison_summary.json,True,Semantically equivalent (timestamps excluded)

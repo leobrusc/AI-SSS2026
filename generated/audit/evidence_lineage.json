@@ -1,0 +1,22 @@
+{
+  "security_campaigns": {
+    "count": 2,
+    "latest": "security-20260722-115004-8871a7ea",
+    "has_raw_json": true,
+    "classification": "REAL_EVIDENCE"
+  },
+  "availability_campaigns": {
+    "count": 1,
+    "latest": "availability-20260722-115011-8f551ebe",
+    "has_raw_json": true,
+    "classification": "MOCK_ONLY",
+    "detail": "Raw availability observations are from _simulate_request(), not real inference."
+  },
+  "analysis_results": {
+    "exists": true,
+    "traces_to_raw": true,
+    "security_data_real": true,
+    "availability_data_real": false,
+    "detail": "analysis_results.json derives from raw campaign JSONs. Security portion is REAL_EVIDENCE. Availability portion is MOCK_ONLY."
+  }
+}

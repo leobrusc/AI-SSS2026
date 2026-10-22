@@ -1,3 +1,5 @@
+> Historical instructions retained for provenance. For AI-SSS 2026 use README.md and docs/A100_RQ4_RUNBOOK.md with uv.
+
 # TraceAI Windows Setup Guide
 
 ## Overview
@@ -99,7 +101,7 @@ Get-ChildItem -Path . -Recurse -Filter "*.ps1" | Unblock-File
 
 ```powershell
 # Navigate to project root
-cd C:\Users\leolima\Documents\traceai-ladc2026
+cd <workspace>/AI-SSS2026
 
 # Create virtual environment
 python -m venv .venv
@@ -113,7 +115,7 @@ python -m venv .venv
 ```powershell
 # Should show the .venv path
 python -c "import sys; print(sys.prefix)"
-# Expected: C:\Users\leolima\Documents\traceai-ladc2026\.venv
+# Expected: <workspace>/AI-SSS2026\.venv
 
 # Confirm pip is from venv
 pip --version
@@ -316,7 +318,7 @@ pip install torch --index-url $env:TORCH_INDEX_URL
 2. Exclude `workspace/models/` from Windows Defender real-time scanning:
    ```powershell
    # Run as Administrator
-   Add-MpPreference -ExclusionPath "C:\Users\leolima\Documents\traceai-ladc2026\workspace"
+   Add-MpPreference -ExclusionPath "<workspace>/AI-SSS2026\workspace"
    ```
 
 ---
@@ -408,7 +410,7 @@ pip install -e .
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 # 2. Navigate to project
-cd C:\Users\leolima\Documents\traceai-ladc2026
+cd <workspace>/AI-SSS2026
 
 # 3. Create and activate venv
 python -m venv .venv

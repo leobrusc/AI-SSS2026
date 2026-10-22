@@ -1,0 +1,8 @@
+metric,value
+trivy_total,54
+grype_total,35
+intersection,4
+union,85
+jaccard_similarity,0.0471
+trivy_only,50
+grype_only,31

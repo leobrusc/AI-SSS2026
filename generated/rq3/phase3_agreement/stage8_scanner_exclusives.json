@@ -1,0 +1,992 @@
+{
+  "trivy_exclusive": [
+    {
+      "id": "CVE-2023-37920",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-xqr8-7jwr-rhp7"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2022-23491",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-43fp-rhv2-5gv8"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-39689",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "LOW",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-248v-346w-9cwc"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-0286",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-x4qr-2fvf-3mr5"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2023-50782",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-3ww4-gg4f-jr7f"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2024-26130",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-6vqw-3v5j-54x4"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2026-26007",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-r6ph-v2qm-q3c2"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-537c-gmf6-5ccf",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "DATABASE_COVERAGE_GAP",
+      "evidence": "No alias mapping exists; scanner uses a DB the other does not cover",
+      "aliases_in_output": [],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2023-23931",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-w7pp-m8wf-vj6r"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2023-49083",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-jfhm-5ghh-2f97"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2024-0727",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-9v9h-cgj8-h64p"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2026-34073",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "LOW",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-m959-cc7f-wv43"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "CVE-2022-22817",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "CRITICAL",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-8vj2-vxx3-667w"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-50447",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "CRITICAL",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-3f63-hfp8-52jq"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2022-24303",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-9j59-75qj-795w"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2022-45198",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-m2vv-5vj5-2hm7"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-44271",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-8ghj-p4vj-mr35"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-4863",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-j7hp-h8jx-5ppr"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-28219",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-44wm-f244-xhp3"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-54058",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-62p4-gmf7-7g93"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-54059",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-8v84-f9pq-wr9x"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-54060",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-5x94-69rx-g8h2"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-55379",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-45hq-cxwh-f6vc"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-55380",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-phj9-mv4w-65pm"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59197",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-xj96-63gp-2gmr"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59199",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-6r8x-57c9-28j4"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59200",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-jjj6-mw9f-p565"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59204",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-vjc4-5qp5-m44j"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59205",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-9hw9-ch79-4vh6"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-42308",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-wjx4-4jcj-g98j"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-42310",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-r73j-pqj5-w3x7"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-55798",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-4x4j-2g7c-83w6"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59198",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-fj7v-r99m-22gq"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-32681",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-j8r2-6x86-q33q"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-35195",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-9wx4-h78v-vm56"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-47081",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-9hjg-9r4m-mvj7"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-25645",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-gc5v-m9x4-r6x2"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2022-40897",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-r9hx-vwmv-q579"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-6345",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-cx63-2mw6-8hw5"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2025-47273",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-5rjg-fvgr-3xxf"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-59890",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "MEDIUM",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-h35f-9h28-mq5c"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2021-33503",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-q2q7-5pp4-w6pg"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-43804",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-v845-jxx5-vc9f"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2025-66418",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-gm62-xv2j-4w53"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2025-66471",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-2xpw-w6gg-jr37"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-21441",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-38jv-5279-wg99"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2026-44431",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ID_NAMESPACE_DIFFERENCE",
+      "evidence": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+      "aliases_in_output": [
+        "GHSA-qccp-gfcp-xxvc"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2023-45803",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-g4mx-q9vg-27p4"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2024-37891",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-34jh-p97f-mpxf"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "CVE-2025-50181",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "GHSA-pq67-6m6q-mj2v"
+      ],
+      "is_direct_dep": false
+    }
+  ],
+  "grype_exclusive": [
+    {
+      "id": "GHSA-xqr8-7jwr-rhp7",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-37920"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-43fp-rhv2-5gv8",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2022-23491"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-248v-346w-9cwc",
+      "pkg_name": "certifi",
+      "version": "2022.9.24",
+      "severity": "LOW",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-39689"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-x4qr-2fvf-3mr5",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-0286"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-r6ph-v2qm-q3c2",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2026-26007"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-6vqw-3v5j-54x4",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-26130"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-3ww4-gg4f-jr7f",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-50782"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-w7pp-m8wf-vj6r",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-23931"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-jfhm-5ghh-2f97",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-49083"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-9v9h-cgj8-h64p",
+      "pkg_name": "cryptography",
+      "version": "39.0.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-0727"
+      ],
+      "is_direct_dep": true
+    },
+    {
+      "id": "GHSA-8vj2-vxx3-667w",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "CRITICAL",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2022-22817"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-3f63-hfp8-52jq",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "CRITICAL",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-50447"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-m2vv-5vj5-2hm7",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2022-45198"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-j7hp-h8jx-5ppr",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-4863"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-9j59-75qj-795w",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2022-24303"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-8ghj-p4vj-mr35",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-44271"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-44wm-f244-xhp3",
+      "pkg_name": "pillow",
+      "version": "9.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-28219"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-j8r2-6x86-q33q",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-32681"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-9wx4-h78v-vm56",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-35195"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-9hjg-9r4m-mvj7",
+      "pkg_name": "requests",
+      "version": "2.25.0",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-47081"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-r9hx-vwmv-q579",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2022-40897"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-cx63-2mw6-8hw5",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-6345"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-5rjg-fvgr-3xxf",
+      "pkg_name": "setuptools",
+      "version": "65.0.0",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2025-47273"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-v845-jxx5-vc9f",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-43804"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-q2q7-5pp4-w6pg",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2021-33503"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-gm62-xv2j-4w53",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2025-66418"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-38jv-5279-wg99",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2026-21441"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "HIGH",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2025-66471"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-pq67-6m6q-mj2v",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2025-50181"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-g4mx-q9vg-27p4",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2023-45803"
+      ],
+      "is_direct_dep": false
+    },
+    {
+      "id": "GHSA-34jh-p97f-mpxf",
+      "pkg_name": "urllib3",
+      "version": "1.26.4",
+      "severity": "MEDIUM",
+      "category": "ADVISORY_ALIAS_RESOLVED",
+      "evidence": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+      "aliases_in_output": [
+        "CVE-2024-37891"
+      ],
+      "is_direct_dep": false
+    }
+  ],
+  "trivy_category_counts": {
+    "ADVISORY_ALIAS_RESOLVED": 31,
+    "DATABASE_COVERAGE_GAP": 1,
+    "ID_NAMESPACE_DIFFERENCE": 18
+  },
+  "grype_category_counts": {
+    "ADVISORY_ALIAS_RESOLVED": 31
+  },
+  "categories_used": {
+    "ADVISORY_ALIAS_RESOLVED": "Finding maps to other scanner via explicit alias in relatedVulnerabilities/VendorIDs",
+    "DATABASE_COVERAGE_GAP": "No alias mapping exists; scanner uses a DB the other does not cover",
+    "ID_NAMESPACE_DIFFERENCE": "Same vulnerability, different namespace (GHSA vs CVE) confirmed by alias",
+    "SEVERITY_THRESHOLD": "Present in both DBs but one scanner filters below threshold",
+    "VERSION_RANGE_EXCLUSION": "Scanner's version-range matching excludes this package version",
+    "UNCLASSIFIABLE": "Insufficient evidence in scanner output to determine cause"
+  }
+}

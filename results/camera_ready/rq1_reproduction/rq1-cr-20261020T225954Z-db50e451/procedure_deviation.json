@@ -1,0 +1,7 @@
+{
+  "issue": "Historical pure metric function was executed on reconstructed source-derived inputs before exact-input availability was established",
+  "disposition": "EXPLORATORY_DIAGNOSTIC_ONLY; excluded from exact historical reproduction",
+  "historical_reproduction_status": "HISTORICAL_27_29_NOT_REPRODUCIBLE",
+  "reason": "Frozen finalizer inventory, original native OBOM bytes and source/input-binding manifest unavailable",
+  "preservation": "Diagnostic inputs/results retained, not silently removed"
+}

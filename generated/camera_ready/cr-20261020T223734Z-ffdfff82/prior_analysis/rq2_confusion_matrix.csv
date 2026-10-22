@@ -1,0 +1,24 @@
+metric,value,source,notes
+TP,210,results/raw/security-20260722-140421-f4aee0f2/security_results.json,"Invalid condition correctly rejected (scenarios S1,S2,S3,S9a,S9b,S9c,S9d; 30 trials each)"
+TN,30,results/raw/security-20260722-140421-f4aee0f2/security_results.json,Legitimate condition correctly accepted (scenario S0; 30 trials)
+FP,0,results/raw/security-20260722-140421-f4aee0f2/security_results.json,Legitimate condition falsely rejected
+FN,0,results/raw/security-20260722-140421-f4aee0f2/security_results.json,Invalid condition falsely accepted
+Total,240,results/raw/security-20260722-140421-f4aee0f2/campaign_manifest.json,30 trials × 8 scenarios
+TPR,1.000000,DERIVED,"TP/(TP+FN) = 210/210"
+TNR,1.000000,DERIVED,"TN/(TN+FP) = 30/30"
+FPR,0.000000,DERIVED,"FP/(FP+TN) = 0/30"
+FNR,0.000000,DERIVED,"FN/(FN+TP) = 0/210"
+FPR_CP95_lo,0.000000,COMPUTED Clopper-Pearson,k=0 n=30; exact lower bound
+FPR_CP95_hi,0.115703,COMPUTED Clopper-Pearson,k=0 n=30; exact upper bound (scipy.stats.beta)
+FNR_CP95_lo,0.000000,COMPUTED Clopper-Pearson,k=0 n=210; exact lower bound
+FNR_CP95_hi,0.017413,COMPUTED Clopper-Pearson,k=0 n=210; exact upper bound (scipy.stats.beta)
+scenario_S0_TP,0,N/A,S0 is the legitimate class — no TP applicable
+scenario_S0_TN,30,OBSERVED,All 30 S0 trials correctly APPROVED
+scenario_S0_FP,0,OBSERVED,No S0 trial incorrectly rejected
+scenario_S1_TP,30,OBSERVED,All 30 S1 model_weight_tampering trials correctly rejected DIGEST_MISMATCH
+scenario_S2_TP,30,OBSERVED,All 30 S2 tokenizer_substitution trials correctly rejected DIGEST_MISMATCH
+scenario_S3_TP,30,OBSERVED,All 30 S3 dataset_manifest_alteration trials correctly rejected DIGEST_MISMATCH
+scenario_S9a_TP,30,OBSERVED,All 30 S9a invalid_signature trials rejected UNAUTHORIZED_SIGNER (not INVALID_SIGNATURE — see notes)
+scenario_S9b_TP,30,OBSERVED,All 30 S9b unauthorized_signer trials correctly rejected UNAUTHORIZED_SIGNER
+scenario_S9c_TP,30,OBSERVED,All 30 S9c missing_attestation trials correctly rejected MISSING_ATTESTATION
+scenario_S9d_TP,30,OBSERVED,All 30 S9d model_substitution trials correctly rejected DIGEST_MISMATCH

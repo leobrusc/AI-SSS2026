@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\caption{Cosign Verification Test Results (Local Profile)}
+\label{tab:cosign-verification}
+\centering\small
+\begin{tabular}{llll}
+\toprule
+\textbf{ID} & \textbf{Scenario} & \textbf{Expected} & \textbf{Actual} \\\\
+\midrule
+CS1 & Valid signature, authorized & APPROVED & APPROVED \\\\
+CS2 & Invalid signature & DENIED & DENIED \\\\
+CS3 & Modified artifact after signing & DENIED & DENIED \\\\
+CS4 & Valid sig, unauthorized signer & DENIED & DENIED \\\\
+CS5 & Missing attestation predicate & DENIED & DENIED \\\\
+CS6 & Mismatched subject digest & DENIED & DENIED \\\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,27 @@
+{
+  "description": "Independent VEX decision oracle truth table",
+  "columns": [
+    "schema_valid",
+    "expired",
+    "component_match",
+    "signed_when_required"
+  ],
+  "decisions": {
+    "(True, False, True, True)": "APPROVED",
+    "(True, False, True, False)": "VEX_UNSIGNED",
+    "(True, False, False, True)": "VEX_WRONG_COMPONENT",
+    "(True, False, False, False)": "VEX_WRONG_COMPONENT",
+    "(True, True, True, True)": "VEX_EXPIRED",
+    "(True, True, True, False)": "VEX_EXPIRED",
+    "(True, True, False, True)": "VEX_EXPIRED",
+    "(True, True, False, False)": "VEX_EXPIRED",
+    "(False, False, True, True)": "VEX_MALFORMED",
+    "(False, False, True, False)": "VEX_MALFORMED",
+    "(False, False, False, True)": "VEX_MALFORMED",
+    "(False, False, False, False)": "VEX_MALFORMED",
+    "(False, True, True, True)": "VEX_MALFORMED",
+    "(False, True, True, False)": "VEX_MALFORMED",
+    "(False, True, False, True)": "VEX_MALFORMED",
+    "(False, True, False, False)": "VEX_MALFORMED"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "description": "IDs exclusive to one scanner with no direct or alias match in the other",
+  "total_unresolved": 19,
+  "total_entries": 19,
+  "entries": [
+    {
+      "id": "CVE-2026-25645",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-gc5v-m9x4-r6x2"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-34073",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-m959-cc7f-wv43"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-42308",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-wjx4-4jcj-g98j"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-42310",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-r73j-pqj5-w3x7"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-44431",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-qccp-gfcp-xxvc"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-54058",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-62p4-gmf7-7g93"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-54059",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-8v84-f9pq-wr9x"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-54060",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-5x94-69rx-g8h2"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-55379",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-45hq-cxwh-f6vc"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-55380",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-phj9-mv4w-65pm"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-55798",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-4x4j-2g7c-83w6"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59197",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-xj96-63gp-2gmr"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59198",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-fj7v-r99m-22gq"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59199",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-6r8x-57c9-28j4"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59200",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-jjj6-mw9f-p565"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59204",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-vjc4-5qp5-m44j"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59205",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-9hw9-ch79-4vh6"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "CVE-2026-59890",
+      "scanner": "trivy",
+      "has_alias_in_map": true,
+      "aliases": [
+        "GHSA-h35f-9h28-mq5c"
+      ],
+      "resolved_via_alias": false
+    },
+    {
+      "id": "GHSA-537c-gmf6-5ccf",
+      "scanner": "trivy",
+      "has_alias_in_map": false,
+      "aliases": [],
+      "resolved_via_alias": false
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "security": {
+    "available": true,
+    "scenarios": {
+      "S0": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 6.400108337402344,
+          "p95": 19.04897689819336,
+          "p99": 20.173320770263672
+        },
+        "latency_mean_ms": 10.633
+      },
+      "S1": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 16.649723052978516,
+          "p95": 18.555378913879395,
+          "p99": 18.724770545959473
+        },
+        "latency_mean_ms": 16.43
+      },
+      "S2": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 18.438100814819336,
+          "p95": 19.448328018188477,
+          "p99": 19.53812599182129
+        },
+        "latency_mean_ms": 16.179
+      },
+      "S3": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 22.247791290283203,
+          "p95": 23.461222648620605,
+          "p99": 23.569083213806152
+        },
+        "latency_mean_ms": 19.778
+      },
+      "S9a": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 3.3063888549804688,
+          "p95": 6.077861785888672,
+          "p99": 6.324214935302734
+        },
+        "latency_mean_ms": 3.231
+      },
+      "S9b": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 6.373167037963867,
+          "p95": 8.66849422454834,
+          "p99": 8.872523307800293
+        },
+        "latency_mean_ms": 5.099
+      },
+      "S9c": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 3.8666725158691406,
+          "p95": 9.258341789245605,
+          "p99": 9.737601280212402
+        },
+        "latency_mean_ms": 5.753
+      },
+      "S9d": {
+        "trials": 3,
+        "correct_decisions": 3,
+        "detection_rate": 1.0,
+        "wilson_ci_95": [
+          0.4385,
+          1.0
+        ],
+        "false_positives": 0,
+        "false_negatives": 0,
+        "latency": {
+          "p50": 5.821466445922852,
+          "p95": 7.3447465896606445,
+          "p99": 7.480149269104004
+        },
+        "latency_mean_ms": 6.357
+      }
+    },
+    "summary": {
+      "total_observations": 24,
+      "total_false_positives": 0,
+      "total_false_negatives": 0,
+      "scenarios_tested": 8
+    }
+  },
+  "availability": {
+    "available": true,
+    "configurations": {
+      "C0": {
+        "observations": 60,
+        "success_rate": 1.0,
+        "timeout_count": 0,
+        "rejected_count": 0,
+        "latency": {
+          "p50": 257.72,
+          "p95": 352.89,
+          "p99": 358.59
+        },
+        "latency_bootstrap_ci_95": [
+          241.75,
+          292.67
+        ],
+        "throughput_rps": 3.81,
+        "tokens_generated_mean": 54.2
+      },
+      "C1": {
+        "observations": 60,
+        "success_rate": 1.0,
+        "timeout_count": 0,
+        "rejected_count": 0,
+        "latency": {
+          "p50": 257.72,
+          "p95": 352.89,
+          "p99": 358.59
+        },
+        "latency_bootstrap_ci_95": [
+          241.75,
+          292.67
+        ],
+        "throughput_rps": 3.81,
+        "tokens_generated_mean": 54.2
+      },
+      "C2": {
+        "observations": 60,
+        "success_rate": 1.0,
+        "timeout_count": 0,
+        "rejected_count": 0,
+        "latency": {
+          "p50": 257.72,
+          "p95": 352.89,
+          "p99": 358.59
+        },
+        "latency_bootstrap_ci_95": [
+          241.75,
+          292.67
+        ],
+        "throughput_rps": 3.81,
+        "tokens_generated_mean": 54.2
+      },
+      "C3": {
+        "observations": 60,
+        "success_rate": 1.0,
+        "timeout_count": 0,
+        "rejected_count": 0,
+        "latency": {
+          "p50": 257.72,
+          "p95": 352.89,
+          "p99": 358.59
+        },
+        "latency_bootstrap_ci_95": [
+          241.75,
+          292.67
+        ],
+        "throughput_rps": 3.81,
+        "tokens_generated_mean": 54.2
+      }
+    },
+    "c0_vs_c3_comparison": {
+      "statistic": null,
+      "p_value": null,
+      "effect_size_r": null,
+      "median_difference": 0.0,
+      "ci_lower": null,
+      "ci_upper": null,
+      "note": "Insufficient non-zero differences"
+    },
+    "summary": {
+      "total_observations": 240,
+      "configurations_tested": 4
+    }
+  }
+}

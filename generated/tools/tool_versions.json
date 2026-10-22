@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-07-22T12:52:14.7513890-03:00",
+  "tools": {
+    "grype": {
+      "checksum_verified": "verified",
+      "version": "0.86.1",
+      "sha256": "1a903d4420765b09f7cd400ee89f34acc6824240dbd9a52bef1c29bfeda851be",
+      "path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.tools\\bin\\grype.exe",
+      "status": "installed",
+      "url": "https://github.com/anchore/grype/releases/download/v0.86.1/grype_0.86.1_windows_amd64.zip",
+      "detected_version": "Application:         grype"
+    },
+    "trivy": {
+      "status": "download_failed",
+      "error": "Exception calling \"DownloadFile\" with \"2\" argument(s): \"The remote server returned an error: (404) Not Found.\"",
+      "version": "0.58.2",
+      "url": "https://github.com/aquasecurity/trivy/releases/download/v0.58.2/trivy_0.58.2_Windows-64bit.zip"
+    },
+    "syft": {
+      "checksum_verified": "verified",
+      "version": "1.18.1",
+      "sha256": "85476686b4eaaf4175a16c1cbef391c5396e06cdbef171ae8b7b2f7117e5b038",
+      "path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.tools\\bin\\syft.exe",
+      "status": "installed",
+      "url": "https://github.com/anchore/syft/releases/download/v1.18.1/syft_1.18.1_windows_amd64.zip",
+      "detected_version": "Application: syft"
+    },
+    "cosign": {
+      "checksum_verified": "not_available",
+      "version": "2.4.1",
+      "sha256": "8d57f8a42a981d27290c4227271fa9f0f62ca6630eb4a21d316bd6b01405b87c",
+      "path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.tools\\bin\\cosign.exe",
+      "status": "installed",
+      "url": "https://github.com/sigstore/cosign/releases/download/v2.4.1/cosign-windows-amd64.exe",
+      "detected_version": "  ______   ______        _______. __    _______ .__   __."
+    }
+  },
+  "errors": [
+    "Failed to download trivy : Exception calling \"DownloadFile\" with \"2\" argument(s): \"The remote server returned an error: (404) Not Found.\""
+  ]
+}

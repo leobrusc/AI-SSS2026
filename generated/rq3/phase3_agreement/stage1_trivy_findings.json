@@ -1,0 +1,542 @@
+[
+  {
+    "primary_id": "CVE-2023-37920",
+    "pkg_name": "certifi",
+    "version": "2022.9.24",
+    "purl": "pkg:pypi/certifi@2022.9.24",
+    "severity": "HIGH",
+    "fixed_version": "2023.7.22",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2022-23491",
+    "pkg_name": "certifi",
+    "version": "2022.9.24",
+    "purl": "pkg:pypi/certifi@2022.9.24",
+    "severity": "MEDIUM",
+    "fixed_version": "2022.12.07",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-39689",
+    "pkg_name": "certifi",
+    "version": "2022.9.24",
+    "purl": "pkg:pypi/certifi@2022.9.24",
+    "severity": "LOW",
+    "fixed_version": "2024.7.4",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-0286",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "HIGH",
+    "fixed_version": "39.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-50782",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "HIGH",
+    "fixed_version": "42.0.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-26130",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "HIGH",
+    "fixed_version": "42.0.4",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-26007",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "HIGH",
+    "fixed_version": "46.0.5",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "GHSA-537c-gmf6-5ccf",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "HIGH",
+    "fixed_version": "48.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-23931",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "39.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-49083",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "41.0.6",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-0727",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "42.0.2",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "GHSA-h4gh-qq45-vh27",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "43.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-34073",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "LOW",
+    "fixed_version": "46.0.6",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "GHSA-5cpq-8wj7-hf2v",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "LOW",
+    "fixed_version": "41.0.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "GHSA-jm77-qphf-c4w8",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "LOW",
+    "fixed_version": "41.0.3",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "GHSA-v8gr-m533-ghj9",
+    "pkg_name": "cryptography",
+    "version": "39.0.0",
+    "purl": "pkg:pypi/cryptography@39.0.0",
+    "severity": "LOW",
+    "fixed_version": "41.0.4",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2022-22817",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "CRITICAL",
+    "fixed_version": "9.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-50447",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "CRITICAL",
+    "fixed_version": "10.2.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2022-24303",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "9.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2022-45198",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "9.2.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-44271",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "10.0.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-4863",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "10.0.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-28219",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "10.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-54058",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-54059",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-54060",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-55379",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-55380",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59197",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59199",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59200",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59204",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59205",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "HIGH",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-42308",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "12.2.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-42310",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "12.2.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-55798",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59198",
+    "pkg_name": "pillow",
+    "version": "9.0.0",
+    "purl": "pkg:pypi/pillow@9.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "12.3.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-32681",
+    "pkg_name": "requests",
+    "version": "2.25.0",
+    "purl": "pkg:pypi/requests@2.25.0",
+    "severity": "MEDIUM",
+    "fixed_version": "2.31.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-35195",
+    "pkg_name": "requests",
+    "version": "2.25.0",
+    "purl": "pkg:pypi/requests@2.25.0",
+    "severity": "MEDIUM",
+    "fixed_version": "2.32.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-47081",
+    "pkg_name": "requests",
+    "version": "2.25.0",
+    "purl": "pkg:pypi/requests@2.25.0",
+    "severity": "MEDIUM",
+    "fixed_version": "2.32.4",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-25645",
+    "pkg_name": "requests",
+    "version": "2.25.0",
+    "purl": "pkg:pypi/requests@2.25.0",
+    "severity": "MEDIUM",
+    "fixed_version": "2.33.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2022-40897",
+    "pkg_name": "setuptools",
+    "version": "65.0.0",
+    "purl": "pkg:pypi/setuptools@65.0.0",
+    "severity": "HIGH",
+    "fixed_version": "65.5.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-6345",
+    "pkg_name": "setuptools",
+    "version": "65.0.0",
+    "purl": "pkg:pypi/setuptools@65.0.0",
+    "severity": "HIGH",
+    "fixed_version": "70.0.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2025-47273",
+    "pkg_name": "setuptools",
+    "version": "65.0.0",
+    "purl": "pkg:pypi/setuptools@65.0.0",
+    "severity": "HIGH",
+    "fixed_version": "78.1.1",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-59890",
+    "pkg_name": "setuptools",
+    "version": "65.0.0",
+    "purl": "pkg:pypi/setuptools@65.0.0",
+    "severity": "MEDIUM",
+    "fixed_version": "83.0.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2021-33503",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "1.26.5",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-43804",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "2.0.6, 1.26.17",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2025-66418",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "2.6.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2025-66471",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "2.6.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-21441",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "2.6.3",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2026-44431",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "HIGH",
+    "fixed_version": "2.7.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2023-45803",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "MEDIUM",
+    "fixed_version": "2.0.7, 1.26.18",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2024-37891",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "MEDIUM",
+    "fixed_version": "1.26.19, 2.2.2",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  },
+  {
+    "primary_id": "CVE-2025-50181",
+    "pkg_name": "urllib3",
+    "version": "1.26.4",
+    "purl": "pkg:pypi/urllib3@1.26.4",
+    "severity": "MEDIUM",
+    "fixed_version": "2.5.0",
+    "scanner": "trivy",
+    "data_source": "ghsa"
+  }
+]

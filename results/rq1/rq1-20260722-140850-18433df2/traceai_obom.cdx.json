@@ -1,0 +1,35 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e9e82e27-c2e4-4e90-acfd-46649b3bfe34",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-22T17:11:32.365838+00:00"
+  },
+  "components": [
+    {
+      "type": "platform",
+      "name": "Windows",
+      "version": "10",
+      "bom-ref": "obom-os"
+    },
+    {
+      "type": "platform",
+      "name": "cpu",
+      "version": "14",
+      "bom-ref": "obom-cpu"
+    },
+    {
+      "type": "platform",
+      "name": "ram",
+      "version": "31.5GB",
+      "bom-ref": "obom-ram"
+    },
+    {
+      "type": "application",
+      "name": "traceai-inference",
+      "version": "0.1.0",
+      "bom-ref": "obom-service"
+    }
+  ]
+}

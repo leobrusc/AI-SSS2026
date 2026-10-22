@@ -67,6 +67,8 @@ class ConfigurationResponse(BaseModel):
     profile: str
     requested_revision: Optional[str] = None
     resolved_revision: Optional[str] = None
+    parameter_device: str = "unknown"
+    parameter_dtype: str = "unknown"
 
 
 # Global state
@@ -198,6 +200,8 @@ async def configuration():
         "profile": settings.profile if settings else "unknown",
         "requested_revision": getattr(settings, "model_revision", None),
         "resolved_revision": getattr(engine, "resolved_revision", None),
+        "parameter_device": getattr(engine, "parameter_device", "unknown"),
+        "parameter_dtype": getattr(engine, "parameter_dtype", "unknown"),
     }
 
     return ConfigurationResponse(

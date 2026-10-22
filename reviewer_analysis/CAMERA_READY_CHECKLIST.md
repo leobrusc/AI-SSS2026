@@ -1,0 +1,16 @@
+# Camera-ready checklist — blocked at evidence freeze
+- [ ] <= 6 pages (manuscript absent; no compile)
+- [ ] author names verified
+- [ ] affiliations verified
+- [ ] funding verified
+- [x] all reviewer comments mapped (audit dispositions; manuscript changes pending)
+- [ ] all quantitative manuscript claims traceable (RQ1 lineage and GPU unresolved)
+- [x] no mock data presented as real in new audit outputs
+- [ ] GPU evidence real or GPU claims removed (no manuscript available)
+- [ ] PDF ready for IEEE PDF eXpress
+- [ ] eCF completed (status unknown; pending author)
+- [ ] final EasyChair upload completed (pending; not authorized)
+- [x] historical raw evidence preserved by hash comparison
+- [x] original240 and extension42 kept separate
+- [x] local focused tests passed
+- [x] L4 runbook and output-bundling script prepared; no local GPU execution

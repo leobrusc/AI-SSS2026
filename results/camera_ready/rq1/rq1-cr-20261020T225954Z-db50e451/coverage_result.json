@@ -1,0 +1,14 @@
+{
+  "label": "CAMERA_READY_RQ1",
+  "campaign_id": "rq1-cr-20261020T225954Z-db50e451",
+  "universe_version": 1,
+  "universe_SHA256": "4eb3a04339e1f240399c7113c3cd53b3bb96683e3d9abc84bc488e36e819b2f9",
+  "N_total": 32,
+  "N_applicable": 30,
+  "N_represented": 20,
+  "coverage": 0.6666666666666666,
+  "coverage_percent": 66.66666666666667,
+  "code_commit": "bb2d9e4b4703b8f59dcd6ef563df374fcbe79720",
+  "interpretation": "First-class identity representation of fixed CPU deployment-reference inventory; NOT security coverage or proof of running model",
+  "historical_93_1": false
+}

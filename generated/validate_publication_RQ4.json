@@ -1,0 +1,33 @@
+{
+  "research_question": "RQ4",
+  "profile": "local",
+  "timestamp": "2026-07-22T17:16:22.771039+00:00",
+  "ready": false,
+  "checks": [
+    {
+      "check": "git_tree_clean",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "check": "rq4_campaign_executed",
+      "pass": true,
+      "detail": "1 campaign(s)"
+    },
+    {
+      "check": "uses_real_inference",
+      "pass": true,
+      "detail": "REAL_HTTP inference confirmed from manifest"
+    },
+    {
+      "check": "gpu_metrics_available",
+      "pass": false,
+      "detail": "No GPU \u2014 GPU claims MUST NOT be made on this profile"
+    },
+    {
+      "check": "gpu_claims_blocked",
+      "pass": false,
+      "detail": "BLOCKED_GPU: Manuscript must not claim GPU results on CPU-only host"
+    }
+  ]
+}

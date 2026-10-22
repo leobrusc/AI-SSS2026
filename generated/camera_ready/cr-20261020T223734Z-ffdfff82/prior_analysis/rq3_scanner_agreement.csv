@@ -1,0 +1,48 @@
+metric,value,source,data_type
+campaign_id,rq3-20260722-140819-082e9531,results/rq3/rq3-20260722-140819-082e9531/rq3_summary.json,OBSERVED FROM RAW DATA
+scanner_a,Trivy,results/rq3/rq3-20260722-140819-082e9531/rq3_summary.json,OBSERVED FROM RAW DATA
+scanner_b,Grype,results/rq3/rq3-20260722-140819-082e9531/rq3_summary.json,OBSERVED FROM RAW DATA
+trivy_version,0.72.0,generated/article/results_manifest.json (tools.trivy) + generated/tools/tool_versions.json (download_failed; version from probe),OBSERVED FROM RAW DATA
+grype_version,0.86.1,generated/tools/tool_versions.json (detected_version),OBSERVED FROM RAW DATA
+trivy_db_version,2,generated/rq3/database_metadata.json (scanners.trivy.db_version),OBSERVED FROM RAW DATA
+trivy_db_updated_at,2026-07-22T13:17:28.096603393Z,generated/rq3/database_metadata.json,OBSERVED FROM RAW DATA
+grype_db_updated_at,(not recorded),generated/rq3/database_metadata.json (db_updated_at is empty string),NOT AVAILABLE
+scan_timestamp_trivy,2026-07-22T17:08:19.429470+00:00,generated/rq3/database_metadata.json,OBSERVED FROM RAW DATA
+scan_timestamp_grype,2026-07-22T17:08:20.220873+00:00,generated/rq3/database_metadata.json,OBSERVED FROM RAW DATA
+scan_target,fixtures/vulnerable_project/vulnerable_sbom.cdx.json (CycloneDX SBOM),results/rq3/rq3-20260722-140819-082e9531/ (inferred from scanner_findings_normalized.csv packages),INFERRED FROM CODE
+trivy_total_raw,54,results/rq3/rq3-20260722-140819-082e9531/scanner_agreement.csv (all.scanner_a_total),OBSERVED FROM RAW DATA
+grype_total_raw,35,results/rq3/rq3-20260722-140819-082e9531/scanner_agreement.csv (all.scanner_b_total),OBSERVED FROM RAW DATA
+raw_intersection,4,computed from scanner_findings_normalized.csv (canonical_advisory_id overlap),DERIVED
+raw_union,85,computed from scanner_findings_normalized.csv,DERIVED
+trivy_only,50,computed: 54 - 4,DERIVED
+grype_only,31,computed: 35 - 4,DERIVED
+raw_jaccard,0.0471,computed: 4/85,DERIVED
+canonical_intersection,35,generated/rq3/canonical_advisory_agreement.json (metrics.canonical_intersection),OBSERVED FROM RAW DATA
+canonical_union,54,generated/rq3/canonical_advisory_agreement.json (metrics.canonical_union),OBSERVED FROM RAW DATA
+canonical_jaccard,0.6481,generated/rq3/canonical_advisory_agreement.json (metrics.canonical_jaccard),OBSERVED FROM RAW DATA
+purl_intersection,6,generated/rq3/canonical_advisory_agreement.json (metrics.purl_intersection),OBSERVED FROM RAW DATA
+purl_union,6,generated/rq3/canonical_advisory_agreement.json (metrics.purl_union),OBSERVED FROM RAW DATA
+pkgver_jaccard,1.0,computed: 6/6 (same 6 package@version pairs affected in both scanners),DERIVED
+severity_agreement,35,generated/rq3/canonical_advisory_agreement.json (metrics.severity_agreement),OBSERVED FROM RAW DATA
+severity_disagreement,0,generated/rq3/canonical_advisory_agreement.json (metrics.severity_disagreement),OBSERVED FROM RAW DATA
+fix_version_agreement,32,generated/rq3/canonical_advisory_agreement.json (metrics.fix_version_agreement),OBSERVED FROM RAW DATA
+fix_version_disagreement,3,generated/rq3/canonical_advisory_agreement.json (metrics.fix_version_disagreement),OBSERVED FROM RAW DATA
+trivy_packages_affected,certifi / cryptography / pillow / requests / setuptools / urllib3,computed from scanner_findings_normalized.csv,DERIVED
+grype_packages_affected,certifi / cryptography / pillow / requests / setuptools / urllib3,computed from scanner_findings_normalized.csv,DERIVED
+trivy_severity_critical,2,computed from scanner_findings_normalized.csv,DERIVED
+trivy_severity_high,30,computed from scanner_findings_normalized.csv,DERIVED
+trivy_severity_medium,17,computed from scanner_findings_normalized.csv,DERIVED
+trivy_severity_low,5,computed from scanner_findings_normalized.csv,DERIVED
+grype_severity_critical,2,computed from scanner_findings_normalized.csv,DERIVED
+grype_severity_high,18,computed from scanner_findings_normalized.csv,DERIVED
+grype_severity_medium,11,computed from scanner_findings_normalized.csv,DERIVED
+grype_severity_low,4,computed from scanner_findings_normalized.csv,DERIVED
+raw_intersection_ids,"GHSA-5CPQ-8WJ7-HF2V, GHSA-H4GH-QQ45-VH27, GHSA-JM77-QPHF-C4W8, GHSA-V8GR-M533-GHJ9",computed from scanner_findings_normalized.csv,DERIVED
+note_trivy_exclusive_count,50,scanner_agreement.csv (all.a_only=50),OBSERVED FROM RAW DATA
+note_grype_exclusive_count,31,scanner_agreement.csv (all.b_only=31),OBSERVED FROM RAW DATA
+note_raw_jaccard_explanation,Raw Jaccard=0.0471 counts advisory IDs directly. Low because Trivy uses CVE IDs and Grype uses GHSA IDs for the same vulnerabilities.,generated/rq3/rq3_metric_correction.md,OBSERVED FROM RAW DATA
+note_canonical_jaccard_explanation,Canonical Jaccard=0.6481 after union-find equivalence class normalization (CVE+GHSA alias resolution). Each vulnerability counted once.,generated/rq3/canonical_advisory_agreement.json,OBSERVED FROM RAW DATA
+vex_scenarios_tested,8,results/rq3/rq3-20260722-140819-082e9531/vex_decisions.csv (8 rows),OBSERVED FROM RAW DATA
+vex_conformance_passed,8,results/rq3/rq3-20260722-140819-082e9531/rq3_summary.json,OBSERVED FROM RAW DATA
+property_based_cases,500,generated/rq3/vex_property_cases.csv (500 rows),OBSERVED FROM RAW DATA
+property_based_counterexamples,0,generated/rq3/vex_property_cases.csv (0 disagrees=False),OBSERVED FROM RAW DATA

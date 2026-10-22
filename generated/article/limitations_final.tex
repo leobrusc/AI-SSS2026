@@ -1,0 +1,10 @@
+\paragraph{Limitations}
+\begin{itemize}
+\item GPT-2 (124M parameters) serves as a laboratory proxy; results do not generalize to larger production models without replication.
+\item Trivy filesystem scanning reports 0~components for this project layout (TOOL\_LIMITATION). SBOM coverage relies solely on Syft.
+\item Scanner agreement measures tool overlap, not vulnerability recall against a verified oracle.
+\item VEX conformance tests validate the implemented policy logic, not all possible VEX implementations.
+\item GPU utilization, VRAM pressure, and thermal metrics are NOT\_APPLICABLE on this CPU-only host.
+\item Harbor, Dependency-Track, GitLab~CI/CD, and Kubernetes are not configured; no industrial-deployment claims are made.
+\item The local profile does not support OCI image signing via registry; Cosign tests use blob signing only.
+\end{itemize}

@@ -1,0 +1,10 @@
+{
+  "label": "affected_purl",
+  "set_a_size": 6,
+  "set_b_size": 6,
+  "intersection_size": 6,
+  "union_size": 6,
+  "jaccard": 1.0,
+  "a_only_size": 0,
+  "b_only_size": 0
+}

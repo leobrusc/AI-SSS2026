@@ -1,0 +1,9 @@
+asset_class,reference,represented,coverage
+configuration,3,2,0.6666666666666666
+dataset,1,0,0.0
+hardware,2,2,1.0
+model,2,2,1.0
+other,2,2,1.0
+runtime,2,2,1.0
+software,16,16,1.0
+tokenizer,1,0,0.0

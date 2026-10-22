@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-07-23T13:51:35.073568+00:00",
+  "clone_dir": "C:\\Users\\leolima\\Documents\\traceai-repro-check",
+  "source_dir": "C:\\Users\\leolima\\Documents\\traceai-ladc2026",
+  "steps": [
+    {
+      "step": "git_clone",
+      "exit_code": 0,
+      "elapsed": 1.6398740000004182
+    },
+    {
+      "step": "git_status",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "step": "create_venv",
+      "exit_code": 0,
+      "elapsed": 26.5962598999904
+    },
+    {
+      "step": "pip_install",
+      "exit_code": -1,
+      "elapsed": 600.1429011
+    },
+    {
+      "step": "pip_install_retry",
+      "exit_code": 0,
+      "elapsed": 197.63034429999243
+    },
+    {
+      "step": "phase1_rq3",
+      "exit_code": 0,
+      "elapsed": 0.45582719999947585
+    },
+    {
+      "step": "phase2_rq1",
+      "exit_code": 0,
+      "elapsed": 0.3835742999945069
+    },
+    {
+      "step": "pytest",
+      "exit_code": 1,
+      "elapsed": 26.42532859998755,
+      "output_tail": " AssertionError: assert False\n\u001b[31mFAILED\u001b[0m tests/unit/test_phases_3_to_5.py::\u001b[1mTestPhase4CPUDiagnostic::test_phase4_outputs_exist\u001b[0m - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\leolima...\n\u001b[31mFAILED\u001b[0m tests/unit/test_phases_3_to_5.py::\u001b[1mTestPhase5GPURunbook::test_preflight_results_exist\u001b[0m - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\leolima...\n\u001b[31m\u001b[31m\u001b[1m3 failed\u001b[0m, \u001b[32m86 passed\u001b[0m, \u001b[33m1 warning\u001b[0m\u001b[31m in 21.97s\u001b[0m\u001b[0m\n"
+    }
+  ],
+  "comparisons": [
+    {
+      "artifact": "generated/rq3/canonical_advisory_agreement.json",
+      "match": true,
+      "reason": "Semantically equivalent (timestamps excluded)"
+    },
+    {
+      "artifact": "generated/rq1/rq1_comparison_summary.json",
+      "match": true,
+      "reason": "Semantically equivalent (timestamps excluded)"
+    }
+  ],
+  "passed": false,
+  "steps_passed": false,
+  "comparisons_passed": true
+}

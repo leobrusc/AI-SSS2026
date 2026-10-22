@@ -1,0 +1,103 @@
+{
+  "universe_id": "direct_declared_runtime",
+  "nodes": [
+    {
+      "id": "package:torch",
+      "name": "torch",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:transformers",
+      "name": "transformers",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:tokenizers",
+      "name": "tokenizers",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:fastapi",
+      "name": "fastapi",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:uvicorn",
+      "name": "uvicorn",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pydantic",
+      "name": "pydantic",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pydantic-settings",
+      "name": "pydantic-settings",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:httpx",
+      "name": "httpx",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pyyaml",
+      "name": "pyyaml",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:pandas",
+      "name": "pandas",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:numpy",
+      "name": "numpy",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:scipy",
+      "name": "scipy",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:matplotlib",
+      "name": "matplotlib",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:psutil",
+      "name": "psutil",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:jsonschema",
+      "name": "jsonschema",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "package:cryptography",
+      "name": "cryptography",
+      "version": "CONSTRAINT_ONLY",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "authority": "OBSERVED",
+  "notes": "Not composite29 denominator; constraints and pins are distinct identities."
+}

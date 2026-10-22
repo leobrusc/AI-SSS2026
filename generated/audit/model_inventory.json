@@ -1,0 +1,9 @@
+{
+  "model_id": "openai-community/gpt2",
+  "local_cache": null,
+  "files": [],
+  "tokenizer_files": [],
+  "revision": null,
+  "classification": "NOT_IMPLEMENTED",
+  "detail": "Model not found in HF cache or workspace/models. Must download before real inference."
+}

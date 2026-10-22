@@ -1,0 +1,654 @@
+{
+  "universe_id": "scanner_unique_name_set",
+  "nodes": [
+    {
+      "id": "actions/checkout",
+      "name": "actions/checkout",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "actions/setup-python",
+      "name": "actions/setup-python",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "annotated-doc",
+      "name": "annotated-doc",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "annotated-types",
+      "name": "annotated-types",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "anyio",
+      "name": "anyio",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "ast-serialize",
+      "name": "ast-serialize",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "attrs",
+      "name": "attrs",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "autocommand",
+      "name": "autocommand",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "backports-tarfile",
+      "name": "backports-tarfile",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "build",
+      "name": "build",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "certifi",
+      "name": "certifi",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "cffi",
+      "name": "cffi",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "click",
+      "name": "click",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "colorama",
+      "name": "colorama",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "contourpy",
+      "name": "contourpy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "coverage",
+      "name": "coverage",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "cryptography",
+      "name": "cryptography",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "cycler",
+      "name": "cycler",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "fastapi",
+      "name": "fastapi",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "filelock",
+      "name": "filelock",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "fonttools",
+      "name": "fonttools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "fsspec",
+      "name": "fsspec",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "h11",
+      "name": "h11",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "hf-xet",
+      "name": "hf-xet",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "httpcore",
+      "name": "httpcore",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "httptools",
+      "name": "httptools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "httpx",
+      "name": "httpx",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "huggingface-hub",
+      "name": "huggingface-hub",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "hypothesis",
+      "name": "hypothesis",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "idna",
+      "name": "idna",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "importlib-metadata",
+      "name": "importlib-metadata",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "iniconfig",
+      "name": "iniconfig",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "intel(r) openmp* runtime library",
+      "name": "intel(r) openmp* runtime library",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jaraco-context",
+      "name": "jaraco-context",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jaraco-functools",
+      "name": "jaraco-functools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jaraco-text",
+      "name": "jaraco-text",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jinja2",
+      "name": "jinja2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jsonschema",
+      "name": "jsonschema",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "jsonschema-specifications",
+      "name": "jsonschema-specifications",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "kiwisolver",
+      "name": "kiwisolver",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "libjpeg-turbo",
+      "name": "libjpeg-turbo",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "librt",
+      "name": "librt",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "markdown-it-py",
+      "name": "markdown-it-py",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "markupsafe",
+      "name": "markupsafe",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "matplotlib",
+      "name": "matplotlib",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "mdurl",
+      "name": "mdurl",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "microsoft\u00ae c runtime library",
+      "name": "microsoft\u00ae c runtime library",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "more-itertools",
+      "name": "more-itertools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "mpmath",
+      "name": "mpmath",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "mypy",
+      "name": "mypy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "mypy-extensions",
+      "name": "mypy-extensions",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "networkx",
+      "name": "networkx",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "numpy",
+      "name": "numpy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "packaging",
+      "name": "packaging",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pandas",
+      "name": "pandas",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pathspec",
+      "name": "pathspec",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pillow",
+      "name": "pillow",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pip",
+      "name": "pip",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pip-tools",
+      "name": "pip-tools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "platformdirs",
+      "name": "platformdirs",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pluggy",
+      "name": "pluggy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "protocol buffers - google's data interchange format",
+      "name": "protocol buffers - google's data interchange format",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "psutil",
+      "name": "psutil",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pycparser",
+      "name": "pycparser",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pydantic",
+      "name": "pydantic",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pydantic-core",
+      "name": "pydantic-core",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pydantic-settings",
+      "name": "pydantic-settings",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pygments",
+      "name": "pygments",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pyparsing",
+      "name": "pyparsing",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pyproject-hooks",
+      "name": "pyproject-hooks",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pytest",
+      "name": "pytest",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pytest-asyncio",
+      "name": "pytest-asyncio",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pytest-cov",
+      "name": "pytest-cov",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python",
+      "name": "python",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-dateutil",
+      "name": "python-dateutil",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-dotenv",
+      "name": "python-dotenv",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "pyyaml",
+      "name": "pyyaml",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "referencing",
+      "name": "referencing",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "regex",
+      "name": "regex",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "rich",
+      "name": "rich",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "rpds-py",
+      "name": "rpds-py",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "ruff",
+      "name": "ruff",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "safetensors",
+      "name": "safetensors",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "scipy",
+      "name": "scipy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "setuptools",
+      "name": "setuptools",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "shellingham",
+      "name": "shellingham",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "simple launcher",
+      "name": "simple launcher",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "six",
+      "name": "six",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "sortedcontainers",
+      "name": "sortedcontainers",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "starlette",
+      "name": "starlette",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "sympy",
+      "name": "sympy",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "tokenizers",
+      "name": "tokenizers",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "tomli",
+      "name": "tomli",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "torch",
+      "name": "torch",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "torchvision",
+      "name": "torchvision",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "tqdm",
+      "name": "tqdm",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "traceai",
+      "name": "traceai",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "transformers",
+      "name": "transformers",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "typer",
+      "name": "typer",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "typing-extensions",
+      "name": "typing-extensions",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "typing-inspection",
+      "name": "typing-inspection",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "tzdata",
+      "name": "tzdata",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "uvicorn",
+      "name": "uvicorn",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "watchfiles",
+      "name": "watchfiles",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "websockets",
+      "name": "websockets",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "wheel",
+      "name": "wheel",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "zipp",
+      "name": "zipp",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "zlib",
+      "name": "zlib",
+      "version": "",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "notes": "108 distinct case-folded names versus165 component records; name-set counting erases versions/instances"
+}

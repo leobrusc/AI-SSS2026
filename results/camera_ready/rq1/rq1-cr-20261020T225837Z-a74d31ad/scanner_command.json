@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.tools\\bin\\syft.exe",
+    "scan",
+    "dir:C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.venv\\Lib\\site-packages",
+    "--select-catalogers",
+    "python-installed-package-cataloger",
+    "--output",
+    "cyclonedx-json=C:\\Users\\leolima\\Documents\\traceai-ladc2026\\generated\\camera_ready\\rq1\\rq1-cr-20261020T225837Z-a74d31ad\\installed_python_sbom.cdx.json"
+  ],
+  "target": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.venv\\Lib\\site-packages",
+  "network_required": false,
+  "selected_cataloger": "python-installed-package-cataloger",
+  "freeze_hash_before_generation": "52728697ce4880af3caaa3f17f1ad8084d81be8a3ce704776958676e80ed4368"
+}

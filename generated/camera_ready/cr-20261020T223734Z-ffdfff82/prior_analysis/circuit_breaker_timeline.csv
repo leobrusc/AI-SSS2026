@@ -1,0 +1,17 @@
+event_type,timestamp,outcome,latency_ms,notes,source,data_type
+campaign_start,2026-07-23T13:32:31.571079+00:00,,,"Campaign rq4-stress-20260723-103231-90518de9 starts","generated/rq4/control_activation_results.json (timestamp_start)",OBSERVED FROM RAW DATA
+c0_baseline_start,2026-07-23T13:32:59.917346+00:00,COMPLETED,272.66,"C0 baseline — first request","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c0_baseline_end,2026-07-23T13:33:05.823599+00:00,COMPLETED,322.73,"C0 baseline — last request","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c1_baseline_start,2026-07-23T13:33:06.837550+00:00,COMPLETED,222.68,"C1 baseline — first request","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c1_baseline_end,2026-07-23T13:33:15.401211+00:00,COMPLETED,310.79,"C1 baseline — last request","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c2_rate_limit_start,2026-07-23T13:33:27.603342+00:00,EXPECTED_RATE_LIMIT,11407.22,"First rate-limit rejection in C2","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_first_timeout,2026-07-23T13:33:53.165692+00:00,TIMEOUT,276.0,"First C3 timeout (failure 1/5)","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_failure_2,2026-07-23T13:33:53.576180+00:00,TIMEOUT,411.0,"C3 failure 2/5","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_failure_3,2026-07-23T13:33:54.049833+00:00,TIMEOUT,474.0,"C3 failure 3/5","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_failure_4,2026-07-23T13:33:54.491551+00:00,TIMEOUT,441.0,"C3 failure 4/5","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_failure_5_threshold,2026-07-23T13:33:54.935223+00:00,TIMEOUT,443.0,"C3 failure 5/5 — threshold reached (circuit should OPEN now)","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_first_cb_rejection,2026-07-23T13:33:55.343938+00:00,EXPECTED_CIRCUIT_BREAKER,410.0,"First CIRCUIT_BREAKER rejection — circuit is OPEN","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_cb_open_phase_ends,2026-07-23T13:34:12.852547+00:00,EXPECTED_CIRCUIT_BREAKER,367.0,"Last observed CIRCUIT_BREAKER rejection","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+c3_last_timeout,2026-07-23T13:34:13.708763+00:00,TIMEOUT,427.0,"Last timeout in C3 phase","results/rq4/rq4-stress-20260723-103231-90518de9/raw_requests.csv",OBSERVED FROM RAW DATA
+circuit_recovery_test,2026-07-23T13:34:19.258687+00:00,COMPLETED,,"Recovery probe — circuit is CLOSED (HALF_OPEN → CLOSED)","results/rq4/rq4-stress-20260723-103231-90518de9/service_events.jsonl",OBSERVED FROM RAW DATA
+campaign_end,2026-07-23T13:34:19.262441+00:00,,,"Campaign ends","generated/rq4/control_activation_results.json (timestamp_end)",OBSERVED FROM RAW DATA

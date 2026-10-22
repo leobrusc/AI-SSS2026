@@ -1,0 +1,3 @@
+id,type,name,domain,applicability,reason_missing,cyclonedx_representable,proposed_representation
+os-platform,runtime,Windows,hbom,REQUIRED,Not directly represented as named component in target BOM,yes,CycloneDX component with appropriate type
+host-cpu,hardware,cpu,hbom,REQUIRED,Hardware node not in current OBOM schema; represented as properties,yes,CycloneDX platform component with properties

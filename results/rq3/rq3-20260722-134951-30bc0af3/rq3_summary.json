@@ -1,0 +1,39 @@
+{
+  "campaign_id": "rq3-20260722-134951-30bc0af3",
+  "profile": "local",
+  "quick": true,
+  "timestamp": "2026-07-22T16:49:53.849345+00:00",
+  "scanner_agreement": {
+    "all": {
+      "scanner_a_total": 54,
+      "scanner_b_total": 35,
+      "intersection": 4,
+      "union": 85,
+      "jaccard": 0.0471,
+      "a_only": 50,
+      "b_only": 31
+    },
+    "cve_only": {
+      "scanner_a_total": 49,
+      "scanner_b_total": 0,
+      "intersection": 0,
+      "union": 49,
+      "jaccard": 0.0,
+      "a_only": 49,
+      "b_only": 0
+    },
+    "python_ecosystem": {
+      "scanner_a_total": 54,
+      "scanner_b_total": 35,
+      "intersection": 4,
+      "union": 85,
+      "jaccard": 0.0471,
+      "a_only": 50,
+      "b_only": 31
+    }
+  },
+  "vex_scenario_count": 8,
+  "vex_conformance_passed": 8,
+  "vex_conformance_total": 8,
+  "vex_conformance_summary": "policy conformance: 8/8 rules passed"
+}

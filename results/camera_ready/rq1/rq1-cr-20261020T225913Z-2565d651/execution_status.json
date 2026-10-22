@@ -1,0 +1,6 @@
+{
+  "status": "FAILED_DIAGNOSTIC",
+  "reason": "Syft1.18.1 select-catalogers requires tag syntax; explicit cataloger selection requires override-default-catalogers",
+  "scanner_exit": 1,
+  "coverage_produced": false
+}

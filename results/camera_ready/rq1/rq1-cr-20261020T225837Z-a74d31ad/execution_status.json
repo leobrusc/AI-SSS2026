@@ -1,0 +1,5 @@
+{
+  "status": "FAILED_DIAGNOSTIC",
+  "reason": "Windows cp1252 decoding of Syft stderr failed; numerical result not produced",
+  "raw_scanner_file_retained": true
+}

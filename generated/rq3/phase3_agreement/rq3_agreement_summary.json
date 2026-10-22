@@ -1,0 +1,74 @@
+{
+  "phase": "Phase 3: RQ3 Agreement Views",
+  "timestamp_start": "2026-07-23T11:58:17.515981+00:00",
+  "timestamp_end": "2026-07-23T11:58:17.613878+00:00",
+  "scanner_raw_dir": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\results\\rq3\\rq3-20260722-140819-082e9531\\raw",
+  "trivy_total_findings": 54,
+  "grype_total_findings": 35,
+  "raw_primary_id_overlap": {
+    "label": "raw_primary_id",
+    "set_a_size": 54,
+    "set_b_size": 35,
+    "intersection_size": 4,
+    "union_size": 85,
+    "jaccard": 0.0471,
+    "a_only_size": 50,
+    "b_only_size": 31
+  },
+  "alias_expanded_overlap": {
+    "computable": true,
+    "result": "COMPUTED",
+    "alias_sources": [
+      "grype.relatedVulnerabilities[].id",
+      "trivy.VendorIDs"
+    ],
+    "alias_mappings_count": 49,
+    "trivy_expanded_size": 103,
+    "grype_expanded_size": 66,
+    "intersection_size": 66,
+    "union_size": 103,
+    "jaccard": 0.6408
+  },
+  "affected_purl_overlap": {
+    "label": "affected_purl",
+    "set_a_size": 6,
+    "set_b_size": 6,
+    "intersection_size": 6,
+    "union_size": 6,
+    "jaccard": 1.0,
+    "a_only_size": 0,
+    "b_only_size": 0
+  },
+  "affected_pkgver_overlap": {
+    "label": "pkg_version",
+    "set_a_size": 6,
+    "set_b_size": 6,
+    "intersection_size": 6,
+    "union_size": 6,
+    "jaccard": 1.0,
+    "a_only_size": 0,
+    "b_only_size": 0
+  },
+  "dependency_classification": {
+    "trivy_direct": 13,
+    "trivy_transitive": 41,
+    "grype_direct": 11,
+    "grype_transitive": 24,
+    "direct_id_overlap": 4,
+    "transitive_id_overlap": 0,
+    "direct_deps_scanned": [
+      "cryptography"
+    ]
+  },
+  "unresolved_aliases_count": 19,
+  "trivy_exclusive_count": 50,
+  "grype_exclusive_count": 31,
+  "trivy_exclusive_categories": {
+    "ADVISORY_ALIAS_RESOLVED": 31,
+    "DATABASE_COVERAGE_GAP": 1,
+    "ID_NAMESPACE_DIFFERENCE": 18
+  },
+  "grype_exclusive_categories": {
+    "ADVISORY_ALIAS_RESOLVED": 31
+  }
+}

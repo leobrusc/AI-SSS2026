@@ -1,0 +1,7 @@
+component,trivy,grype,intersection,union,trivy_only,grype_only,jaccard
+certifi,3,3,3,3,0,0,1.0
+cryptography,13,11,11,13,2,0,0.8461538461538461
+pillow,21,7,7,21,14,0,0.3333333333333333
+requests,4,3,3,4,1,0,0.75
+setuptools,4,3,3,4,1,0,0.75
+urllib3,9,8,8,9,1,0,0.8888888888888888

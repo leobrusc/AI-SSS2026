@@ -2,7 +2,7 @@
 
 ## Overview
 
-TraceAI is the experimental artifact for the LADC 2026 paper *"From Static AI/ML-BOMs to Runtime-Aware Assurance: An Industrial Experience with CycloneDX for Dependable LLM Pipelines"*. It implements a complete pipeline for generating, signing, verifying, and enforcing CycloneDX AI/ML Bills of Materials for LLM inference services, along with experiment campaigns to evaluate security and availability properties.
+TraceAI is the experimental artifact for the AI-SSS 2026 paper *"Operational Assurance for Secure Generative AI Supply Chains with CycloneDX"*. It implements a complete pipeline for generating, signing, verifying, and enforcing CycloneDX AI/ML Bills of Materials for LLM inference services, along with experiment campaigns to evaluate security and availability properties.
 
 ---
 

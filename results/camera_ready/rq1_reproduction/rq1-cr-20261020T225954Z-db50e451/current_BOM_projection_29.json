@@ -1,0 +1,38 @@
+{
+  "classification": "CURRENT_BOMS_ON_RECONSTRUCTED_FINALIZER_UNIVERSE",
+  "result": {
+    "domain_coverage": {
+      "mlbom": {
+        "applicable": 6,
+        "matched": 6,
+        "coverage": 1.0,
+        "unmatched": []
+      },
+      "sbom": {
+        "applicable": 16,
+        "matched": 16,
+        "coverage": 1.0,
+        "unmatched": []
+      },
+      "hbom": {
+        "applicable": 4,
+        "matched": 4,
+        "coverage": 1.0,
+        "unmatched": []
+      },
+      "obom": {
+        "applicable": 3,
+        "matched": 3,
+        "coverage": 1.0,
+        "unmatched": []
+      }
+    },
+    "composite_coverage": 1.0,
+    "composite_matched": 29,
+    "composite_applicable": 29,
+    "ground_truth_total": 30,
+    "ground_truth_applicable": 29,
+    "schema_failures": 0,
+    "trivy_status": "TOOL_LIMITATION"
+  }
+}

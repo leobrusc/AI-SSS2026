@@ -1,0 +1,32 @@
+{
+  "phase": "Phase 2: RQ1 Inventory Comparison Correction",
+  "timestamp": "2026-07-23T13:11:17.052478+00:00",
+  "direct_dependency_universe": {
+    "universe": "direct_dependencies",
+    "target": "requirements-exact.txt",
+    "expected_count": 16,
+    "trivy_detected": 16,
+    "syft_detected_matching": 16,
+    "trivy_recall": 1.0,
+    "syft_recall": 1.0,
+    "trivy_syft_intersection": 16,
+    "trivy_syft_union": 16,
+    "trivy_syft_jaccard": 1.0,
+    "note": "Both scanners targeting the same manifest (requirements-exact.txt)"
+  },
+  "installed_environment_universe": {
+    "universe": "installed_environment",
+    "target": ".venv/Lib/site-packages",
+    "syft_detected": 101,
+    "trivy_status": "NOT_COMPARABLE_ON_WINDOWS",
+    "trivy_detected": 0,
+    "jaccard": "NOT_COMPARABLE",
+    "note": "Trivy's pip scanner requires a requirements/lock file. It does not enumerate installed site-packages on Windows. The comparison between Syft's 101 installed packages and Trivy's 16 direct dependencies is a universe mismatch, not tool disagreement."
+  },
+  "correction": {
+    "previous_metric": "Syft/Trivy Jaccard = 0.1584",
+    "problem": "Comparing different package universes (installed vs manifest)",
+    "corrected_direct_jaccard": 1.0,
+    "corrected_installed_status": "NOT_COMPARABLE_ON_WINDOWS"
+  }
+}

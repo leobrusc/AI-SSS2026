@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-07-22T17:16:29.601764+00:00",
+  "profile": "local",
+  "claims": [
+    {
+      "claim": "BOM representation coverage of ground-truth graph",
+      "rq": "RQ1",
+      "required_evidence": "Ground-truth graph + Syft/Trivy/TraceAI BOMs + coverage metrics",
+      "current_evidence": "6 RQ1 campaign(s) with scanner output",
+      "status": "SUPPORTED_QUICK_ONLY",
+      "artifact_path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\results\\rq1\\rq1-20260722-140850-18433df2"
+    },
+    {
+      "claim": "Cryptographic tamper detection across supply-chain scenarios",
+      "rq": "RQ2",
+      "required_evidence": "Real SHA-256 + ECDSA signing + policy evaluation on fixtures",
+      "current_evidence": "4 security campaign(s) with real crypto",
+      "status": "SUPPORTED_QUICK_ONLY",
+      "artifact_path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\results\\raw\\security-20260722-140421-f4aee0f2"
+    },
+    {
+      "claim": "Scanner agreement and VEX triage effectiveness",
+      "rq": "RQ3",
+      "required_evidence": "Real Trivy/Grype scan output + VEX policy evaluation",
+      "current_evidence": "4 RQ3 campaign(s)",
+      "status": "SUPPORTED_QUICK_ONLY",
+      "artifact_path": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\results\\rq3\\rq3-20260722-140819-082e9531"
+    },
+    {
+      "claim": "Runtime overhead and drift detection",
+      "rq": "RQ4",
+      "required_evidence": "Real model inference + measured latency + observed telemetry",
+      "current_evidence": "Availability campaign uses SIMULATED inference (MOCK_ONLY)",
+      "status": "UNSUPPORTED",
+      "artifact_path": "N/A \u2014 requires real inference implementation"
+    },
+    {
+      "claim": "GPU utilization and memory metrics",
+      "rq": "RQ4",
+      "required_evidence": "Real GPU telemetry from NVML/pynvml during inference",
+      "current_evidence": "No GPU",
+      "status": "BLOCKED_GPU",
+      "artifact_path": "N/A"
+    },
+    {
+      "claim": "Harbor OCI storage and signature distribution",
+      "rq": "RQ2",
+      "required_evidence": "Harbor registry + pushed/signed images",
+      "current_evidence": "Harbor not configured",
+      "status": "BLOCKED_EXTERNAL_INFRASTRUCTURE",
+      "artifact_path": "N/A"
+    },
+    {
+      "claim": "Dependency-Track BOM/VEX ingestion and processing",
+      "rq": "RQ3",
+      "required_evidence": "DT API upload + response metadata",
+      "current_evidence": "Dependency-Track not configured",
+      "status": "BLOCKED_EXTERNAL_INFRASTRUCTURE",
+      "artifact_path": "N/A"
+    },
+    {
+      "claim": "Kubernetes/OBOM runtime observation",
+      "rq": "RQ4",
+      "required_evidence": "K3s deployment + runtime snapshot from live cluster",
+      "current_evidence": "Kubernetes not configured",
+      "status": "BLOCKED_EXTERNAL_INFRASTRUCTURE",
+      "artifact_path": "N/A"
+    },
+    {
+      "claim": "Industrial deployment end-to-end pipeline",
+      "rq": "ALL",
+      "required_evidence": "Industrial profile execution with all external services",
+      "current_evidence": "Industrial profile not executed",
+      "status": "BLOCKED_EXTERNAL_INFRASTRUCTURE",
+      "artifact_path": "N/A"
+    }
+  ],
+  "summary": {
+    "SUPPORTED": 0,
+    "SUPPORTED_QUICK_ONLY": 3,
+    "PARTIALLY_SUPPORTED": 0,
+    "UNSUPPORTED": 1,
+    "BLOCKED_EXTERNAL_INFRASTRUCTURE": 4,
+    "BLOCKED_GPU": 1
+  }
+}

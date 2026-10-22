@@ -1,0 +1,579 @@
+{
+  "classification": "NUMERIC_RECONSTRUCTION_NOT_FROZEN_HISTORICAL_REPRODUCTION",
+  "result": {
+    "domain_coverage": {
+      "mlbom": {
+        "applicable": 6,
+        "matched": 6,
+        "coverage": 1.0,
+        "unmatched": []
+      },
+      "sbom": {
+        "applicable": 16,
+        "matched": 16,
+        "coverage": 1.0,
+        "unmatched": []
+      },
+      "hbom": {
+        "applicable": 4,
+        "matched": 2,
+        "coverage": 0.5,
+        "unmatched": [
+          {
+            "id": "os-platform",
+            "name": "Windows",
+            "type": "runtime"
+          },
+          {
+            "id": "host-cpu",
+            "name": "cpu",
+            "type": "hardware"
+          }
+        ]
+      },
+      "obom": {
+        "applicable": 3,
+        "matched": 3,
+        "coverage": 1.0,
+        "unmatched": []
+      }
+    },
+    "composite_coverage": 0.931,
+    "composite_matched": 27,
+    "composite_applicable": 29,
+    "ground_truth_total": 30,
+    "ground_truth_applicable": 29,
+    "schema_failures": 0,
+    "trivy_status": "TOOL_LIMITATION"
+  },
+  "universe": {
+    "nodes": [
+      {
+        "id": "model-gpt2",
+        "type": "model",
+        "name": "openai-community/gpt2",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:huggingface/openai-community/gpt2",
+          "sha256": "",
+          "name": "openai-community/gpt2",
+          "version": ""
+        }
+      },
+      {
+        "id": "model-weights",
+        "type": "weight",
+        "name": "model.safetensors",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "model.safetensors",
+          "version": ""
+        }
+      },
+      {
+        "id": "tokenizer",
+        "type": "tokenizer",
+        "name": "tokenizer.json",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "tokenizer.json",
+          "version": ""
+        }
+      },
+      {
+        "id": "model-config",
+        "type": "dataset",
+        "name": "config.json",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "config.json",
+          "version": ""
+        },
+        "note": "architecture configuration"
+      },
+      {
+        "id": "generation-config",
+        "type": "dataset",
+        "name": "generation_config.json",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "generation_config.json",
+          "version": ""
+        }
+      },
+      {
+        "id": "dataset-manifest",
+        "type": "dataset",
+        "name": "prompt-fixtures",
+        "version": "",
+        "expected_bom": [
+          "mlbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "prompt-fixtures",
+          "version": ""
+        }
+      },
+      {
+        "id": "pkg-torch",
+        "type": "package",
+        "name": "torch",
+        "version": "2.13.0+cpu",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/torch@2.13.0+cpu",
+          "sha256": "",
+          "name": "torch",
+          "version": "2.13.0+cpu"
+        }
+      },
+      {
+        "id": "pkg-transformers",
+        "type": "package",
+        "name": "transformers",
+        "version": "5.14.1",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/transformers@5.14.1",
+          "sha256": "",
+          "name": "transformers",
+          "version": "5.14.1"
+        }
+      },
+      {
+        "id": "pkg-tokenizers",
+        "type": "package",
+        "name": "tokenizers",
+        "version": "0.22.2",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/tokenizers@0.22.2",
+          "sha256": "",
+          "name": "tokenizers",
+          "version": "0.22.2"
+        }
+      },
+      {
+        "id": "pkg-fastapi",
+        "type": "package",
+        "name": "fastapi",
+        "version": "0.139.2",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/fastapi@0.139.2",
+          "sha256": "",
+          "name": "fastapi",
+          "version": "0.139.2"
+        }
+      },
+      {
+        "id": "pkg-uvicorn",
+        "type": "package",
+        "name": "uvicorn",
+        "version": "0.51.0",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/uvicorn@0.51.0",
+          "sha256": "",
+          "name": "uvicorn",
+          "version": "0.51.0"
+        }
+      },
+      {
+        "id": "pkg-pydantic",
+        "type": "package",
+        "name": "pydantic",
+        "version": "2.13.4",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/pydantic@2.13.4",
+          "sha256": "",
+          "name": "pydantic",
+          "version": "2.13.4"
+        }
+      },
+      {
+        "id": "pkg-pydantic-settings",
+        "type": "package",
+        "name": "pydantic-settings",
+        "version": "2.14.2",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/pydantic-settings@2.14.2",
+          "sha256": "",
+          "name": "pydantic-settings",
+          "version": "2.14.2"
+        }
+      },
+      {
+        "id": "pkg-httpx",
+        "type": "package",
+        "name": "httpx",
+        "version": "0.28.1",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/httpx@0.28.1",
+          "sha256": "",
+          "name": "httpx",
+          "version": "0.28.1"
+        }
+      },
+      {
+        "id": "pkg-pyyaml",
+        "type": "package",
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/pyyaml@6.0.3",
+          "sha256": "",
+          "name": "pyyaml",
+          "version": "6.0.3"
+        }
+      },
+      {
+        "id": "pkg-pandas",
+        "type": "package",
+        "name": "pandas",
+        "version": "3.0.3",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/pandas@3.0.3",
+          "sha256": "",
+          "name": "pandas",
+          "version": "3.0.3"
+        }
+      },
+      {
+        "id": "pkg-numpy",
+        "type": "package",
+        "name": "numpy",
+        "version": "2.4.4",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/numpy@2.4.4",
+          "sha256": "",
+          "name": "numpy",
+          "version": "2.4.4"
+        }
+      },
+      {
+        "id": "pkg-scipy",
+        "type": "package",
+        "name": "scipy",
+        "version": "1.17.1",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/scipy@1.17.1",
+          "sha256": "",
+          "name": "scipy",
+          "version": "1.17.1"
+        }
+      },
+      {
+        "id": "pkg-matplotlib",
+        "type": "package",
+        "name": "matplotlib",
+        "version": "3.11.1",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/matplotlib@3.11.1",
+          "sha256": "",
+          "name": "matplotlib",
+          "version": "3.11.1"
+        }
+      },
+      {
+        "id": "pkg-psutil",
+        "type": "package",
+        "name": "psutil",
+        "version": "7.2.2",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/psutil@7.2.2",
+          "sha256": "",
+          "name": "psutil",
+          "version": "7.2.2"
+        }
+      },
+      {
+        "id": "pkg-jsonschema",
+        "type": "package",
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/jsonschema@4.26.0",
+          "sha256": "",
+          "name": "jsonschema",
+          "version": "4.26.0"
+        }
+      },
+      {
+        "id": "pkg-cryptography",
+        "type": "package",
+        "name": "cryptography",
+        "version": "49.0.0",
+        "expected_bom": [
+          "sbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:pypi/cryptography@49.0.0",
+          "sha256": "",
+          "name": "cryptography",
+          "version": "49.0.0"
+        }
+      },
+      {
+        "id": "python-runtime",
+        "type": "runtime",
+        "name": "cpython",
+        "version": "3.11.6",
+        "expected_bom": [
+          "hbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "pkg:generic/python@3.11.6",
+          "sha256": "",
+          "name": "cpython",
+          "version": "3.11.6"
+        }
+      },
+      {
+        "id": "os-platform",
+        "type": "runtime",
+        "name": "Windows",
+        "version": "10",
+        "expected_bom": [
+          "hbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "Windows",
+          "version": "10"
+        }
+      },
+      {
+        "id": "host-cpu",
+        "type": "hardware",
+        "name": "cpu",
+        "version": "14",
+        "expected_bom": [
+          "hbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "cpu",
+          "version": "14"
+        }
+      },
+      {
+        "id": "host-ram",
+        "type": "hardware",
+        "name": "ram",
+        "version": "31.5GB",
+        "expected_bom": [
+          "hbom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "ram",
+          "version": "31.5GB"
+        }
+      },
+      {
+        "id": "host-gpu",
+        "type": "hardware",
+        "name": "gpu",
+        "version": "",
+        "expected_bom": [
+          "hbom"
+        ],
+        "applicability": "NOT_APPLICABLE",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "gpu",
+          "version": ""
+        },
+        "note": "N/A"
+      },
+      {
+        "id": "inference-service",
+        "type": "service",
+        "name": "traceai-inference",
+        "version": "0.1.0",
+        "expected_bom": [
+          "obom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "traceai-inference",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "id": "runtime-policy",
+        "type": "policy",
+        "name": "policy.yaml",
+        "version": "",
+        "expected_bom": [
+          "obom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "purl": "",
+          "sha256": "",
+          "name": "policy.yaml",
+          "version": ""
+        }
+      },
+      {
+        "id": "runtime-snapshot",
+        "type": "operational_state",
+        "name": "process-snapshot",
+        "version": "",
+        "expected_bom": [
+          "obom"
+        ],
+        "applicability": "REQUIRED",
+        "canonical_identity": {
+          "name": "process-snapshot",
+          "version": ""
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "inference-service",
+        "target": "model-gpt2",
+        "relationship": "dependsOn",
+        "domain": "obom"
+      }
+    ],
+    "meta": {
+      "total_nodes": 30,
+      "applicable_nodes": 29,
+      "total_edges": 1,
+      "profile": "local",
+      "gpu_available": false,
+      "timestamp": "2026-07-22T17:09:10.401068+00:00"
+    }
+  },
+  "operational_component_projection": {
+    "components": [
+      {
+        "type": "application",
+        "name": "traceai-inference",
+        "version": "0.1.0",
+        "bom-ref": "obom-service"
+      },
+      {
+        "type": "file",
+        "name": "policy.yaml",
+        "bom-ref": "obom-policy"
+      },
+      {
+        "type": "platform",
+        "name": "process-snapshot",
+        "bom-ref": "obom-snapshot",
+        "properties": [
+          {
+            "name": "traceai:cpu_percent",
+            "value": "1.2"
+          },
+          {
+            "name": "traceai:rss_mb",
+            "value": "23.2"
+          }
+        ]
+      }
+    ]
+  }
+}

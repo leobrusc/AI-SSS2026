@@ -1,0 +1,168 @@
+{
+  "universe_id": "scanner_rq1_trivy_probe_root",
+  "nodes": [
+    {
+      "id": "5bde44fe-31c1-4b9f-b515-7ca91f501d02",
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/pyyaml@6.0.3"
+    },
+    {
+      "id": "5d07b73b-7f06-43f1-8c4f-981c255d579d",
+      "name": "cryptography",
+      "version": "49.0.0",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/cryptography@49.0.0"
+    },
+    {
+      "id": "5d78e99b-3931-4efb-9268-a9507cfd9f38",
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/pyyaml@6.0.3"
+    },
+    {
+      "id": "64e120b4-aca6-4ed6-88f6-9467d735be24",
+      "name": "requirements-exact.txt",
+      "version": "",
+      "applicability": "REQUIRED",
+      "purl": ""
+    },
+    {
+      "id": "87c1858a-e480-476c-87c2-daffffe104f0",
+      "name": "httpx",
+      "version": "0.28.1",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/httpx@0.28.1"
+    },
+    {
+      "id": "93f17c88-d24b-4781-879b-0ab44b509057",
+      "name": "psutil",
+      "version": "7.2.2",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/psutil@7.2.2"
+    },
+    {
+      "id": "b8c96e81-3675-4c01-94c6-d8effb89ee5e",
+      "name": "cryptography",
+      "version": "49.0.0",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/cryptography@49.0.0"
+    },
+    {
+      "id": "c3ecc26d-94ee-441b-b0ce-51d45da35191",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/jsonschema@4.26.0"
+    },
+    {
+      "id": "d1a314e2-21e8-4005-9e42-af4737bff1e1",
+      "name": "fixtures/trivy_python_probe/requirements.txt",
+      "version": "",
+      "applicability": "REQUIRED",
+      "purl": ""
+    },
+    {
+      "id": "d74dcef1-6c64-4a66-bc6c-56339295f5c8",
+      "name": "httpx",
+      "version": "0.28.1",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/httpx@0.28.1"
+    },
+    {
+      "id": "e70a868f-887a-4415-9935-9c92bcb3f9d0",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/jsonschema@4.26.0"
+    },
+    {
+      "id": "ee45aebc-b0a3-434e-a2b3-990b14ccd8e7",
+      "name": "psutil",
+      "version": "7.2.2",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/psutil@7.2.2"
+    },
+    {
+      "id": "pkg:pypi/fastapi@0.139.2",
+      "name": "fastapi",
+      "version": "0.139.2",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/fastapi@0.139.2"
+    },
+    {
+      "id": "pkg:pypi/matplotlib@3.11.1",
+      "name": "matplotlib",
+      "version": "3.11.1",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/matplotlib@3.11.1"
+    },
+    {
+      "id": "pkg:pypi/numpy@2.4.4",
+      "name": "numpy",
+      "version": "2.4.4",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/numpy@2.4.4"
+    },
+    {
+      "id": "pkg:pypi/pandas@3.0.3",
+      "name": "pandas",
+      "version": "3.0.3",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/pandas@3.0.3"
+    },
+    {
+      "id": "pkg:pypi/pydantic-settings@2.14.2",
+      "name": "pydantic-settings",
+      "version": "2.14.2",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/pydantic-settings@2.14.2"
+    },
+    {
+      "id": "pkg:pypi/pydantic@2.13.4",
+      "name": "pydantic",
+      "version": "2.13.4",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/pydantic@2.13.4"
+    },
+    {
+      "id": "pkg:pypi/scipy@1.17.1",
+      "name": "scipy",
+      "version": "1.17.1",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/scipy@1.17.1"
+    },
+    {
+      "id": "pkg:pypi/tokenizers@0.22.2",
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/tokenizers@0.22.2"
+    },
+    {
+      "id": "pkg:pypi/torch@2.13.0%2Bcpu",
+      "name": "torch",
+      "version": "2.13.0+cpu",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/torch@2.13.0%2Bcpu"
+    },
+    {
+      "id": "pkg:pypi/transformers@5.14.1",
+      "name": "transformers",
+      "version": "5.14.1",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/transformers@5.14.1"
+    },
+    {
+      "id": "pkg:pypi/uvicorn@0.51.0",
+      "name": "uvicorn",
+      "version": "0.51.0",
+      "applicability": "REQUIRED",
+      "purl": "pkg:pypi/uvicorn@0.51.0"
+    }
+  ],
+  "authority": "OBSERVED",
+  "notes": "Observed output inventory, not complete environment ground truth."
+}

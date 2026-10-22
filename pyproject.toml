@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "traceai"
 version = "0.1.0"
-description = "From Static AI/ML-BOMs to Runtime-Aware Assurance: An Industrial Experience with CycloneDX for Dependable LLM Pipelines"
+description = "Operational Assurance for Secure Generative AI Supply Chains with CycloneDX"
 readme = "README.md"
 license = {text = "MIT"}
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.11,<3.12"
 authors = [
     {name = "Leonardo Lima"}
 ]
@@ -17,30 +17,28 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Topic :: Security",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
 dependencies = [
-    "torch>=2.0.0",
-    "transformers>=4.35.0",
-    "tokenizers>=0.15.0",
+    "torch==2.9.1",
+    "transformers>=4.35.0,<5",
     "fastapi>=0.104.0",
     "uvicorn[standard]>=0.24.0",
     "pydantic>=2.5.0",
     "pydantic-settings>=2.1.0",
     "httpx>=0.25.0",
     "pyyaml>=6.0.1",
-    "pandas>=2.1.0",
     "numpy>=1.24.0",
     "scipy>=1.11.0",
     "matplotlib>=3.8.0",
     "psutil>=5.9.0",
     "jsonschema>=4.20.0",
     "cryptography>=41.0.0",
+    "huggingface-hub>=0.34,<1",
+    "nvidia-ml-py>=12.535.0",
 ]
 
 [project.optional-dependencies]
@@ -50,8 +48,6 @@ dev = [
     "pytest-asyncio>=0.23.0",
     "ruff>=0.1.0",
     "mypy>=1.7.0",
-    "pip-tools>=7.3.0",
-    "compileall2>=0.8.0",
 ]
 gpu = [
     "nvidia-ml-py>=12.535.0",
@@ -62,6 +58,28 @@ traceai = "traceai.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.uv]
+environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "sys_platform == 'win32' and platform_machine == 'AMD64'",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu129", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'" },
+    { index = "pytorch-cpu", marker = "sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu129"
+url = "https://download.pytorch.org/whl/cu129"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

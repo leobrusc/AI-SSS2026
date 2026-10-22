@@ -1,0 +1,13 @@
+\subsection{Results}
+
+\paragraph{RQ1 (Traceability Coverage)}
+The typed ground truth contains 29~applicable nodes across 4~BOM domains. Domain coverage: AI/ML-BOM~1.0 (6/6), SBOM~1.0 (16/16 via Syft), HBOM~0.5 (2/4), OBOM~1.0 (3/3). Two HBOM nodes (OS platform name, CPU model) are represented as properties within the operational snapshot but lack independently named CycloneDX components. Composite linked-graph coverage: 0.931 (27/29). Edge completeness: 1.0. Trivy reports 0~components (TOOL\_LIMITATION: pip-freeze format not recognized).
+
+\paragraph{RQ2 (Provenance Gates)}
+The 30-instance security campaign produces 240~observations across 8~scenarios. All scenarios achieve correct-decision rate~1.000 (Wilson 95\% CI: [0.886,\,1.000]). Zero false positives; zero false negatives. Gate latency: P50=34.2\,ms, P95=102.0\,ms, P99=138.8\,ms. Each instance uses an independent seed producing distinct mutation offsets in model weights, tokenizer files, and dataset manifests.
+
+\paragraph{RQ3 (Scanner Agreement and VEX)}
+Scanning a controlled fixture SBOM (6~packages with known vulnerabilities), Trivy identifies 54~findings and Grype identifies 35~findings. Raw-identifier Jaccard similarity: 0.047 (4~findings in intersection). The low agreement is primarily attributable to advisory identifier divergence: Trivy reports CVE identifiers while Grype reports GHSA identifiers for overlapping vulnerabilities. VEX policy conformance: 8/8 deterministic scenarios correct. Property-based testing: 500~generated cases with 100\% oracle agreement and 0~counterexamples. These measure policy conformance, not ecosystem-wide VEX effectiveness.
+
+\paragraph{RQ4 (Availability --- CPU Diagnostic)}
+Real HTTP inference with \texttt{sshleifer/tiny-gpt2} produces 240~requests across configurations C0--C3. Median latency: 397\,ms (P95: 465\,ms) on CPU. Policy-denied requests (rate limiting, queue bounds) are classified as expected control outcomes, not service failures. GPU telemetry: NOT\_APPLICABLE. \textit{These are CPU-only diagnostic measurements; the publication GPU campaign on NVIDIA RTX~A5000 is pending.}

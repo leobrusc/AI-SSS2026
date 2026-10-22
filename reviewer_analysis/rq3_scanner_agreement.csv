@@ -1,0 +1,4 @@
+basis,trivy,grype,intersection,union,trivy_only,grype_only,jaccard
+raw_package_version_advisory,54,35,4,85,50,31,0.047058823529411764
+canonical_package_version_advisory,54,35,35,54,19,0,0.6481481481481481
+raw_advisory_only,54,35,4,85,50,31,0.047058823529411764

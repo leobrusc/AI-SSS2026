@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-07-22T16:47:46.789972+00:00",
+  "profile": "local",
+  "python": {
+    "executable": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.venv\\Scripts\\python.exe",
+    "version": "3.11.6 (tags/v3.11.6:8b6ee5b, Oct  2 2023, 14:57:12) [MSC v.1935 64 bit (AMD64)]",
+    "version_info": [
+      3,
+      11,
+      6
+    ],
+    "platform": "win32",
+    "prefix": "C:\\Users\\leolima\\Documents\\traceai-ladc2026\\.venv",
+    "in_venv": true
+  },
+  "system": {
+    "os": "Windows",
+    "os_version": "10.0.26200",
+    "os_release": "10",
+    "architecture": "AMD64",
+    "hostname_hash": "9afbae2ff76c",
+    "cpu_physical_cores": 12,
+    "cpu_logical_cores": 14,
+    "ram_total_gb": 31.46,
+    "ram_available_gb": 14.66,
+    "windows_edition": "Microsoft Windows 11 Pro"
+  },
+  "gpu": {
+    "available": false,
+    "device_name": "N/A",
+    "vram_total_mb": "N/A",
+    "driver_version": "N/A",
+    "cuda_version": "N/A",
+    "torch_cuda_available": false,
+    "torch_cuda_version": "N/A"
+  },
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.14.1",
+    "tokenizers": "0.22.2",
+    "fastapi": "0.139.2",
+    "uvicorn": "0.51.0",
+    "pydantic": "2.13.4",
+    "pydantic_settings": "2.14.2",
+    "httpx": "0.28.1",
+    "pyyaml": "not installed",
+    "pandas": "3.0.3",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.1",
+    "psutil": "7.2.2",
+    "jsonschema": "4.26.0",
+    "cryptography": "49.0.0",
+    "pytest": "9.1.1",
+    "ruff": "unknown"
+  }
+}

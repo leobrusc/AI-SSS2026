@@ -1,0 +1,4 @@
+node_id,name,old_domain,old_type,new_domain,new_type,rationale,coverage_effect
+os-platform,Windows,hbom,hardware,obom,runtime,"Operating system is software/runtime state, not physical hardware. CycloneDX type: operating-system.","Removed from HBOM denominator, added to OBOM"
+host-cpu,cpu,hbom (property only),property,hbom,hardware,CPU is a physical device. Represented as CycloneDX component type=device with observable info from platform.processor().,Now a first-class HBOM component
+host-ram,ram,hbom,hardware,hbom,hardware,Physical RAM is hardware. Represented as CycloneDX component type=device with observed capacity from psutil.,Unchanged - remains HBOM hardware

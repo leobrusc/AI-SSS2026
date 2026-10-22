@@ -1,0 +1,23 @@
+{
+  "links": [
+    {
+      "source": "urn:uuid:fdcfd3de-533f-4623-99f6-d0312bbf0e40",
+      "target": "urn:uuid:cdccda23-424b-4523-bce9-31acd8f5f43e",
+      "type": "sbom-syft",
+      "rel": "dependsOn"
+    },
+    {
+      "source": "urn:uuid:fdcfd3de-533f-4623-99f6-d0312bbf0e40",
+      "target": "urn:uuid:b48fd003-3749-4bfd-88f0-9af6484a563a",
+      "type": "sbom-trivy",
+      "rel": "dependsOn"
+    },
+    {
+      "source": "urn:uuid:fdcfd3de-533f-4623-99f6-d0312bbf0e40",
+      "target": "urn:uuid:63d5ac71-1191-4651-8025-ca5813b35515",
+      "type": "obom",
+      "rel": "describedBy"
+    }
+  ],
+  "count": 3
+}

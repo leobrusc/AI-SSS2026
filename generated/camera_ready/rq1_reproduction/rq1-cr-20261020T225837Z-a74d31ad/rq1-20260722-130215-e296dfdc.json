@@ -1,0 +1,199 @@
+{
+  "universe_id": "rq1-20260722-130215-e296dfdc",
+  "nodes": [
+    {
+      "id": "model-gpt2",
+      "type": "model",
+      "name": "openai-community/gpt2",
+      "version": "",
+      "note": "GPT-2 124M"
+    },
+    {
+      "id": "model-revision",
+      "type": "revision",
+      "name": "main",
+      "version": "",
+      "note": "HuggingFace model revision"
+    },
+    {
+      "id": "model-weights",
+      "type": "artifact",
+      "name": "model.safetensors",
+      "version": "",
+      "note": "Model weight file(s)"
+    },
+    {
+      "id": "tokenizer-files",
+      "type": "artifact",
+      "name": "tokenizer.json",
+      "version": "",
+      "note": "Includes vocab.json, merges.txt, tokenizer_config.json"
+    },
+    {
+      "id": "model-config",
+      "type": "config",
+      "name": "config.json",
+      "version": "",
+      "note": "Model architecture config"
+    },
+    {
+      "id": "generation-config",
+      "type": "config",
+      "name": "generation_config.json",
+      "version": "",
+      "note": "Default generation parameters"
+    },
+    {
+      "id": "dataset-manifest",
+      "type": "dataset",
+      "name": "fixtures/datasets/manifest.json",
+      "version": ""
+    },
+    {
+      "id": "python-runtime",
+      "type": "runtime",
+      "name": "python",
+      "version": "3.11.6"
+    },
+    {
+      "id": "pytorch",
+      "type": "framework",
+      "name": "torch",
+      "version": "2.13.0+cpu"
+    },
+    {
+      "id": "transformers",
+      "type": "framework",
+      "name": "transformers",
+      "version": "5.14.1"
+    },
+    {
+      "id": "traceai-app",
+      "type": "application",
+      "name": "traceai",
+      "version": "0.1.0"
+    },
+    {
+      "id": "dep-fastapi",
+      "type": "library",
+      "name": "fastapi",
+      "version": "0.139.2"
+    },
+    {
+      "id": "dep-uvicorn",
+      "type": "library",
+      "name": "uvicorn",
+      "version": "0.51.0"
+    },
+    {
+      "id": "dep-pydantic",
+      "type": "library",
+      "name": "pydantic",
+      "version": "2.13.4"
+    },
+    {
+      "id": "dep-httpx",
+      "type": "library",
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "id": "dep-cryptography",
+      "type": "library",
+      "name": "cryptography",
+      "version": "49.0.0"
+    },
+    {
+      "id": "dep-psutil",
+      "type": "library",
+      "name": "psutil",
+      "version": "7.2.2"
+    },
+    {
+      "id": "dep-numpy",
+      "type": "library",
+      "name": "numpy",
+      "version": "2.4.4"
+    },
+    {
+      "id": "dep-scipy",
+      "type": "library",
+      "name": "scipy",
+      "version": "1.17.1"
+    },
+    {
+      "id": "dep-pandas",
+      "type": "library",
+      "name": "pandas",
+      "version": "3.0.3"
+    },
+    {
+      "id": "dep-matplotlib",
+      "type": "library",
+      "name": "matplotlib",
+      "version": "3.11.1"
+    },
+    {
+      "id": "dep-pyyaml",
+      "type": "library",
+      "name": "pyyaml",
+      "version": "not_installed"
+    },
+    {
+      "id": "dep-jsonschema",
+      "type": "library",
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "id": "os-env",
+      "type": "environment",
+      "name": "Windows",
+      "version": "10.0.26200"
+    },
+    {
+      "id": "inference-service",
+      "type": "service",
+      "name": "traceai-inference",
+      "version": "0.1.0"
+    },
+    {
+      "id": "runtime-policy",
+      "type": "policy",
+      "name": "config/policy.yaml",
+      "version": ""
+    },
+    {
+      "id": "host-cpu",
+      "type": "hardware",
+      "name": "CPU",
+      "version": "",
+      "note": "14 cores"
+    },
+    {
+      "id": "host-ram",
+      "type": "hardware",
+      "name": "RAM",
+      "version": "",
+      "note": "31.5 GB"
+    },
+    {
+      "id": "host-gpu",
+      "type": "hardware",
+      "name": "GPU",
+      "version": "",
+      "status": "NOT_APPLICABLE_LOCAL_PROFILE",
+      "note": "No GPU on this host"
+    },
+    {
+      "id": "cuda",
+      "type": "runtime",
+      "name": "CUDA",
+      "version": "",
+      "status": "NOT_APPLICABLE_LOCAL_PROFILE",
+      "note": "No CUDA on this host"
+    }
+  ],
+  "authority": "OBSERVED",
+  "notes": "Run commit NOT_RECORDED; compatible sources in Git are not proven run provenance."
+}

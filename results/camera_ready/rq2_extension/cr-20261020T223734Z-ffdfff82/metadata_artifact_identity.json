@@ -1,0 +1,66 @@
+{
+  "attestation": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "substituted-artifact",
+        "digest": {
+          "sha256": "844e0a980cc1313b71fb84a4ebd788df474fcc1f36fcedbcdb017ca44e9df206"
+        }
+      }
+    ],
+    "predicateType": "https://traceai.dev/attestation/v1",
+    "predicate": {
+      "builder": {
+        "id": "traceai-local"
+      },
+      "buildType": "https://traceai.dev/build/v1",
+      "metadata": {
+        "buildStartedOn": "2026-10-20T22:37:34.380188+00:00",
+        "completeness": {
+          "parameters": true,
+          "environment": true,
+          "materials": true
+        }
+      },
+      "materials": [],
+      "traceai": {
+        "model_digest": "844e0a980cc1313b71fb84a4ebd788df474fcc1f36fcedbcdb017ca44e9df206",
+        "tokenizer_digest": "",
+        "sbom_digest": "",
+        "bom_digest": "",
+        "policy_version": "",
+        "source_revision": "old-valid-revision"
+      }
+    }
+  },
+  "envelope": {
+    "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYnVpbGRUeXBlIjoiaHR0cHM6Ly90cmFjZWFpLmRldi9idWlsZC92MSIsImJ1aWxkZXIiOnsiaWQiOiJ0cmFjZWFpLWxvY2FsIn0sIm1hdGVyaWFscyI6W10sIm1ldGFkYXRhIjp7ImJ1aWxkU3RhcnRlZE9uIjoiMjAyNi0xMC0yMFQyMjozNzozNC4zODAxODgrMDA6MDAiLCJjb21wbGV0ZW5lc3MiOnsiZW52aXJvbm1lbnQiOnRydWUsIm1hdGVyaWFscyI6dHJ1ZSwicGFyYW1ldGVycyI6dHJ1ZX19LCJ0cmFjZWFpIjp7ImJvbV9kaWdlc3QiOiIiLCJtb2RlbF9kaWdlc3QiOiI4NDRlMGE5ODBjYzEzMTNiNzFmYjg0YTRlYmQ3ODhkZjQ3NGZjYzFmMzZmY2VkYmNkYjAxN2NhNDRlOWRmMjA2IiwicG9saWN5X3ZlcnNpb24iOiIiLCJzYm9tX2RpZ2VzdCI6IiIsInNvdXJjZV9yZXZpc2lvbiI6Im9sZC12YWxpZC1yZXZpc2lvbiIsInRva2VuaXplcl9kaWdlc3QiOiIifX0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL3RyYWNlYWkuZGV2L2F0dGVzdGF0aW9uL3YxIiwic3ViamVjdCI6W3siZGlnZXN0Ijp7InNoYTI1NiI6Ijg0NGUwYTk4MGNjMTMxM2I3MWZiODRhNGViZDc4OGRmNDc0ZmNjMWYzNmZjZWRiY2RiMDE3Y2E0NGU5ZGYyMDYifSwibmFtZSI6ImFwcHJvdmVkLW1vZGVsIn1dfQ==",
+    "payloadType": "application/json",
+    "signatures": [
+      {
+        "sig": "3046022100e7408e742a82702d5b17195152ac090adff553c1d3bb2d3b50676429c49f64cf022100a4c524c317d6149ddbdeb57abbf143056865bc1deadd8897a32b75623d54e4af",
+        "keyid": "dfbe12e2d2664cbf6a3c217d455c7290",
+        "signer_id": "traceai-local-test",
+        "timestamp": "2026-10-20T22:37:47.530858+00:00"
+      }
+    ]
+  },
+  "result": {
+    "decision": "APPROVED",
+    "approved": true,
+    "reason": "All policy checks passed",
+    "checks_passed": [
+      "artifact_present",
+      "digest_match",
+      "signature_valid",
+      "signer_authorized",
+      "attestation_valid",
+      "attestation_digest_match",
+      "evidence_fresh",
+      "configuration_matches"
+    ],
+    "checks_failed": [],
+    "latency_ms": 2.5250911712646484
+  }
+}

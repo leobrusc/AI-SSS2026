@@ -1,0 +1,107 @@
+{
+  "timestamp": "2026-07-23T18:27:07.413442+00:00",
+  "recommended_device": "cpu",
+  "gpu_ready": false,
+  "total_checks": 10,
+  "passed": 7,
+  "blockers": 0,
+  "warnings": 3,
+  "checks": [
+    {
+      "name": "torch_installed",
+      "passed": true,
+      "message": "PyTorch 2.13.0+cpu installed",
+      "severity": "info",
+      "details": {
+        "version": "2.13.0+cpu"
+      }
+    },
+    {
+      "name": "nvidia_driver",
+      "passed": false,
+      "message": "nvidia-smi not found in PATH",
+      "severity": "warning",
+      "details": {
+        "hint": "Install NVIDIA driver or ensure nvidia-smi is in PATH"
+      }
+    },
+    {
+      "name": "cuda_available",
+      "passed": false,
+      "message": "CUDA not available (torch.cuda.is_available() = False)",
+      "severity": "warning",
+      "details": {
+        "reason": "No CUDA-capable GPU detected by PyTorch"
+      }
+    },
+    {
+      "name": "gpu_name_matches",
+      "passed": true,
+      "message": "N/A (CPU mode, profile expects: NVIDIA L4)",
+      "severity": "info",
+      "details": {
+        "mode": "cpu",
+        "expected_regex": "NVIDIA L4"
+      }
+    },
+    {
+      "name": "cuda_torch_compat",
+      "passed": true,
+      "message": "N/A (CPU mode \u2014 no compatibility issue)",
+      "severity": "info",
+      "details": {
+        "mode": "cpu"
+      }
+    },
+    {
+      "name": "vram_sufficient",
+      "passed": true,
+      "message": "N/A (CPU mode)",
+      "severity": "info",
+      "details": {
+        "mode": "cpu"
+      }
+    },
+    {
+      "name": "nvml_available",
+      "passed": false,
+      "message": "pynvml not installed (install with: pip install pynvml)",
+      "severity": "warning",
+      "details": {
+        "hint": "pip install pynvml"
+      }
+    },
+    {
+      "name": "no_competing_gpu_processes",
+      "passed": true,
+      "message": "nvidia-smi not available (skipped on this platform)",
+      "severity": "info",
+      "details": {}
+    },
+    {
+      "name": "device_config",
+      "passed": true,
+      "message": "TRACEAI_DEVICE='auto' (valid)",
+      "severity": "info",
+      "details": {
+        "device": "auto"
+      }
+    },
+    {
+      "name": "model_loadable",
+      "passed": true,
+      "message": "Model config loaded: sshleifer/tiny-gpt2 (gpt2)",
+      "severity": "info",
+      "details": {
+        "model_id": "sshleifer/tiny-gpt2",
+        "model_type": "gpt2"
+      }
+    }
+  ],
+  "blocker_messages": [],
+  "warning_messages": [
+    "nvidia-smi not found in PATH",
+    "CUDA not available (torch.cuda.is_available() = False)",
+    "pynvml not installed (install with: pip install pynvml)"
+  ]
+}

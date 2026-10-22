@@ -271,7 +271,7 @@ class TestOutcomeClassification:
 class TestQuickValidationGates:
     """Quick validation report logic."""
 
-    def test_quick_report_fails_without_c2_control(self):
+    def test_quick_report_fails_without_c2_control(self, tmp_path):
         """Report status is FAIL if C2 has no control activation."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
@@ -284,11 +284,11 @@ class TestQuickValidationGates:
                  "trial_id": "test-C3-t0"}] * 60
         events = []
         report = _generate_quick_validation_report(
-            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+            tmp_path, "test-campaign", obs, events, [], [], 240, "a" * 40)
         assert report["gates"]["c2_control_activated"] is False
         assert report["status"] == "FAIL"
 
-    def test_quick_report_fails_without_c3_recovery(self):
+    def test_quick_report_fails_without_c3_recovery(self, tmp_path):
         """Report status is FAIL if C3 never recovered."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
@@ -301,11 +301,11 @@ class TestQuickValidationGates:
                  "trial_id": "test-C3-t0"}] * 60
         events = [{"event": "circuit_open", "timestamp": "2026-01-01T00:00:00Z"}]
         report = _generate_quick_validation_report(
-            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+            tmp_path, "test-campaign", obs, events, [], [], 240, "a" * 40)
         assert report["gates"]["c3_recovered"] is False
         assert report["status"] == "FAIL"
 
-    def test_quick_report_fails_without_gpu_timeseries(self):
+    def test_quick_report_fails_without_gpu_timeseries(self, tmp_path):
         """Report status is FAIL if no GPU timeseries on gpu profile."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
@@ -315,11 +315,11 @@ class TestQuickValidationGates:
             {"event": "circuit_recovered", "timestamp": "t"},
         ]
         report = _generate_quick_validation_report(
-            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+            tmp_path, "test-campaign", obs, events, [], [], 240, "a" * 40)
         assert report["gates"]["gpu_timeseries_present"] is False
         assert report["status"] == "FAIL"
 
-    def test_observation_count_requires_exactly_240(self):
+    def test_observation_count_requires_exactly_240(self, tmp_path):
         """Gate uses == 240, not >= 240."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
         # 241 observations — should still fail exact check? No, 241 != 240.
@@ -330,11 +330,11 @@ class TestQuickValidationGates:
             {"event": "circuit_recovered", "timestamp": "t"},
         ]
         report = _generate_quick_validation_report(
-            ROOT, "test-campaign", obs, events, [], [], 240, "a" * 40)
+            tmp_path, "test-campaign", obs, events, [], [], 240, "a" * 40)
         # 241 != 240
         assert report["gates"]["observation_count_exact_240"] is False
 
-    def test_all_required_gates_exist(self):
+    def test_all_required_gates_exist(self, tmp_path):
         """All mandatory gates are present in the report."""
         from traceai.campaigns.rq4 import _generate_quick_validation_report
         obs = [{"configuration_id": "C0", "outcome_class": "COMPLETED",
@@ -344,7 +344,7 @@ class TestQuickValidationGates:
                   {"event": "circuit_recovered", "timestamp": "t"},
                   {"event": "fault_injection_started", "timestamp": "t"}]
         report = _generate_quick_validation_report(
-            ROOT, "test", obs, events, [{"gpu_utilization_percent": 50, "memory_used_mb": 100}],
+            tmp_path, "test", obs, events, [{"gpu_utilization_percent": 50, "memory_used_mb": 100}],
             [{"cpu_percent": 10}], 240, "a" * 40,
             config_events=[{"validation_passed": True}] * 4,
             trial_manifests=[{"trial_id": f"test-C{c}-t{t}", "observation_count": 20,

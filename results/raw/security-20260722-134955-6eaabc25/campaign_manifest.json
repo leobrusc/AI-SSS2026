@@ -1,0 +1,12 @@
+{
+  "campaign_id": "security-20260722-134955-6eaabc25",
+  "campaign_type": "security",
+  "profile": "local",
+  "started_at": "2026-07-22T16:49:56.988369+00:00",
+  "trial_count": 3,
+  "scenario_count": 8,
+  "total_observations": 24,
+  "quick": true,
+  "raw_directory": "results\\raw\\security-20260722-134955-6eaabc25",
+  "results_file": "results\\raw\\security-20260722-134955-6eaabc25\\security_results.json"
+}

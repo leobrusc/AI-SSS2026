@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-07-22T17:15:31.104760+00:00",
+  "profile": "local",
+  "rq1": {
+    "composite_coverage": 0.931,
+    "mlbom": 1.0,
+    "sbom": 1.0,
+    "hbom": 0.5,
+    "obom": 1.0,
+    "trivy_status": "TOOL_LIMITATION",
+    "syft_components": 165
+  },
+  "rq2": {
+    "observations": 240,
+    "scenarios": 8,
+    "trials_per_scenario": 30,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "wilson_ci": [
+      0.886,
+      1.0
+    ],
+    "gate_latency_p50_ms": 34.2,
+    "gate_latency_p95_ms": 102.0
+  },
+  "rq3": {
+    "trivy_findings": 54,
+    "grype_findings": 35,
+    "raw_jaccard": 0.047,
+    "intersection": 4,
+    "vex_conformance": "8/8",
+    "property_cases": 500,
+    "property_counterexamples": 0
+  },
+  "rq4_cpu": {
+    "observations": 240,
+    "model": "sshleifer/tiny-gpt2",
+    "revision": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+    "latency_p50_ms": 397,
+    "status": "SUPPORTED_QUICK_ONLY"
+  },
+  "model_revisions": {
+    "sshleifer/tiny-gpt2": "5f91d94bd9cd7190a9f3216ff93cd1dd95f2c7be",
+    "openai-community/gpt2": "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+  },
+  "tools": {
+    "syft": "1.18.1",
+    "grype": "0.86.1",
+    "trivy": "0.72.0",
+    "cosign": "2.4.1"
+  }
+}

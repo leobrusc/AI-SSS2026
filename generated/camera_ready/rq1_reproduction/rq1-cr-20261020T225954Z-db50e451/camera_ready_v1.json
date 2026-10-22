@@ -1,0 +1,199 @@
+{
+  "universe_id": "camera_ready_v1",
+  "nodes": [
+    {
+      "id": "model-gpt2",
+      "name": "openai-community/gpt2",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "model-weights",
+      "name": "model.safetensors",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "tokenizer",
+      "name": "gpt2-tokenizer",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "model-config",
+      "name": "config.json",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "generation-config",
+      "name": "generation_config.json",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "dataset-manifest",
+      "name": "fixtures/datasets/manifest.json",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:torch",
+      "name": "torch",
+      "version": "2.13.0+cpu",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:transformers",
+      "name": "transformers",
+      "version": "5.14.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:tokenizers",
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:fastapi",
+      "name": "fastapi",
+      "version": "0.139.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:uvicorn",
+      "name": "uvicorn",
+      "version": "0.51.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:pydantic",
+      "name": "pydantic",
+      "version": "2.13.4",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:pydantic-settings",
+      "name": "pydantic-settings",
+      "version": "2.14.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:httpx",
+      "name": "httpx",
+      "version": "0.28.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:pyyaml",
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:pandas",
+      "name": "pandas",
+      "version": "3.0.3",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:numpy",
+      "name": "numpy",
+      "version": "2.4.4",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:scipy",
+      "name": "scipy",
+      "version": "1.17.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:matplotlib",
+      "name": "matplotlib",
+      "version": "3.11.1",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:psutil",
+      "name": "psutil",
+      "version": "7.2.2",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:jsonschema",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:cryptography",
+      "name": "cryptography",
+      "version": "49.0.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-runtime",
+      "name": "python",
+      "version": "3.11.6",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "os-platform",
+      "name": "Windows",
+      "version": "10",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "host-cpu",
+      "name": "CPU",
+      "version": "14",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "host-ram",
+      "name": "RAM",
+      "version": "31.5GB",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "host-gpu",
+      "name": "GPU",
+      "version": "",
+      "applicability": "NOT_APPLICABLE"
+    },
+    {
+      "id": "cuda-runtime",
+      "name": "CUDA",
+      "version": "",
+      "applicability": "NOT_APPLICABLE"
+    },
+    {
+      "id": "inference-service",
+      "name": "traceai-inference",
+      "version": "0.1.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "runtime-policy",
+      "name": "config/policy.yaml",
+      "version": "",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "python-package:traceai",
+      "name": "traceai",
+      "version": "0.1.0",
+      "applicability": "REQUIRED"
+    },
+    {
+      "id": "runtime-snapshot",
+      "name": "process-snapshot",
+      "version": "pid=2840",
+      "applicability": "REQUIRED"
+    }
+  ],
+  "authority": "CURRENT_CODE",
+  "notes": "NEW result; changed universe and measurement rules are explicit, not retroactively applied."
+}

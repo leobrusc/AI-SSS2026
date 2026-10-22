@@ -1,0 +1,32 @@
+{
+  "phase": "Phase 1: Canonical RQ3 Advisory Equivalence",
+  "timestamp": "2026-07-23T13:09:50.094169+00:00",
+  "alias_graph": {
+    "total_components": 54,
+    "multi_member_components": 49,
+    "singleton_components": 5
+  },
+  "metrics": {
+    "trivy_canonical_findings": 54,
+    "grype_canonical_findings": 35,
+    "canonical_intersection": 35,
+    "canonical_union": 54,
+    "canonical_jaccard": 0.6481,
+    "advisory_class_intersection": 35,
+    "advisory_class_union": 54,
+    "advisory_class_jaccard": 0.6481,
+    "purl_intersection": 6,
+    "purl_union": 6,
+    "pkgver_intersection": 6,
+    "pkgver_union": 6,
+    "severity_agreement": 35,
+    "severity_disagreement": 0,
+    "fix_version_agreement": 32,
+    "fix_version_disagreement": 3,
+    "invariant_intersection_le_min": true,
+    "invariant_jaccard_le_1": true,
+    "raw_primary_id_overlap": 4,
+    "raw_primary_id_jaccard": 0.0471
+  },
+  "correction_explanation": "The previous alias-expanded intersection of 66 was invalid because set expansion adds BOTH identifiers (e.g., CVE-X and GHSA-Y) from each equivalence class to both expanded sets. When both IDs appear in both expanded sets, the intersection double-counts the same vulnerability. The correct metric uses equivalence-class canonicalization: each vulnerability counts ONCE as a (canonical_class, package, version) tuple."
+}

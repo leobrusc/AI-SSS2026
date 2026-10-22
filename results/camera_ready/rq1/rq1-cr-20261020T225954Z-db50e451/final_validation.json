@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "timestamp": "2026-10-20T23:05:12.594458+00:00",
+  "historical_files_checked": 578,
+  "historical_changes": [],
+  "frozen_replay": {
+    "status": "PASS",
+    "campaign_id": "rq1-cr-20261020T225954Z-db50e451",
+    "N_applicable": 30,
+    "N_represented": 20,
+    "coverage": 0.6666666666666666,
+    "covered_asset_ids": [
+      "python-package:torch",
+      "python-package:transformers",
+      "python-package:tokenizers",
+      "python-package:fastapi",
+      "python-package:uvicorn",
+      "python-package:pydantic",
+      "python-package:pydantic-settings",
+      "python-package:httpx",
+      "python-package:pyyaml",
+      "python-package:pandas",
+      "python-package:numpy",
+      "python-package:scipy",
+      "python-package:matplotlib",
+      "python-package:psutil",
+      "python-package:jsonschema",
+      "python-package:cryptography",
+      "inference-service",
+      "runtime-policy",
+      "python-package:traceai",
+      "runtime-snapshot"
+    ]
+  },
+  "regression_tests_passed": 9,
+  "package_metadata_unchanged": true,
+  "freeze_precedes_generation": true,
+  "no_gpu_or_model_execution": true
+}

@@ -1,0 +1,8 @@
+{
+  "rq4_status": "PENDING_A100_EXECUTION",
+  "c0_c3_equal_frozen_baseline": true,
+  "historical_evidence_hashes_verified": 370,
+  "private_key_files_distributed": false,
+  "model_weights_distributed": false,
+  "synthetic_fixture_exception": "fixtures/approved/model_fixture.bin: 2048 random bytes, not model weights"
+}

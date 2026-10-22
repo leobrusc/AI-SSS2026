@@ -1,0 +1,10 @@
+{
+  "label": "raw_primary_id",
+  "set_a_size": 54,
+  "set_b_size": 35,
+  "intersection_size": 4,
+  "union_size": 85,
+  "jaccard": 0.0471,
+  "a_only_size": 50,
+  "b_only_size": 31
+}

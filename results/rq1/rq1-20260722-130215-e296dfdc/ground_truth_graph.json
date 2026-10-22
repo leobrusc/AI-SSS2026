@@ -1,0 +1,343 @@
+{
+  "nodes": [
+    {
+      "id": "model-gpt2",
+      "type": "model",
+      "name": "openai-community/gpt2",
+      "version": "",
+      "note": "GPT-2 124M"
+    },
+    {
+      "id": "model-revision",
+      "type": "revision",
+      "name": "main",
+      "version": "",
+      "note": "HuggingFace model revision"
+    },
+    {
+      "id": "model-weights",
+      "type": "artifact",
+      "name": "model.safetensors",
+      "version": "",
+      "note": "Model weight file(s)"
+    },
+    {
+      "id": "tokenizer-files",
+      "type": "artifact",
+      "name": "tokenizer.json",
+      "version": "",
+      "note": "Includes vocab.json, merges.txt, tokenizer_config.json"
+    },
+    {
+      "id": "model-config",
+      "type": "config",
+      "name": "config.json",
+      "version": "",
+      "note": "Model architecture config"
+    },
+    {
+      "id": "generation-config",
+      "type": "config",
+      "name": "generation_config.json",
+      "version": "",
+      "note": "Default generation parameters"
+    },
+    {
+      "id": "dataset-manifest",
+      "type": "dataset",
+      "name": "fixtures/datasets/manifest.json",
+      "version": ""
+    },
+    {
+      "id": "python-runtime",
+      "type": "runtime",
+      "name": "python",
+      "version": "3.11.6"
+    },
+    {
+      "id": "pytorch",
+      "type": "framework",
+      "name": "torch",
+      "version": "2.13.0+cpu"
+    },
+    {
+      "id": "transformers",
+      "type": "framework",
+      "name": "transformers",
+      "version": "5.14.1"
+    },
+    {
+      "id": "traceai-app",
+      "type": "application",
+      "name": "traceai",
+      "version": "0.1.0"
+    },
+    {
+      "id": "dep-fastapi",
+      "type": "library",
+      "name": "fastapi",
+      "version": "0.139.2"
+    },
+    {
+      "id": "dep-uvicorn",
+      "type": "library",
+      "name": "uvicorn",
+      "version": "0.51.0"
+    },
+    {
+      "id": "dep-pydantic",
+      "type": "library",
+      "name": "pydantic",
+      "version": "2.13.4"
+    },
+    {
+      "id": "dep-httpx",
+      "type": "library",
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "id": "dep-cryptography",
+      "type": "library",
+      "name": "cryptography",
+      "version": "49.0.0"
+    },
+    {
+      "id": "dep-psutil",
+      "type": "library",
+      "name": "psutil",
+      "version": "7.2.2"
+    },
+    {
+      "id": "dep-numpy",
+      "type": "library",
+      "name": "numpy",
+      "version": "2.4.4"
+    },
+    {
+      "id": "dep-scipy",
+      "type": "library",
+      "name": "scipy",
+      "version": "1.17.1"
+    },
+    {
+      "id": "dep-pandas",
+      "type": "library",
+      "name": "pandas",
+      "version": "3.0.3"
+    },
+    {
+      "id": "dep-matplotlib",
+      "type": "library",
+      "name": "matplotlib",
+      "version": "3.11.1"
+    },
+    {
+      "id": "dep-pyyaml",
+      "type": "library",
+      "name": "pyyaml",
+      "version": "not_installed"
+    },
+    {
+      "id": "dep-jsonschema",
+      "type": "library",
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "id": "os-env",
+      "type": "environment",
+      "name": "Windows",
+      "version": "10.0.26200"
+    },
+    {
+      "id": "inference-service",
+      "type": "service",
+      "name": "traceai-inference",
+      "version": "0.1.0"
+    },
+    {
+      "id": "runtime-policy",
+      "type": "policy",
+      "name": "config/policy.yaml",
+      "version": ""
+    },
+    {
+      "id": "host-cpu",
+      "type": "hardware",
+      "name": "CPU",
+      "version": "",
+      "note": "14 cores"
+    },
+    {
+      "id": "host-ram",
+      "type": "hardware",
+      "name": "RAM",
+      "version": "",
+      "note": "31.5 GB"
+    },
+    {
+      "id": "host-gpu",
+      "type": "hardware",
+      "name": "GPU",
+      "version": "",
+      "status": "NOT_APPLICABLE_LOCAL_PROFILE",
+      "note": "No GPU on this host"
+    },
+    {
+      "id": "cuda",
+      "type": "runtime",
+      "name": "CUDA",
+      "version": "",
+      "status": "NOT_APPLICABLE_LOCAL_PROFILE",
+      "note": "No CUDA on this host"
+    }
+  ],
+  "edges": [
+    {
+      "source": "inference-service",
+      "target": "traceai-app",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "model-gpt2",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "tokenizer-files",
+      "relationship": "uses"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "model-revision",
+      "relationship": "derivedFrom"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "dataset-manifest",
+      "relationship": "evaluatedWith"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "pytorch",
+      "relationship": "executedBy"
+    },
+    {
+      "source": "inference-service",
+      "target": "runtime-policy",
+      "relationship": "deployedWith"
+    },
+    {
+      "source": "pytorch",
+      "target": "python-runtime",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "transformers",
+      "target": "python-runtime",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "transformers",
+      "target": "pytorch",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-fastapi",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-uvicorn",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-pydantic",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-httpx",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-cryptography",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-psutil",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-numpy",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-scipy",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-pandas",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-matplotlib",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-pyyaml",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "traceai-app",
+      "target": "dep-jsonschema",
+      "relationship": "dependsOn"
+    },
+    {
+      "source": "python-runtime",
+      "target": "os-env",
+      "relationship": "runsOn"
+    },
+    {
+      "source": "inference-service",
+      "target": "host-cpu",
+      "relationship": "observes"
+    },
+    {
+      "source": "inference-service",
+      "target": "host-ram",
+      "relationship": "observes"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "model-weights",
+      "relationship": "contains"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "model-config",
+      "relationship": "describedBy"
+    },
+    {
+      "source": "model-gpt2",
+      "target": "generation-config",
+      "relationship": "describedBy"
+    }
+  ],
+  "node_count": 30,
+  "edge_count": 28,
+  "profile": "local",
+  "gpu_available": false,
+  "timestamp": "2026-07-22T16:02:24.387784+00:00"
+}
